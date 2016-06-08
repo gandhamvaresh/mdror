@@ -1,0 +1,51 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">Chiropractic Treatments</h1>		
+	<%= link_to 'New Chiropractic Treatment', new_patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, @accident, @chiropractic_examination), :class => 'left green_button' %>
+<% end %>
+
+<% content_for(:main_content) do %>
+
+	<br/>
+	
+	<div id="breadcrumb">
+		<ul class="crumbs">
+			<li><%= link_to 'Patients', patients_path %></li>
+			<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+			<li><%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, @accident) %></li>
+			<li><%= link_to 'Chiropractic Treatments', patient_accident_chiropractic_examination_chiropractic_treatments_path(@patient, @accident, @chiropractic_examination) %></li>
+		</ul>
+	</div>
+
+	<br/>
+	
+	<table>
+	  <thead>
+			<th>Patient</th>
+			<th>Treatment Date</th>
+	    <th>Completed</th>
+			<th>Claim Filed</th>
+			<th></th>
+    	<th></th>
+  	</thead>
+
+		<tbody>
+			<% @chiropractic_treatments.each do |chiropractic_treatment| %>
+			  <tr>
+			    <td><%= @patient.full_name %></td>
+			    <td><%= chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %></td>
+					<td><%= chiropractic_treatment.completed? ? chiropractic_treatment.completed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+					<td><%= chiropractic_treatment.insurance_claim_filed? ? chiropractic_treatment.insurance_claim_filed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+			    <td><%= link_to 'Archive', patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, @accident, @chiropractic_examination, chiropractic_treatment), confirm: 'Are you sure you want to archive this chiropractic treatment record?', method: :delete %></td>
+					<td><%= link_to image_tag('details.png'), patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, @accident, @chiropractic_examination, chiropractic_treatment) %></td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
+	
+	<br/>
+
+	<div>
+		<%= paginate @chiropractic_treatments %>
+	</div>
+
+<% end %>

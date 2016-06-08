@@ -1,0 +1,31 @@
+<h1>Listing chiropractic_assessments</h1>
+
+<table>
+  <tr>
+    <th>Assessment improved</th>
+    <th>Assessment unimproved</th>
+    <th>Assessment exacerbation</th>
+    <th>Updated diagnosis</th>
+    <th>Comments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_assessments.each do |chiropractic_assessment| %>
+  <tr>
+    <td><%= chiropractic_assessment.assessment_improved %></td>
+    <td><%= chiropractic_assessment.assessment_unimproved %></td>
+    <td><%= chiropractic_assessment.assessment_exacerbation %></td>
+    <td><%= chiropractic_assessment.updated_diagnosis %></td>
+    <td><%= chiropractic_assessment.comments %></td>
+    <td><%= link_to 'Show', chiropractic_assessment %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_assessment_path(chiropractic_assessment) %></td>
+    <td><%= link_to 'Archive', chiropractic_assessment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic assessment', new_chiropractic_assessment_path %>

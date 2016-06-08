@@ -1,0 +1,226 @@
+<div class="span-24">
+<%= form_for [@patient, @accident] do |f| %>
+ 
+	<%= render "shared/error_messages", :target => @accident %>
+
+	<div class="span-24">
+		<div class="span-12">
+			<div class="span-4">
+			<%= f.label :accident_type %><br />
+	    <%= f.select :accident_type, [['MVA', 'MVA'], ['Slip and Fall', 'Slip and Fall'], ['Work Related', 'Work Related'], ['Other', 'Other']] %>
+			</div>
+			<div class="span-8 last">
+				<%= f.label :injury_date %><br />
+		    <%= f.date_select :injury_date %>
+			</div>
+		</div>
+		<div class="span-12 last">
+			<div class="span-4">
+				<br/>
+				<%= f.check_box :wearing_seat_belt %> <%= f.label :wearing_seat_belt %>
+			</div>
+			<div class="span-2">
+				<br/>
+				<%= f.check_box :driver %> <%= f.label :driver %>
+			</div>
+				
+			<div class="span-3">
+				<br/>
+				<%= f.check_box :passenger %> <%= f.label :passenger %>
+			</div>
+				
+			<div class="span-3 last">
+				<br/>
+				<%= f.check_box :pedestrian %> <%= f.label :pedestrian %>
+			</div>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+  <div class="span-24">
+		<div class="span-12">
+			<div class="span-4">
+				<%= f.label :seating_position %><br/>
+	    	<%= f.select :seating_position, [["Front Passenger Side", "Front Passenger Side"], ["Front Driver's Side", "Front Driver's Side"], ["Rear Passenger Side", "Rear Passenger Side"], ["Rear Middle", "Rear Middle"], ["Rear Driver's Side", "Rear Driver's Side"]], :prompt => "None" %>
+			</div>
+			<div class="span-4 last">
+				<br/>
+				<%= f.check_box :airbag_deploy %> <%= f.label :airbag_deploy %>
+			</div>
+		</div>
+		<div class="span-12 last">
+			<div class="span-4">
+				<br/>
+				<%= f.check_box :loss_of_consciousness %> <%= f.label :loss_of_consciousness %>
+			</div>
+			<div class="span-4">
+				<br/>
+				<%= f.check_box :lost_time_from_work %> <%= f.label :lost_time_from_work %>
+				<br/>
+				<% 3.times do %>
+					&nbsp;
+				<% end %>
+				<%= f.text_field :days_lost_from_work, :class => "small_font_span_1" %> &nbsp; <label>Days</label>
+	    </div>
+			<div class="span-4 last">
+				<br/>
+				<%= f.check_box :fear_while_driving %> <%= f.label :fear_while_driving %>
+	    </div>
+		</div>
+  </div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+		<%= f.label :injury_description %><br />
+    <%= f.text_area :injury_description, :class => 'text_area_span_23' %>
+	</div>
+	
+	<div class="span-24">
+		<div class="span-4">
+			<br/>
+			<%= f.check_box :taken_to_hospital %> <%= f.label :taken_to_hospital %>
+		</div>
+	
+		<div class="span-6">
+			<br/>
+			<%= f.label :transport_mode %>&nbsp;
+			<%= f.select :hospital_transport_mode, [['Ambulance', 'Ambulance'], ['Car', 'Car']], :prompt => "None" %>
+		</div>
+	
+		<div class="span-12 last">
+			<%= f.label :hospital_name %>&nbsp;
+			<%= f.text_field :hospital_name, :class => "large_font_span_8" %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">	
+		<div class="span-3">
+			<%= f.check_box :examined %> <%= f.label :examined %>
+		</div>
+		
+		<div class="span-3">
+			<%= f.check_box :xrays %> <label>X-rays</label>
+		</div>
+		
+		<div class="span-3">
+			<%= f.check_box :ctscan %> <label>CT Scan</label>
+		</div>
+		
+		<div class="span-3">
+			<%= f.check_box :mri %> <label>MRI</label>
+		</div>
+		
+		<div class="span-3">
+			<%= f.check_box :released %> <%= f.label :released %>
+		</div>
+		
+		<div class="span-3 last">
+			<%= f.check_box :admitted %> <%= f.label :admitted %>
+		</div>
+	</div>
+	
+	<hr class="space"/>
+		
+  <div class="span-24">
+    <%= f.label :medications %><br />
+    <%= f.text_area :medications, :class => 'text_area_span_23' %>
+  </div>
+
+	<hr class="space"/>
+
+  <div class="span-24">
+    <%= f.label :prior_injuries %><br />
+    <%= f.text_area :prior_injuries, :class => 'text_area_span_23' %>
+  </div>
+
+	<hr class="space"/>
+	
+	<h4>Prior Diagnostic Studies</h4>
+	
+	<div class="span-24">
+		<div class="span-8">
+			<label>MRI</label><br />
+			<%= check_box_tag 'accident[prior_diagnostic_study_mri_details][]', '', true, :style => "display:none;" %>
+			<% ['Cervical', 'Lumbar', 'Other'].each do |val| %>
+			  <%= check_box_tag 'accident[prior_diagnostic_study_mri_details][]', val, @accident.prior_diagnostic_study_mri_details.include?(val), id: "prior_diagnostic_study_mri_details_#{val}", onChange: "toggle_other_MRI_CTScan_fields();" %>
+			  <%= val %>
+			<% end %>
+	    <%= f.text_field :prior_diagnostic_study_mri_other, :class => 'small_font_span_4', :style => "display:none;" %>
+		</div>
+		<div class="span-8">
+			<label> CT Scan</label><br/>
+			<%= check_box_tag 'accident[prior_diagnostic_study_ctscan_details][]', '', true, :style => "display:none;" %>
+			<% ['Cervical', 'Lumbar', 'Other'].each do |val| %>
+			  <%= check_box_tag 'accident[prior_diagnostic_study_ctscan_details][]', val, @accident.prior_diagnostic_study_ctscan_details.include?(val), id: "prior_diagnostic_study_ctscan_details_#{val}", onChange: "toggle_other_MRI_CTScan_fields();" %>
+			  <%= val %>
+			<% end %>
+	    <%= f.text_field :prior_diagnostic_study_ctscan_other, :class => 'small_font_span_4', :style => "display:none;" %>
+		</div>
+		<div class="span-8 last">
+			<label>EMG</label><br />
+			<%= check_box_tag 'accident[prior_diagnostic_study_emg_details][]', '', true, :style => "display:none;" %>
+			<% ['Upper', 'Lower'].each do |val| %>
+			  <%= check_box_tag 'accident[prior_diagnostic_study_emg_details][]', val, @accident.prior_diagnostic_study_emg_details.include?(val), id: "prior_diagnostic_study_ctscan_details_#{val}" %>
+			  <%= val %>
+			<% end %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+  <div class="span-24">
+    <%= f.label :results %><br />
+    <%= f.text_area :prior_diagnostic_results, :class => 'text_area_span_23' %>
+  </div>
+	
+	<hr class="space"/>
+	
+  <div class="span-24">
+    <%= f.label :medical_history %><br />
+    <%= f.text_area :medical_history, :class => 'text_area_span_23' %>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-3">
+			<%= link_to 'Back', :back, :class => 'button' %>
+		</div>
+		<div class="prepend-17 span-3 last">
+				<br/>
+				<% if @accident.new_record? %>
+					<%= f.submit 'Create Case' %>
+				<% else %>
+	    		<%= f.submit 'Update Case' %>
+				<% end %>
+		</div>
+  </div>
+
+<% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	function toggle_other_MRI_CTScan_fields() {
+		var isMrChecked = $("#prior_diagnostic_study_mri_details_Other").is(':checked');
+		var isCtChecked = $("#prior_diagnostic_study_ctscan_details_Other").is(':checked');
+		if (isMrChecked) {
+			$("#accident_prior_diagnostic_study_mri_other").show();
+		} else {
+			$("#accident_prior_diagnostic_study_mri_other").hide();
+		}
+		
+		if (isCtChecked) {
+			$("#accident_prior_diagnostic_study_ctscan_other").show();
+		} else {
+			$("#accident_prior_diagnostic_study_ctscan_other").hide();
+		}
+	}
+	
+	$(function() {
+	 toggle_other_MRI_CTScan_fields();
+	});
+</script>

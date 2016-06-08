@@ -1,0 +1,43 @@
+<% content_for(:main_header) do %>
+	<%= link_to 'Back', archives_index_path, :class => 'left' %>
+	<h1 class="title">Chiropractic Treatments Archive</h1>
+<% end %>
+
+<% content_for(:main_content) do %>
+
+	<table>
+	  <thead>
+			<th>Patient</th>
+			<th>Treatment Date</th>
+	    <th>Completed</th>
+			<th>Claim Filed</th>
+    	<th></th>
+  	</thead>
+
+		<tbody>
+			<% if @chiropractic_treatments.blank? %>
+				<tr><td colspan="5"><p class="note">There are no archived chiropractic treatments.</p></td></tr>
+			<% else %>
+				<% @chiropractic_treatments.each do |chiropractic_treatment| %>
+					<% chiropractic_examination = chiropractic_treatment.chiropractic_examination %>
+					<% accident = chiropractic_examination.accident %>
+					<% patient = accident.patient %>
+				  <tr>
+				    <td><%= patient.full_name %></td>
+				    <td><%= chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %></td>
+						<td><%= chiropractic_treatment.completed? ? chiropractic_treatment.completed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+						<td><%= chiropractic_treatment.insurance_claim_filed? ? chiropractic_treatment.insurance_claim_filed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+				    <td><%= link_to 'Show', patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment) %> | <%= link_to 'Unarchive', patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment), confirm: 'Are you sure you want to Unarchive this chiropractic treatment record?', method: :delete %></td>
+				  </tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+
+	<br/>
+
+	<div class="box-white">
+		<%= paginate @chiropractic_treatments %>
+	</div>
+
+<% end %>

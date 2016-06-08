@@ -1,0 +1,57 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">Completed Treatments</h1>		
+<% end %>
+
+<% content_for(:main_content) do %>
+
+	<% if current_user.admin? || current_user.staff? %>
+		<div class="span-24">
+			<ul id="crumbs">
+				<li><%= link_to 'Clients', clients_path %></li>
+			</ul>
+		</div>
+	<% end %>
+
+	<table>
+	  <thead>
+			<th>Patient</th>
+			<th>Doctor</th>
+			<th>Treatment Date</th>
+			<th>Form Completion Date</th>
+			<th>Claim Filed</th>
+    	<th></th>
+			<th></th>
+    </thead>
+
+		<% @chiropractic_treatments.each do |chiropractic_treatment| %>
+			<% chiropractic_examination = chiropractic_treatment.chiropractic_examination %>
+			<% accident = chiropractic_examination.accident %>
+			<% patient = accident.patient %>
+		  <tr>
+		    <td><%= patient.full_name %></td>
+				<td><%= User.find(chiropractic_treatment.completed_by).name %></td>
+		    <td><%= chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %></td>
+				<td><%= chiropractic_treatment.completed_at.strftime('%b %d, %Y %I:%M %p') %></td>
+				<td><%= chiropractic_treatment.insurance_claim_filed? ? chiropractic_treatment.insurance_claim_filed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>	
+				<td><%= link_to 'Archive', patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment), confirm: 'Are you sure you want to archive this chiropractic treatment record?', method: :delete %></td>
+				<td><%= link_to image_tag('details.png'), patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment) %>
+				</td>
+		  </tr>
+		<% end %>
+  </table>
+
+	<br/>
+
+	<div class="box-white">
+		<%= paginate @chiropractic_treatments %>
+	</div>
+
+	<br/>
+
+	<% if current_user.admin? || current_user.staff? %>
+		<div class="span-24">
+			<%= link_to 'Back', clients_path, :class => 'button' %>
+		</div>
+	<% end %>
+	
+<% end %>

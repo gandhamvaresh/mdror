@@ -1,0 +1,44 @@
+<div class="span-24">
+	<ul id="crumbs">
+		<li><%= link_to 'Patients', patients_path %></li>
+		<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+		<li><%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, @accident) %></li>
+	</ul>
+</div>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+		<th class="span-3">Patient</th>
+		<th class="span-3">Examination Date</th>
+		<th class="span-3">Re-examination</th>
+    <th class="span-3">Completed</th>
+		<th class="span-3">Claim Filed</th>
+    <th class="span-5 last"></th>
+  </thead>
+
+	<tbody>
+		<% @chiropractic_examinations.each do |chiropractic_examination| %>
+		  <tr>
+				<td><%= @patient.full_name %></td>
+				<td><%= chiropractic_examination.examination_date.strftime('%b %d, %Y') %></td>
+				<td><%= chiropractic_examination.initial_examination? ? 'No' : 'Yes' %></td>
+				<td><%= chiropractic_examination.completed? ? chiropractic_examination.completed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+				<td><%= chiropractic_examination.insurance_claim_filed? ? chiropractic_examination.insurance_claim_filed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+		    <td><%= link_to 'Show', patient_accident_chiropractic_examination_path(@patient, @accident, chiropractic_examination) %> <% unless chiropractic_examination.insurance_claim_filed? %> | <%= link_to 'Edit', edit_patient_accident_chiropractic_examination_path(@patient, @accident, chiropractic_examination) %> <% end %> |	<%= link_to 'Archive', patient_accident_chiropractic_examination_path(@patient, @accident, chiropractic_examination), confirm: 'Are you sure you want to archive this chiropractic examination? All related chiropractic treatment notes will also be archived.', method: :delete %> | <%= link_to 'Treatments', patient_accident_chiropractic_examination_chiropractic_treatments_path(@patient, @accident, chiropractic_examination) %> </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @chiropractic_examinations %>
+</div>
+
+<br/>
+
+<div class="prepend-18 span-6">
+<%= link_to 'New Chiropractic Examination', new_patient_accident_chiropractic_examination_path(@patient, @accident), :class => 'button positive' %>
+</div>

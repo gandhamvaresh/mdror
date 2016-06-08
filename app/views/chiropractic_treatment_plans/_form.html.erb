@@ -1,0 +1,125 @@
+<%= form_for(@chiropractic_treatment_plan) do |f| %>
+  <% if @chiropractic_treatment_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_treatment_plan.errors.count, "error") %> prohibited this chiropractic_treatment_plan from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_treatment_plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :spine_xray %><br />
+    <%= f.check_box :spine_xray %>
+  </div>
+  <div class="field">
+    <%= f.label :spine_xray_cervical %><br />
+    <%= f.check_box :spine_xray_cervical %>
+  </div>
+	<div class="field">
+    <%= f.label :spine_xray_thoracic %><br />
+    <%= f.check_box :spine_xray_thoracic %>
+  </div>
+	<div class="field">
+    <%= f.label :spine_xray_lumbar %><br />
+    <%= f.check_box :spine_xray_lumbar %>
+  </div>
+  <div class="field">
+    <%= f.label :need_xray_reports %><br />
+    <%= f.check_box :need_xray_reports %>
+  </div>
+  <div class="field">
+    <%= f.label :need_past_medical_records %><br />
+    <%= f.check_box :need_past_medical_records %>
+  </div>
+  <div class="field">
+    <%= f.label :spinal_adjustments %><br />
+    <%= f.check_box :spinal_adjustments %>
+  </div>
+  <div class="field">
+    <%= f.label :spinal_adjustments_frequency %><br />
+    <%= f.text_field :spinal_adjustments_frequency %>
+  </div>
+	<div class="field">
+    <%= f.label :extremity_adjustments %><br />
+    <%= f.check_box :extremity_adjustments %>
+  </div>
+	<div class="field">
+    <%= f.label :extremity_adjustments_frequency %><br />
+    <%= f.text_field :extremity_adjustments_frequency %>
+  </div>
+	<div class="field">
+    <%= f.label :extremity_adjustment_body_part %><br />
+    <%= f.text_field :extremity_adjustment_body_part %>
+  </div>
+  <div class="field">
+    <%= f.label :recommend_medical_consultation %><br />
+    <%= f.check_box :recommend_medical_consultation %>
+  </div>
+  <div class="field">
+    <%= f.label :recommended_medical_evaluation %><br />
+    <%= f.text_field :recommended_medical_evaluation %>
+  </div>
+  <div class="field">
+    <%= f.label :re_examine_in_4_weeks %><br />
+    <%= f.check_box :re_examine_in_4_weeks %>
+  </div>
+  <div class="field">
+    <%= f.label :spine_mri %><br />
+    <%= f.check_box :spine_mri %>
+  </div>
+  <div class="field">
+    <%= f.label :spine_mri_cervical %><br />
+    <%= f.text_field :spine_mri_cervical %>
+  </div>
+	<div class="field">
+    <%= f.label :spine_mri_thoracic %><br />
+    <%= f.text_field :spine_mri_thoracic %>
+  </div>
+	<div class="field">
+    <%= f.label :spine_mri_lumbar %><br />
+    <%= f.text_field :spine_mri_lumbar %>
+  </div>
+  <div class="field">
+    <%= f.label :pending_medical_clearance_for_medications %><br />
+    <%= f.check_box :pending_medical_clearance_for_medications %>
+  </div>
+  <div class="field">
+    <%= f.label :taping_frequency %><br />
+    <%= f.text_field :taping_frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :taping_cervical_paraspinal_scm_trapezious_muscles %><br />
+    <%= f.check_box :taping_cervical_paraspinal_scm_trapezious_muscles %>
+  </div>
+  <div class="field">
+    <%= f.label :taping_cervical_disc_bulge_disc_herniation %><br />
+    <%= f.check_box :taping_cervical_disc_bulge_disc_herniation %>
+  </div>
+  <div class="field">
+    <%= f.label :taping_thoracic_paraspinal_scapular_muscles %><br />
+    <%= f.check_box :taping_thoracic_paraspinal_scapular_muscles %>
+  </div>
+  <div class="field">
+    <%= f.label :taping_low_back_lumbar_paraspinal_lumbar_erectors %><br />
+    <%= f.check_box :taping_low_back_lumbar_paraspinal_lumbar_erectors %>
+  </div>
+  <div class="field">
+    <%= f.label :taping_lumbar_disc_bulge_disc_herniation %><br />
+    <%= f.check_box :taping_lumbar_disc_bulge_disc_herniation %>
+  </div>
+  <div class="field">
+    <%= f.label :taping_sacroiliac_joint %><br />
+    <%= f.check_box :taping_sacroiliac_joint %>
+  </div>
+  <div class="field">
+    <%= f.label :other_recommendations %><br />
+    <%= f.text_area :other_recommendations %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

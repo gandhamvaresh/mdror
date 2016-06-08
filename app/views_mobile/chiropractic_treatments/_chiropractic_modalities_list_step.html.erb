@@ -1,0 +1,89 @@
+
+<%= f.fields_for :chiropractic_modalities_list do |builder| %>
+	
+	<h2 class="title2">PROCEDURES/MODALITIES</h2>	
+	
+	<div class="box-white">
+		<p>
+		  <%= builder.check_box :electric_stimulation, :disabled => disable_option %>&nbsp;<label>Electric Stimulation</label>
+		</p>
+		<p>
+		  <%= builder.check_box :mfr_cervical, :disabled => disable_option %>&nbsp;<label>MFR Cervical</label>
+		</p>
+		<p>
+		  <%= builder.check_box :mfr_thoracic, :disabled => disable_option %>&nbsp;<label>MFR Thoracic</label>
+		</p>
+		<p>
+		  <%= builder.check_box :mfr_lumbar, :disabled => disable_option %>&nbsp;<label>MFR Lumbar</label>
+		</p>
+		<p>
+		  <%= builder.check_box :mechanical_traction, :disabled => disable_option %>&nbsp;<label>Mechanical Traction</label>
+		</p>
+		<p>
+		  <%= builder.check_box :massage, :disabled => disable_option %>&nbsp;<label>Massage</label>
+		</p>
+		<p>
+		  <%= builder.check_box :ultrasound, :disabled => disable_option %>&nbsp;<label>Ultrasound</label>
+		</p>
+		<p>
+		  <%= builder.check_box :therapeutic_exercise, :disabled => disable_option %>&nbsp;<label>Therapeutic Exercises</label>
+		</p>
+		<p>
+		  <%= builder.check_box :home_use_instruction, :disabled => disable_option %>&nbsp;<label>Self Care/Home MGMT </label>
+		</p>
+		<p>
+		  <%= builder.check_box :infrared, :disabled => disable_option %>&nbsp;<label>Infrared</label>
+		</p>
+		<p>
+		  <%= builder.check_box :hot_cold_pack, :disabled => disable_option %>&nbsp;<label>Hot/Cold Pack</label>
+		</p>
+		<p>
+		  <%= builder.check_box :bio_feedback, :disabled => disable_option %>&nbsp;<label>Bio-Feedback</label>
+		</p>
+		<p>
+		  <%= builder.check_box :therapeutic_functional_activities, :disabled => disable_option %>&nbsp;<label>Therapeutic / Functional Activities</label>
+		</p>
+		<p>
+		  <label>Other:</label>&nbsp;&nbsp;<%= builder.text_field :other, :class => 'small_font_span_8', :disabled => disable_option %>
+		</p>
+	</div>
+	
+	<br/>
+	
+	<h2 class="title2">SUPPLIES</h2>	
+	
+	<div class="box-white">
+		<p>
+		  <%= builder.check_box :supplies_bio_freeze, :disabled => disable_option %>&nbsp;<label>Bio-freeze</label>
+		</p>
+		<p>
+		  <%= builder.check_box :supplies_ice_pack, :disabled => disable_option %>&nbsp;<label>Ice Pack</label>
+		</p>
+		<p>
+		  <%= builder.check_box :supplies_lumbar_belt, :disabled => disable_option %>&nbsp;<label>Lumbar Belt</label>
+		</p>
+		<p>
+		  <%= builder.check_box :supplies_cervical_pillow, :disabled => disable_option %>&nbsp;<label>Cervical Pillow</label>
+		</p>
+		<p>
+		  <%= builder.check_box :supplies_cervical_collar, :disabled => disable_option %>&nbsp;<label>Cervical Collar</label>
+		</p>
+		</p>
+	</div>
+	
+<% end %>
+
+<br/>
+
+<div class="box-white">
+	<p>
+	  <label>Summary:</label>&nbsp;&nbsp;<%= f.text_field :summary, :class => 'small_font_span_8', :disabled => disable_option %>
+	</p>
+	
+	<% disable_option = true if @chiropractic_treatment.completed? %>
+	<p>
+		<%= f.check_box :completed, :disabled => disable_option %>&nbsp;<label>Treatment notes is complete.</label>
+	</p>
+	<p class="note">Check this after you finish entering all the details for today's treatment and are ready to submit the form for medical insurance claim processing.</p>
+</div>
+	

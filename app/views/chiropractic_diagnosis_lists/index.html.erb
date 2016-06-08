@@ -1,0 +1,107 @@
+<h1>Listing chiropractic_diagnosis_lists</h1>
+
+<table>
+  <tr>
+    <th>Cervical sprain</th>
+    <th>Cervical radiculopathy</th>
+    <th>Cervicalgia</th>
+    <th>Segmental dysfunction c</th>
+    <th>Cervical disc herniation</th>
+    <th>Cervical myelopathy</th>
+    <th>Thoracic myelopathy</th>
+    <th>Thoracic sprain</th>
+    <th>Thoracic pain</th>
+    <th>Segmental dysfunction t</th>
+    <th>Scoliosis</th>
+    <th>Sciatica</th>
+    <th>Lumbar sprain</th>
+    <th>Lumbar radiculopathy</th>
+    <th>Lumbago</th>
+    <th>Lumbar disc herniation</th>
+    <th>Lumbar myelopathy</th>
+    <th>Sacroiliac sprain</th>
+    <th>Paresthesia</th>
+    <th>Segmental dysfunction l</th>
+    <th>Myofascitis</th>
+    <th>Shoulder sprain left</th>
+    <th>Shoulder sprain right</th>
+    <th>Shoulder dysfunction left</th>
+    <th>Shoulder dysfunction right</th>
+    <th>Elbow sprain left</th>
+    <th>Elbow sprain right</th>
+    <th>Wrist sprain left</th>
+    <th>Wrist sprain right</th>
+    <th>Cervical trigger point</th>
+    <th>Lumbar trigger point</th>
+    <th>Hip sprain left</th>
+    <th>Hip sprain right</th>
+    <th>Hip dysfunction left</th>
+    <th>Hip dysfunction right</th>
+    <th>Knee sprain left</th>
+    <th>Knee sprain right</th>
+    <th>Ankle sprain left</th>
+    <th>Ankle sprain right</th>
+    <th>Headaches</th>
+    <th>Dizziness</th>
+    <th>Post concussive syndrome</th>
+    <th>Other diagnosis</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_diagnosis_lists.each do |chiropractic_diagnosis_list| %>
+  <tr>
+    <td><%= chiropractic_diagnosis_list.cervical_sprain %></td>
+    <td><%= chiropractic_diagnosis_list.cervical_radiculopathy %></td>
+    <td><%= chiropractic_diagnosis_list.cervicalgia %></td>
+    <td><%= chiropractic_diagnosis_list.segmental_dysfunction_c %></td>
+    <td><%= chiropractic_diagnosis_list.cervical_disc_herniation %></td>
+    <td><%= chiropractic_diagnosis_list.cervical_myelopathy %></td>
+    <td><%= chiropractic_diagnosis_list.thoracic_myelopathy %></td>
+    <td><%= chiropractic_diagnosis_list.thoracic_sprain %></td>
+    <td><%= chiropractic_diagnosis_list.thoracic_pain %></td>
+    <td><%= chiropractic_diagnosis_list.segmental_dysfunction_t %></td>
+    <td><%= chiropractic_diagnosis_list.scoliosis %></td>
+    <td><%= chiropractic_diagnosis_list.sciatica %></td>
+    <td><%= chiropractic_diagnosis_list.lumbar_sprain %></td>
+    <td><%= chiropractic_diagnosis_list.lumbar_radiculopathy %></td>
+    <td><%= chiropractic_diagnosis_list.lumbago %></td>
+    <td><%= chiropractic_diagnosis_list.lumbar_disc_herniation %></td>
+    <td><%= chiropractic_diagnosis_list.lumbar_myelopathy %></td>
+    <td><%= chiropractic_diagnosis_list.sacroiliac_sprain %></td>
+    <td><%= chiropractic_diagnosis_list.paresthesia %></td>
+    <td><%= chiropractic_diagnosis_list.segmental_dysfunction_l %></td>
+    <td><%= chiropractic_diagnosis_list.myofascitis %></td>
+    <td><%= chiropractic_diagnosis_list.shoulder_sprain_left %></td>
+    <td><%= chiropractic_diagnosis_list.shoulder_sprain_right %></td>
+    <td><%= chiropractic_diagnosis_list.shoulder_dysfunction_left %></td>
+    <td><%= chiropractic_diagnosis_list.shoulder_dysfunction_right %></td>
+    <td><%= chiropractic_diagnosis_list.elbow_sprain_left %></td>
+    <td><%= chiropractic_diagnosis_list.elbow_sprain_right %></td>
+    <td><%= chiropractic_diagnosis_list.wrist_sprain_left %></td>
+    <td><%= chiropractic_diagnosis_list.wrist_sprain_right %></td>
+    <td><%= chiropractic_diagnosis_list.cervical_trigger_point %></td>
+    <td><%= chiropractic_diagnosis_list.lumbar_trigger_point %></td>
+    <td><%= chiropractic_diagnosis_list.hip_sprain_left %></td>
+    <td><%= chiropractic_diagnosis_list.hip_sprain_right %></td>
+    <td><%= chiropractic_diagnosis_list.hip_dysfunction_left %></td>
+    <td><%= chiropractic_diagnosis_list.hip_dysfunction_right %></td>
+    <td><%= chiropractic_diagnosis_list.knee_sprain_left %></td>
+    <td><%= chiropractic_diagnosis_list.knee_sprain_right %></td>
+    <td><%= chiropractic_diagnosis_list.ankle_sprain_left %></td>
+    <td><%= chiropractic_diagnosis_list.ankle_sprain_right %></td>
+    <td><%= chiropractic_diagnosis_list.headaches %></td>
+    <td><%= chiropractic_diagnosis_list.dizziness %></td>
+    <td><%= chiropractic_diagnosis_list.post_concussive_syndrome %></td>
+    <td><%= chiropractic_diagnosis_list.other_diagnosis %></td>
+    <td><%= link_to 'Show', chiropractic_diagnosis_list %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_diagnosis_list_path(chiropractic_diagnosis_list) %></td>
+    <td><%= link_to 'Archive', chiropractic_diagnosis_list, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic diagnosis list', new_chiropractic_diagnosis_list_path %>

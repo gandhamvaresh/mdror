@@ -1,0 +1,496 @@
+<div class="span-24">
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>First name:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.first_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Last name:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.last_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Cell Phone:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.cell_phone %>
+		</div>
+	</div>
+	
+	<div class="span-3">
+		<div class="span-1">
+		  <label>Age:</label>
+		</div>
+		<div class="span-2 last">
+		  <%= @patient.age %> Years
+		</div>
+	</div>
+	
+	<div class="span-3 last">
+		<div class="span-1">
+		  <label>Sex:</label>
+		</div>
+		<div class="span-2 last">
+		  <%= @patient.gender %>
+		</div>
+	</div>
+	
+</div>
+
+<div class="span-24 non_printable_block">
+	
+	<hr class="space"/>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Occupation:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.occupation %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Handed:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.handed %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Height:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.height %>
+		</div>
+	</div>
+	
+	<div class="span-6 last">
+		<div class="span-2">
+		  <label>Weight:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.weight %> Pounds
+		</div>
+	</div>
+	
+	<hr class="space"/>
+	
+</div>
+
+<div class="span-24 non_printable_block">
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Address:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.street_address %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>City:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.city %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>State:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.state %>
+		</div>
+	</div>
+	
+	<div class="span-6 last">
+		<div class="span-2">
+		  <label>Zip:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.zip %>
+		</div>
+	</div>
+	
+	<hr class="space"/>
+	
+</div>
+
+<div class="span-24 non_printable_block">
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Cell Phone:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.cell_phone %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Home Phone:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.home_phone %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Work Phone:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.work_phone %>
+		</div>
+	</div>
+	
+	<div class="span-6 last">
+		<div class="span-2">
+		  <label>Email:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.email %>
+		</div>
+	</div>
+	
+	<hr class="space"/>
+	
+</div>
+
+<div class="span-24">
+	<label><u>Emergency Contact</u></label> <br/>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Name:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.emergency_contact_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Phone:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.emergency_contact_phone %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Relationship:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.emergency_contact_relationship %>
+		</div>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<label><u>Legal Representative</u></label> <br/>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Name:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.legal_representative_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Address:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.legal_representative_street_address %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>City:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.legal_representative_city %>
+		</div>
+	</div>
+	
+	<div class="span-3">
+		<div class="span-1">
+		  <label>State:</label>
+		</div>
+		<div class="span-2 last">
+		  <%= @patient.legal_representative_state %>
+		</div>
+	</div>
+	
+	<div class="span-3 last">
+		<div class="span-1">
+		  <label>Zip:</label>
+		</div>
+		<div class="span-2 last">
+		  <%= @patient.legal_representative_zip %>
+		</div>
+	</div>
+</div>
+
+<div class="span-24">	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Phone:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.legal_representative_phone %>
+		</div>
+	</div>
+	
+	<div class="span-6 last">
+		<div class="span-2">
+		  <label>Fax:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.legal_representative_fax %>
+		</div>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<label><u>Guarantor Information</u></label> <br/>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Name:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.guarantor_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Address:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.guarantor_street_address %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>City:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.guarantor_city %>
+		</div>
+	</div>
+	
+	<div class="span-3">
+		<div class="span-1">
+		  <label>State:</label>
+		</div>
+		<div class="span-2 last">
+		  <%= @patient.guarantor_state %>
+		</div>
+	</div>
+	
+	<div class="span-3 last">
+		<div class="span-1">
+		  <label>Zip:</label>
+		</div>
+		<div class="span-2 last">
+		  <%= @patient.guarantor_zip %>
+		</div>
+	</div>
+</div>
+
+<div class="span-24">	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>SSN:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.guarantor_ssn %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Phone:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.guarantor_phone %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Fax:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.guarantor_fax %>
+		</div>
+	</div>
+	
+	<div class="span-6 last">
+		<div class="span-2">
+		  <label>Email:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.guarantor_email %>
+		</div>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-2">
+	  <label>D.O.B:</label>
+	</div>
+	<div class="span-4 last">
+	  <%= @patient.guarantor_date_of_birth %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<label><u>Primary Medical Insurance</u></label> <br/>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Name:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.primary_insurance_subscribers_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>D.O.B:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.primary_insurance_subscribers_date_of_birth %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Relationship:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.primary_insurance_subscribers_relationship %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Company:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.primary_insurance_company %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Claim #:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.primary_insurance_claim_number %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Policy #:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.primary_insurance_policy_number %>
+		</div>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<label><u>Secondary Medical Insurance</u></label> <br/>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Name:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.secondary_insurance_subscribers_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>D.O.B:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.secondary_insurance_subscribers_date_of_birth %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Relationship:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.secondary_insurance_subscribers_relationship %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Company:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.secondary_insurance_company %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Claim #:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.secondary_insurance_claim_number %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-2">
+		  <label>Policy #:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @patient.secondary_insurance_policy_number %>
+		</div>
+	</div>
+</div>

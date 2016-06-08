@@ -1,0 +1,49 @@
+<%= form_tag reports_monthly_summary_path, :method => 'get' do %>
+	<div class="span-24">
+		<div class="span-2">
+			<label>Month:</label>
+		</div>
+		<div class="span-4">
+			<%= select_month @month %>
+		</div>
+		<div class="span-2">
+			<label>Year:</label>
+		</div>
+		<div class="span-3">
+			<%= select_year @year %>
+		</div>
+		<div class="span-3 last">
+			<%= submit_tag 'Show' %>
+		</div>
+	</div>
+<% end %>
+
+<hr class="space"/>
+
+<div class="span-24">
+	
+	<table class="advanced">
+	  <thead>
+	    <th class="span-6">Medical Claim Type</th>
+			<th class="span-18 last">Total Count</th>
+    </thead>
+	
+		<tr>
+			<td>Examinations</td>
+			<td><%= @examinations_count %></td>
+		</tr>
+		<tr>
+			<td>Re-examinations</td>
+			<td><%= @re_examinations_count %></td>
+		</tr>
+		<tr>
+			<td>Daily Treatments</td>
+			<td><%= @treatments_count %></td>
+		</tr>
+	</table>
+	
+</div>
+
+<div class="span-24">
+	<%= link_to 'Back', reports_index_path, :class => 'button' %>
+</div>

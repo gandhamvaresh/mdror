@@ -1,0 +1,2 @@
+module ChiropracticDiagnosisListsHelper
+end

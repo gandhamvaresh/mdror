@@ -1,0 +1,509 @@
+<%= form_for(@chiropractic_investigation_list) do |f| %>
+  <% if @chiropractic_investigation_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_investigation_list.errors.count, "error") %> prohibited this chiropractic_investigation_list from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_investigation_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ecohymosis %><br />
+    <%= f.check_box :ecohymosis %>
+  </div>
+  <div class="field">
+    <%= f.label :lacerations %><br />
+    <%= f.check_box :lacerations %>
+  </div>
+  <div class="field">
+    <%= f.label :edema %><br />
+    <%= f.check_box :edema %>
+  </div>
+  <div class="field">
+    <%= f.label :exam_notes %><br />
+    <%= f.text_area :exam_notes %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_flex_exam %><br />
+    <%= f.text_field :crom_flex_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_flex_pain %><br />
+    <%= f.check_box :crom_flex_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_flex_discomfort %><br />
+    <%= f.check_box :crom_flex_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_flex_exam %><br />
+    <%= f.text_field :lrom_flex_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_flex_pain %><br />
+    <%= f.check_box :lrom_flex_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_flex_discomfort %><br />
+    <%= f.check_box :lrom_flex_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_ext_exam %><br />
+    <%= f.text_field :crom_ext_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_ext_pain %><br />
+    <%= f.check_box :crom_ext_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_ext_discomfort %><br />
+    <%= f.check_box :crom_ext_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_ext_exam %><br />
+    <%= f.text_field :lrom_ext_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_ext_pain %><br />
+    <%= f.check_box :lrom_ext_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_ext_discomfort %><br />
+    <%= f.check_box :lrom_ext_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_lrot_exam %><br />
+    <%= f.text_field :crom_lrot_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_lrot_pain %><br />
+    <%= f.check_box :crom_lrot_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_lrot_discomfort %><br />
+    <%= f.check_box :crom_lrot_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_lrot_exam %><br />
+    <%= f.text_field :lrom_lrot_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_lrot_pain %><br />
+    <%= f.check_box :lrom_lrot_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_lrot_discomfort %><br />
+    <%= f.check_box :lrom_lrot_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_rrot_exam %><br />
+    <%= f.text_field :crom_rrot_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_rrot_pain %><br />
+    <%= f.check_box :crom_rrot_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_rrot_discomfort %><br />
+    <%= f.check_box :crom_rrot_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_rrot_exam %><br />
+    <%= f.text_field :lrom_rrot_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_rrot_pain %><br />
+    <%= f.check_box :lrom_rrot_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_rrot_discomfort %><br />
+    <%= f.check_box :lrom_rrot_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_llf_exam %><br />
+    <%= f.text_field :crom_llf_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_llf_pain %><br />
+    <%= f.check_box :crom_llf_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_llf_discomfort %><br />
+    <%= f.check_box :crom_llf_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_llf_exam %><br />
+    <%= f.text_field :lrom_llf_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_llf_pain %><br />
+    <%= f.check_box :lrom_llf_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_llf_discomfort %><br />
+    <%= f.check_box :lrom_llf_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_rlf_exam %><br />
+    <%= f.text_field :crom_rlf_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_rlf_pain %><br />
+    <%= f.check_box :crom_rlf_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :crom_rlf_discomfort %><br />
+    <%= f.check_box :crom_rlf_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_rlf_exam %><br />
+    <%= f.text_field :lrom_rlf_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_rlf_pain %><br />
+    <%= f.check_box :lrom_rlf_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :lrom_rlf_discomfort %><br />
+    <%= f.check_box :lrom_rlf_discomfort %>
+  </div>
+  <div class="field">
+    <%= f.label :other_roms %><br />
+    <%= f.text_area :other_roms %>
+  </div>
+  <div class="field">
+    <%= f.label :cervical_paraspinal_musculature_noted %><br />
+    <%= f.check_box :cervical_paraspinal_musculature_noted %>
+  </div>
+  <div class="field">
+    <%= f.label :cervical_paraspinal_musculature_side %><br />
+    <%= f.text_field :cervical_paraspinal_musculature_side %>
+  </div>
+  <div class="field">
+    <%= f.label :throacic_paraspinal_musculature_noted %><br />
+    <%= f.check_box :throacic_paraspinal_musculature_noted %>
+  </div>
+  <div class="field">
+    <%= f.label :throacic_paraspinal_musculature_side %><br />
+    <%= f.text_field :throacic_paraspinal_musculature_side %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbar_paraspinal_musculature_noted %><br />
+    <%= f.check_box :lumbar_paraspinal_musculature_noted %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbar_paraspinal_musculature_side %><br />
+    <%= f.text_field :lumbar_paraspinal_musculature_side %>
+  </div>
+  <div class="field">
+    <%= f.label :motor_testing %><br />
+    <%= f.check_box :motor_testing %>
+  </div>
+  <div class="field">
+    <%= f.label :motor_testing_exception %><br />
+    <%= f.text_area :motor_testing_exception %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_c1 %><br />
+    <%= f.check_box :subluxation_c1 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_c2 %><br />
+    <%= f.check_box :subluxation_c2 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_c3 %><br />
+    <%= f.check_box :subluxation_c3 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_c4 %><br />
+    <%= f.check_box :subluxation_c4 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_c5 %><br />
+    <%= f.check_box :subluxation_c5 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_c6 %><br />
+    <%= f.check_box :subluxation_c6 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_c7 %><br />
+    <%= f.check_box :subluxation_c7 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t1 %><br />
+    <%= f.check_box :subluxation_t1 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t2 %><br />
+    <%= f.check_box :subluxation_t2 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t3 %><br />
+    <%= f.check_box :subluxation_t3 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t4 %><br />
+    <%= f.check_box :subluxation_t4 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t5 %><br />
+    <%= f.check_box :subluxation_t5 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t6 %><br />
+    <%= f.check_box :subluxation_t6 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t7 %><br />
+    <%= f.check_box :subluxation_t7 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t8 %><br />
+    <%= f.check_box :subluxation_t8 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t9 %><br />
+    <%= f.check_box :subluxation_t9 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t10 %><br />
+    <%= f.check_box :subluxation_t10 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t11 %><br />
+    <%= f.check_box :subluxation_t11 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_t12 %><br />
+    <%= f.check_box :subluxation_t12 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_l1 %><br />
+    <%= f.check_box :subluxation_l1 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_l2 %><br />
+    <%= f.check_box :subluxation_l2 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_l3 %><br />
+    <%= f.check_box :subluxation_l3 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_l4 %><br />
+    <%= f.check_box :subluxation_l4 %>
+  </div>
+  <div class="field">
+    <%= f.label :subluxation_l5 %><br />
+    <%= f.check_box :subluxation_l5 %>
+  </div>
+  <div class="field">
+    <%= f.label :dermatomes %><br />
+    <%= f.check_box :dermatomes %>
+  </div>
+  <div class="field">
+    <%= f.label :dermatomes_exception %><br />
+    <%= f.text_area :dermatomes_exception %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_biceps_right %><br />
+    <%= f.number_field :dtr_biceps_right %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_biceps_left %><br />
+    <%= f.number_field :dtr_biceps_left %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_pronator_right %><br />
+    <%= f.number_field :dtr_pronator_right %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_pronator_left %><br />
+    <%= f.number_field :dtr_pronator_left %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_triceps_right %><br />
+    <%= f.number_field :dtr_triceps_right %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_triceps_left %><br />
+    <%= f.number_field :dtr_triceps_left %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_patella_right %><br />
+    <%= f.number_field :dtr_patella_right %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_patella_left %><br />
+    <%= f.number_field :dtr_patella_left %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_achilles_right %><br />
+    <%= f.number_field :dtr_achilles_right %>
+  </div>
+  <div class="field">
+    <%= f.label :dtr_achilles_left %><br />
+    <%= f.number_field :dtr_achilles_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_cervical_comp_right %><br />
+    <%= f.check_box :orthopedic_test_cervical_comp_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_cervical_comp_left %><br />
+    <%= f.check_box :orthopedic_test_cervical_comp_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_distraction_right %><br />
+    <%= f.check_box :orthopedic_test_distraction_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_distraction_left %><br />
+    <%= f.check_box :orthopedic_test_distraction_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_shoulder_dep_right %><br />
+    <%= f.check_box :orthopedic_test_shoulder_dep_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_shoulder_dep_left %><br />
+    <%= f.check_box :orthopedic_test_shoulder_dep_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_soto_hall_right %><br />
+    <%= f.check_box :orthopedic_test_soto_hall_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_soto_hall_left %><br />
+    <%= f.check_box :orthopedic_test_soto_hall_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_slr_right %><br />
+    <%= f.check_box :orthopedic_test_slr_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_slr_left %><br />
+    <%= f.check_box :orthopedic_test_slr_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_braggard_right %><br />
+    <%= f.check_box :orthopedic_test_braggard_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_braggard_left %><br />
+    <%= f.check_box :orthopedic_test_braggard_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_kemps_right %><br />
+    <%= f.check_box :orthopedic_test_kemps_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_kemps_left %><br />
+    <%= f.check_box :orthopedic_test_kemps_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_valsalva_right %><br />
+    <%= f.check_box :orthopedic_test_valsalva_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_valsalva_left %><br />
+    <%= f.check_box :orthopedic_test_valsalva_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_nachlas_right %><br />
+    <%= f.check_box :orthopedic_test_nachlas_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_nachlas_left %><br />
+    <%= f.check_box :orthopedic_test_nachlas_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_yeomans_right %><br />
+    <%= f.check_box :orthopedic_test_yeomans_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_yeomans_left %><br />
+    <%= f.check_box :orthopedic_test_yeomans_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_fabere_patrick_right %><br />
+    <%= f.check_box :orthopedic_test_fabere_patrick_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_fabere_patrick_left %><br />
+    <%= f.check_box :orthopedic_test_fabere_patrick_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_elys_right %><br />
+    <%= f.check_box :orthopedic_test_elys_right %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_elys_left %><br />
+    <%= f.check_box :orthopedic_test_elys_left %>
+  </div>
+  <div class="field">
+    <%= f.label :orthopedic_test_other %><br />
+    <%= f.text_field :orthopedic_test_other %>
+  </div>
+  <div class="field">
+    <%= f.label :grip_strength_dyn1_right %><br />
+    <%= f.number_field :grip_strength_dyn1_right %>
+  </div>
+  <div class="field">
+    <%= f.label :rip_strength_dyn1_left %><br />
+    <%= f.number_field :rip_strength_dyn1_left %>
+  </div>
+  <div class="field">
+    <%= f.label :grip_strength_dyn2_right %><br />
+    <%= f.number_field :grip_strength_dyn2_right %>
+  </div>
+  <div class="field">
+    <%= f.label :rip_strength_dyn2_left %><br />
+    <%= f.number_field :rip_strength_dyn2_left %>
+  </div>
+  <div class="field">
+    <%= f.label :grip_strength_dyn3_right %><br />
+    <%= f.number_field :grip_strength_dyn3_right %>
+  </div>
+  <div class="field">
+    <%= f.label :rip_strength_dyn3_left %><br />
+    <%= f.number_field :rip_strength_dyn3_left %>
+  </div>
+  <div class="field">
+    <%= f.label :standing_activity_affected %><br />
+    <%= f.check_box :standing_activity_affected %>
+  </div>
+  <div class="field">
+    <%= f.label :sitting_activity_affected %><br />
+    <%= f.check_box :sitting_activity_affected %>
+  </div>
+  <div class="field">
+    <%= f.label :bending_activity_affected %><br />
+    <%= f.check_box :bending_activity_affected %>
+  </div>
+  <div class="field">
+    <%= f.label :lifting_activity_affected %><br />
+    <%= f.check_box :lifting_activity_affected %>
+  </div>
+  <div class="field">
+    <%= f.label :walking_activity_affected %><br />
+    <%= f.check_box :walking_activity_affected %>
+  </div>
+  <div class="field">
+    <%= f.label :sleeping_activity_affected %><br />
+    <%= f.check_box :sleeping_activity_affected %>
+  </div>
+  <div class="field">
+    <%= f.label :other_activities_affected %><br />
+    <%= f.text_field :other_activities_affected %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

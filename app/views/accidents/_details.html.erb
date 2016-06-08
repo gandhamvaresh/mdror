@@ -1,0 +1,231 @@
+<div class="span-24 non_printable_block">	
+	<div class="span-24">
+	
+		<div class="span-6">
+			<div class="span-3">
+			  <label>Accident type:</label>
+			</div>
+			<div class="span-3 last">
+			  <%= @accident.accident_type %>
+			</div>
+		</div>
+	
+		<div class="span-4">
+			<div class="span-2">
+			  <label>Injury date:</label>
+			</div>
+			<div class="span-2 last">
+			  <%= @accident.injury_date %>
+			</div>
+		</div>
+	
+		<div class="span-4">
+			  <%= check_box_tag :wearing_seat_belt, 1, @accident.wearing_seat_belt, :disabled => true %>&nbsp;<label>Wearing seatbelt</label>
+		</div>
+	
+		<div class="span-4">
+			  <%= check_box_tag :pedestrian, 1, @accident.pedestrian, :disabled => true %>&nbsp;<label>Pedestrian</label>
+		</div>
+	
+		<div class="span-3">
+			  <%= check_box_tag :driver, 1, @accident.driver, :disabled => true %>&nbsp;<label>Driver</label>
+		</div>
+	
+		<div class="span-3 last">
+			  <%= check_box_tag :passenger, 1, @accident.passenger, :disabled => true %>&nbsp;<label>Passenger</label>
+		</div>
+	
+	</div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+	
+		<div class="span-6">
+			<div class="span-3">
+			  <label>Seating position:</label>
+			</div>
+			<div class="span-3 last">
+			  <%= @accident.seating_position %>
+			</div>
+		</div>
+	
+		<div class="span-4">
+			<%= check_box_tag :airbag_deploy, 1, @accident.airbag_deploy, :disabled => true %>&nbsp;<label>Airbag deploy</label>
+		</div>
+
+		<div class="span-4">
+			<%= check_box_tag :loss_of_consciousness, 1, @accident.loss_of_consciousness, :disabled => true %>&nbsp;<label>Loss of consciousness</label>
+		</div>
+
+		<div class="span-6">
+			<%= check_box_tag :lost_time_from_work, 1, @accident.lost_time_from_work, :disabled => true %>&nbsp;<label>Lost time from work</label>
+			<% if @accident.lost_time_from_work? %>
+				<strong>&nbsp; - &nbsp; <%= @accident.days_lost_from_work %> days </strong>
+			<% end %>
+		</div>
+		
+		<div class="span-4 last">
+			<%= check_box_tag :fear_while_driving, 1, @accident.fear_while_driving, :disabled => true %>&nbsp;<label>Fear while driving</label>
+		</div>
+		
+	</div>
+	
+	<hr class="space"/>
+	
+	<div class="prepend-6 span-24">
+		<div class="span-4">
+			<%= check_box_tag :taken_to_hospital, 1, @accident.taken_to_hospital, :disabled => true %>&nbsp;<label>Taken to hospital</label>
+		</div>
+
+		<div class="span-4 last">
+			<%= check_box_tag :fear_while_driving, 1, @accident.fear_while_driving, :disabled => true %>&nbsp;<label>Fear while driving</label>
+		</div>
+	</div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+	
+		<div class="span-6">
+			<div class="span-3">
+			  <label>Transport mode:</label>
+			</div>
+			<div class="span-3 last">
+			  <%= @accident.hospital_transport_mode %>
+			</div>
+		</div>
+	
+		<div class="span-4">
+			<%= check_box_tag :examined, 1, @accident.examined, :disabled => true %>&nbsp;<label>Examined</label>
+		</div>
+
+		<div class="span-2">
+			<%= check_box_tag :xrays, 1, @accident.xrays, :disabled => true %>&nbsp;<label>X-rays</label>
+		</div>
+
+		<div class="span-3">
+			<%= check_box_tag :ctscan, 1, @accident.ctscan, :disabled => true %>&nbsp;<label>CT Scan</label>
+		</div>
+
+		<div class="span-2">
+			<%= check_box_tag :mri, 1, @accident.mri, :disabled => true %>&nbsp;<label>MRI</label>
+		</div>
+	
+		<div class="prepend-1 span-3">
+			<%= check_box_tag :admitted, 1, @accident.admitted, :disabled => true %>&nbsp;<label>Admitted</label>
+		</div>
+	
+		<div class="span-3 last">
+			<%= check_box_tag :released, 1, @accident.released, :disabled => true %>&nbsp;<label>Released</label>
+		</div>
+	
+	</div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+		<div class="span-3">
+		  <label>Hospital name:</label>
+		</div>
+		<div class="span-21 last">
+		  <%= @accident.hospital_name %>
+		</div>
+	</div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-3">
+		  <label>Injury description:</label>
+		</div>
+		<div class="span-21 last">
+		  <%= @accident.injury_description %>
+		</div>
+	</div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+		<div class="span-3">
+		  <label>Medications:</label>
+		</div>
+		<div class="span-21 last">
+		  <%= @accident.medications %>
+		</div>
+	</div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+		<div class="span-3">
+		  <label>Prior injuries:</label>
+		</div>
+		<div class="span-21 last">
+		  <%= @accident.prior_injuries %>
+		</div>
+	</div>
+
+	<hr class="space"/>
+
+	<p style="font-weight: bold;text-decoration:underline;">Prior Diagnostic Studies</p>
+
+	<div class="span-24">
+	
+		<div class="span-8">
+			<div class="span-1">
+			  <label>MRI:</label>
+			</div>
+			<div class="span-7 last">
+			  <%= (@accident.prior_diagnostic_study_mri_details.reject(&:blank?).join(", ")) %>
+			  <% if @accident.prior_diagnostic_study_mri_details.compact.include?('Other') %>
+			    <p style="font-weight: bold"><%= @accident.prior_diagnostic_study_mri_other %></p>
+			  <% end %>
+			</div>
+		</div>
+	
+		<div class="span-8">
+			<div class="span-2">
+			  <label>CT Scan:</label>
+			</div>
+			<div class="span-6 last">
+  			  <%= (@accident.prior_diagnostic_study_ctscan_details.reject(&:blank?).join(", ")) %>
+  			  <% if @accident.prior_diagnostic_study_ctscan_details.compact.include?('Other') %>
+  			     <p style="font-weight: bold"><%= @accident.prior_diagnostic_study_ctscan_other %></p>
+  			  <% end %>
+			</div>
+		</div>
+	
+		<div class="span-8 last">
+			<div class="span-1">
+			  <label>EMG:</label>
+			</div>
+			<div class="span-7 last">
+			  <%= (@accident.prior_diagnostic_study_emg_details.reject(&:blank?).join(", ")) %>
+			</div>
+		</div>
+	</div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+		<div class="span-3">
+		  <label>Results:</label>
+		</div>
+		<div class="span-21 last">
+		  <%= @accident.prior_diagnostic_results %>
+		</div>
+	</div>
+
+	<hr class="space"/>
+
+	<div class="span-24">
+		<div class="span-3">
+		  <label>Medical History:</label>
+		</div>
+		<div class="span-21 last">
+		  <%= @accident.medical_history %>
+		</div>
+	</div>
+
+</div>

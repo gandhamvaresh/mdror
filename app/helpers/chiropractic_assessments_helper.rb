@@ -1,0 +1,2 @@
+module ChiropracticAssessmentsHelper
+end

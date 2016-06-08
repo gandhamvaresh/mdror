@@ -1,0 +1,189 @@
+<%= form_for(@chiropractic_diagnosis_list) do |f| %>
+  <% if @chiropractic_diagnosis_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_diagnosis_list.errors.count, "error") %> prohibited this chiropractic_diagnosis_list from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_diagnosis_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cervical_sprain %><br />
+    <%= f.check_box :cervical_sprain %>
+  </div>
+  <div class="field">
+    <%= f.label :cervical_radiculopathy %><br />
+    <%= f.check_box :cervical_radiculopathy %>
+  </div>
+  <div class="field">
+    <%= f.label :cervicalgia %><br />
+    <%= f.check_box :cervicalgia %>
+  </div>
+  <div class="field">
+    <%= f.label :segmental_dysfunction_c %><br />
+    <%= f.check_box :segmental_dysfunction_c %>
+  </div>
+  <div class="field">
+    <%= f.label :cervical_disc_herniation %><br />
+    <%= f.check_box :cervical_disc_herniation %>
+  </div>
+  <div class="field">
+    <%= f.label :cervical_myelopathy %><br />
+    <%= f.check_box :cervical_myelopathy %>
+  </div>
+  <div class="field">
+    <%= f.label :thoracic_myelopathy %><br />
+    <%= f.check_box :thoracic_myelopathy %>
+  </div>
+  <div class="field">
+    <%= f.label :thoracic_sprain %><br />
+    <%= f.check_box :thoracic_sprain %>
+  </div>
+  <div class="field">
+    <%= f.label :thoracic_pain %><br />
+    <%= f.check_box :thoracic_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :segmental_dysfunction_t %><br />
+    <%= f.check_box :segmental_dysfunction_t %>
+  </div>
+  <div class="field">
+    <%= f.label :scoliosis %><br />
+    <%= f.check_box :scoliosis %>
+  </div>
+  <div class="field">
+    <%= f.label :sciatica %><br />
+    <%= f.check_box :sciatica %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbar_sprain %><br />
+    <%= f.check_box :lumbar_sprain %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbar_radiculopathy %><br />
+    <%= f.check_box :lumbar_radiculopathy %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbago %><br />
+    <%= f.check_box :lumbago %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbar_disc_herniation %><br />
+    <%= f.check_box :lumbar_disc_herniation %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbar_myelopathy %><br />
+    <%= f.check_box :lumbar_myelopathy %>
+  </div>
+  <div class="field">
+    <%= f.label :sacroiliac_sprain %><br />
+    <%= f.check_box :sacroiliac_sprain %>
+  </div>
+  <div class="field">
+    <%= f.label :paresthesia %><br />
+    <%= f.check_box :paresthesia %>
+  </div>
+  <div class="field">
+    <%= f.label :segmental_dysfunction_l %><br />
+    <%= f.check_box :segmental_dysfunction_l %>
+  </div>
+  <div class="field">
+    <%= f.label :myofascitis %><br />
+    <%= f.check_box :myofascitis %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_sprain_left %><br />
+    <%= f.check_box :shoulder_sprain_left %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_sprain_right %><br />
+    <%= f.check_box :shoulder_sprain_right %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_dysfunction_left %><br />
+    <%= f.check_box :shoulder_dysfunction_left %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_dysfunction_right %><br />
+    <%= f.check_box :shoulder_dysfunction_right %>
+  </div>
+  <div class="field">
+    <%= f.label :elbow_sprain_left %><br />
+    <%= f.check_box :elbow_sprain_left %>
+  </div>
+  <div class="field">
+    <%= f.label :elbow_sprain_right %><br />
+    <%= f.check_box :elbow_sprain_right %>
+  </div>
+  <div class="field">
+    <%= f.label :wrist_sprain_left %><br />
+    <%= f.check_box :wrist_sprain_left %>
+  </div>
+  <div class="field">
+    <%= f.label :wrist_sprain_right %><br />
+    <%= f.check_box :wrist_sprain_right %>
+  </div>
+  <div class="field">
+    <%= f.label :cervical_trigger_point %><br />
+    <%= f.check_box :cervical_trigger_point %>
+  </div>
+  <div class="field">
+    <%= f.label :lumbar_trigger_point %><br />
+    <%= f.check_box :lumbar_trigger_point %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_sprain_left %><br />
+    <%= f.check_box :hip_sprain_left %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_sprain_right %><br />
+    <%= f.check_box :hip_sprain_right %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_dysfunction_left %><br />
+    <%= f.check_box :hip_dysfunction_left %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_dysfunction_right %><br />
+    <%= f.check_box :hip_dysfunction_right %>
+  </div>
+  <div class="field">
+    <%= f.label :knee_sprain_left %><br />
+    <%= f.check_box :knee_sprain_left %>
+  </div>
+  <div class="field">
+    <%= f.label :knee_sprain_right %><br />
+    <%= f.check_box :knee_sprain_right %>
+  </div>
+  <div class="field">
+    <%= f.label :ankle_sprain_left %><br />
+    <%= f.check_box :ankle_sprain_left %>
+  </div>
+  <div class="field">
+    <%= f.label :ankle_sprain_right %><br />
+    <%= f.check_box :ankle_sprain_right %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches %><br />
+    <%= f.check_box :headaches %>
+  </div>
+  <div class="field">
+    <%= f.label :dizziness %><br />
+    <%= f.check_box :dizziness %>
+  </div>
+  <div class="field">
+    <%= f.label :post_concussive_syndrome %><br />
+    <%= f.check_box :post_concussive_syndrome %>
+  </div>
+  <div class="field">
+    <%= f.label :other_diagnosis %><br />
+    <%= f.text_field :other_diagnosis %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

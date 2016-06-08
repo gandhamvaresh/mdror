@@ -1,0 +1,37 @@
+<%= form_for(@chiropractic_assessment) do |f| %>
+  <% if @chiropractic_assessment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_assessment.errors.count, "error") %> prohibited this chiropractic_assessment from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_assessment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :assessment_improved %><br />
+    <%= f.check_box :assessment_improved %>
+  </div>
+  <div class="field">
+    <%= f.label :assessment_unimproved %><br />
+    <%= f.check_box :assessment_unimproved %>
+  </div>
+  <div class="field">
+    <%= f.label :assessment_exacerbation %><br />
+    <%= f.check_box :assessment_exacerbation %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_diagnosis %><br />
+    <%= f.text_area :updated_diagnosis %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

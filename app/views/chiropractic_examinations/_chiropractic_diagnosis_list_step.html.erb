@@ -1,0 +1,324 @@
+<div class="span-24">
+	
+	<%= f.fields_for :chiropractic_diagnosis_list do |builder| %>
+		<div class="span-24">
+				<table>
+					<thead>
+			    	<th class="span-5">DIAGNOSIS</th>
+			    	<th class="span-3 last">CODE</th>
+			  	</thead>
+			
+					<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.cervical_sprain.blank?) %>
+						<tr>
+							<td><%= builder.check_box :cervical_sprain, :disabled => disable_option %>&nbsp;CERVICAL SPRAIN/STRAIN</td>
+							<td>847.0</td>
+						</tr>
+					<% end %>
+				
+					<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.cervical_radiculopathy.blank?) %>
+						<tr>
+							<td><%= builder.check_box :cervical_radiculopathy, :disabled => disable_option %>&nbsp;CERVICAL RADICULOPATHY</td>
+							<td>723.4</td>
+						</tr>
+				  <% end %>
+					
+				  <% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.cervicalgia.blank?) %>
+						<tr>
+							<td><%= builder.check_box :cervicalgia, :disabled => disable_option %>&nbsp;CERVICALGIA</td>
+							<td>723.1</td>
+						</tr>
+			    <% end %>
+			
+					<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.segmental_dysfunction_c.blank?) %>
+					<tr>
+						<td><%= builder.check_box :segmental_dysfunction_c, :disabled => disable_option %>&nbsp;SEGMENTAL DYSFUNCTION C</td>
+						<td>739.1</td>
+					</tr>
+				   <% end %>
+			
+					<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.cervical_disc_herniation.blank?) %>
+					<tr>
+						<td><%= builder.check_box :cervical_disc_herniation, :disabled => disable_option %>&nbsp;CERVICAL DISC HERNIATION</td>
+						<td>722.0</td>
+					</tr>
+				<% end %>
+			
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.cervical_myelopathy.blank?) %>
+					<tr>
+						<td><%= builder.check_box :cervical_myelopathy, :disabled => disable_option %>&nbsp;CERVICAL MYELOPATHY</td>
+						<td>721.1</td>
+					</tr>
+				<% end %>
+					
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.thoracic_myelopathy.blank?) %>
+					<tr>
+						<td><%= builder.check_box :thoracic_myelopathy, :disabled => disable_option %>&nbsp;THORACIC MYELOPATHY</td>
+						<td>721.2</td>
+					</tr>
+				<% end %>
+			
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.thoracic_sprain.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :thoracic_sprain, :disabled => disable_option %>&nbsp;THORACIC SPRAIN/STRAIN</td>
+						<td>847.1</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.thoracic_pain.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :thoracic_pain, :disabled => disable_option %>&nbsp;THORACIC PAIN</td>
+						<td>724.1</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.segmental_dysfunction_t.blank?) %>		
+					<tr>
+						<td><%= builder.check_box :segmental_dysfunction_t, :disabled => disable_option %>&nbsp;SEGMENTAL DYSFUNCTION T</td>
+						<td>739.2</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.scoliosis.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :scoliosis, :disabled => disable_option %>&nbsp;SCOLIOSIS</td>
+						<td>737.43</td>
+					</tr>
+				<% end %>
+			
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.sciatica.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :sciatica, :disabled => disable_option %>&nbsp;SCIATICA</td>
+						<td>724.3</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.lumbar_sprain.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :lumbar_sprain, :disabled => disable_option %>&nbsp;LUMBAR SPRAIN/STRAIN</td>
+						<td>847.2</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.lumbar_radiculopathy.blank?) %>
+					<tr>
+						<td><%= builder.check_box :lumbar_radiculopathy, :disabled => disable_option %>&nbsp;LUMBAR RADICULOPATHY</td>
+						<td>724.4</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.lumbago.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :lumbago, :disabled => disable_option %>&nbsp;LUMBAGO</td>
+						<td>724.2</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.lumbar_disc_herniation.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :lumbar_disc_herniation, :disabled => disable_option %>&nbsp;LUMBAR DISC HERNIATION</td>
+						<td>722.10</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.lumbar_myelopathy.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :lumbar_myelopathy, :disabled => disable_option %>&nbsp;LUMBAR MYELOPATHY</td>
+						<td>721.3</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.sacroiliac_sprain.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :sacroiliac_sprain, :disabled => disable_option %>&nbsp;SACROILIAC SPRAIN/STRAIN</td>
+						<td>846.9</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.paresthesia.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :paresthesia, :disabled => disable_option %>&nbsp;PARESTHESIA/HPERESTHESIA</td>
+						<td>782.0</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.segmental_dysfunction_l.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :segmental_dysfunction_l, :disabled => disable_option %>&nbsp;SEGMENTAL DYSFUNCTION - L</td>
+						<td>739.3</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.sacral_segmental_dysfunction.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :sacral_segmental_dysfunction, :disabled => disable_option %>&nbsp;SACRAL SEGMENTAL DYSFUNCTION</td>
+						<td>739.4</td>
+					</tr>
+			 <% end %>
+			
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.myofascitis.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :myofascitis, :disabled => disable_option %>&nbsp;MYOFASCITIS</td>
+						<td>729.10</td>
+					</tr>
+			 <% end %>	
+			
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.shoulder_sprain_left.blank?) %>
+					<tr>
+						<td><%= builder.check_box :shoulder_sprain_left, :disabled => disable_option %>&nbsp;SHOULDER SPRAIN/STRAIN LEFT</td>
+						<td>840.9</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.shoulder_sprain_right.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :shoulder_sprain_right, :disabled => disable_option %>&nbsp;SHOULDER SPRAIN/STRAIN RIGHT</td>
+						<td>840.9</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.shoulder_dysfunction_left.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :shoulder_dysfunction_left, :disabled => disable_option %>&nbsp;SHOULDER DYSFUNCTION LEFT</td>
+						<td>739.7</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.shoulder_dysfunction_right.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :shoulder_dysfunction_right, :disabled => disable_option %>&nbsp;SHOULDER DYSFUNCTION RIGHT</td>
+						<td>739.7</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.elbow_sprain_left.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :elbow_sprain_left, :disabled => disable_option %>&nbsp;ELBOW SPRAIN/STRAIN LEFT</td>
+						<td>841.9</td>
+					</tr>
+				<% end %>
+					
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.elbow_sprain_right.blank?) %>
+					<tr>
+						<td><%= builder.check_box :elbow_sprain_right, :disabled => disable_option %>&nbsp;ELBOW SPRAIN/STRAIN RIGHT</td>
+						<td>841.9</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.wrist_sprain_left.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :wrist_sprain_left, :disabled => disable_option %>&nbsp;WRIST SPRAIN/STRAIN LEFT</td>
+						<td>842.0</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.wrist_sprain_right.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :wrist_sprain_right, :disabled => disable_option %>&nbsp;WRIST SPRAIN/STRAIN RIGHT</td>
+						<td>842.0</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.cervical_trigger_point.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :cervical_trigger_point, :disabled => disable_option %>&nbsp;CERVICAL TRIGGER POINT</td>
+						<td>723.9</td>
+					</tr>
+				<% end %>
+					
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.lumbar_trigger_point.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :lumbar_trigger_point, :disabled => disable_option %>&nbsp;LUMBAR TRIGGER POINT</td>
+						<td>726.19</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.hip_sprain_left.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :hip_sprain_left, :disabled => disable_option %>&nbsp;HIP SPRAIN/STRAIN LEFT</td>
+						<td>843.9</td>
+					</tr>
+				<% end %>
+					
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.hip_sprain_right.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :hip_sprain_right, :disabled => disable_option %>&nbsp;HIP SPRAIN/STRAIN RIGHT</td>
+						<td>843.9</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.hip_dysfunction_left.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :hip_dysfunction_left, :disabled => disable_option %>&nbsp;HIP DYSFUNCTION LEFT</td>
+						<td>739.5</td>
+					</tr>
+				<% end %>
+			
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.hip_dysfunction_right.blank?) %>
+				<tr>
+					<td><%= builder.check_box :hip_dysfunction_right, :disabled => disable_option %>&nbsp;HIP DYSFUNCTION RIGHT</td>
+					<td>739.5</td>
+				</tr>
+			<% end %>
+					
+			<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.knee_sprain_left.blank?) %>	
+				<tr>
+					<td><%= builder.check_box :knee_sprain_left, :disabled => disable_option %>&nbsp;KNEE SPRAIN/STRAIN LEFT</td>
+					<td>844.9</td>
+				</tr>
+			<% end %>	
+			
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.knee_sprain_right.blank?) %>	
+					<tr>
+						<td><%= builder.check_box :knee_sprain_right, :disabled => disable_option %>&nbsp;KNEE SPRAIN/STRAIN RIGHT</td>
+						<td>844.9</td>
+					</tr>
+			  <% end %>
+		
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.ankle_sprain_left.blank?) %>				
+						<tr>
+							<td><%= builder.check_box :ankle_sprain_left, :disabled => disable_option %>&nbsp;ANKLE SPRAIN/STRAIN LEFT</td>
+							<td>845.00</td>
+						</tr>
+				<% end %>		
+		
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.ankle_sprain_right.blank?) %>	
+						<tr>
+							<td><%= builder.check_box :ankle_sprain_right, :disabled => disable_option %>&nbsp;ANKLE SPRAIN/STRAIN RIGHT</td>
+							<td>845.00</td>
+						</tr>
+				<% end %>	
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.headaches.blank?) %>			
+					<tr>
+						<td><%= builder.check_box :headaches, :disabled => disable_option %>&nbsp;HEADACHES</td>
+						<td>784.00</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.dizziness.blank?) %>		
+					<tr>
+						<td><%= builder.check_box :dizziness, :disabled => disable_option %>&nbsp;DIZZINESS</td>
+						<td>780.4</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.post_concussive_syndrome.blank?) %>		
+					<tr>
+						<td><%= builder.check_box :post_concussive_syndrome, :disabled => disable_option %>&nbsp;POST CONCUSSIVE SYNDROME</td>
+						<td>850.90</td>
+					</tr>
+				<% end %>
+				
+				<% if !disable_option || (disable_option && !@chiropractic_examination.chiropractic_diagnosis_list.other_diagnosis.blank?) %>		
+					<tr>
+						<td>OTHER:&nbsp;&nbsp;<%= builder.text_field :other_diagnosis, :class => 'small_font_span_8', :disabled => disable_option %></td>
+						<td><%= builder.text_field :other_diagnosis_code, :class => 'small_font_span_2', :disabled => disable_option %></td>
+					</tr>
+				<% end %>	
+				
+				</table>
+		</div>
+
+	<% end %>
+	
+</div>

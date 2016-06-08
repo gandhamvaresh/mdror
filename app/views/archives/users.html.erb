@@ -1,0 +1,53 @@
+<h4>Users Archive</h4>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+    <th class="span-9">MDManage User Name</th>
+    <th class="span-6">E-mail</th>
+    <th class="span-4">Role</th>
+		<th class="span-5 last"></th>
+  </thead>
+
+	<% @internal_users.each do |user| %>
+ 	 	<tr>
+	    <td><%= user.name %></td>
+	    <td><%= user.email %></td>
+	    <td><%= user.role.name %></td>
+	    <td><%= link_to 'Unarchive', user, confirm: "Are you sure you want to unarchive this user?", method: :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
+
+<hr class="space"/>
+
+<% @grouped_external_users.each do |client_id, external_users| %>
+	<strong><%= Client.find(client_id).name %></strong>
+	<div class="span-24">	
+		<table class="advanced">
+		  <thead>
+	    <th class="span-9">Name</th>
+	    <th class="span-6">E-mail</th>
+	    <th class="span-4">Role</th>
+			<th class="span-5 last"></th>
+	  </thead>
+
+		<% external_users.each do |user| %>
+	 	 	<tr>
+		    <td><%= user.name %></td>
+		    <td><%= user.email %></td>
+		    <td><%= user.role.name %></td>
+		    <td><%= link_to 'Unarchive', user, confirm: "Are you sure you want to unarchive this user?", method: :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	</div>
+
+	<hr class="space"/>
+<% end %>
+
+<div class="prepend-21 span-3">
+	<%= link_to 'Back', archives_index_path, :class => 'button' %>
+</div>
+	

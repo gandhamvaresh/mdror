@@ -1,0 +1,52 @@
+<div class="span-24">
+	<ul id="crumbs">
+		<li><%= link_to 'Patients', patients_path %></li>
+		<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+	</ul>
+</div>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+		<th class="span-4">Patient</th>
+    <th class="span-3">Injury Date</th>
+		<th class="span-10">Description</th>
+    <th class="span-7"></th>
+  </thead>
+
+	<tbody>
+		<% @accidents.each do |accident| %>
+		  <tr>
+		    <td><%= accident.patient.full_name %></td>
+		    <td><%= accident.injury_date.strftime('%b %d, %Y') %></td>
+		 		<td><%= truncate(accident.injury_description, :length => 70) %></td>
+		    <td><%= link_to 'Show', patient_accident_path(@patient, accident) %> | <%= link_to 'Edit', edit_patient_accident_path(@patient, accident) %> | <%= link_to 'Archive', patient_accident_path(@patient, accident), confirm: 'Are you sure you want to archive this case? All related chiropractic examinations and chiropractic treatment notes will also be archived.', method: :delete %> | <%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, accident) %>  </td>
+		  </tr>
+		
+			<%= render(:partial => "chiropractic_examination", :collection => accident.chiropractic_examinations, :locals => {:patient => @patient, :accident => accident} ) %>
+	
+		<% end %>
+	</tbody>
+</table>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @accidents %>
+</div>
+
+<br/>
+
+<div class="prepend-21 span-3">
+<%= link_to 'New Case', new_patient_accident_path(@patient), :class => 'button positive' %>
+</div>
+
+<script>
+function toggle_disclosure_triangle(element) {
+  var origsrc = element.attr('src');
+  var src = '';
+  if (origsrc == '<%= asset_path 'triangle_right.png' %>') src = '<%= asset_path 'triangle_down.png' %>';
+  if (origsrc == '<%= asset_path 'triangle_down.png' %>') src = '<%= asset_path 'triangle_right.png' %>';
+  element.attr('src', src);
+}
+</script>

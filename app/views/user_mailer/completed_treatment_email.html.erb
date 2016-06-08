@@ -1,0 +1,22 @@
+<div class="span-24">
+	Hello Team,
+</div>
+
+<div class="span-24">
+	A new treatment document is ready for claim processing. To download the PDF document, click the below link.<br/>
+	<%= link_to 'Chiropractic Treatment Document (PDF)', print_friendly_patient_accident_chiropractic_examination_chiropractic_treatment_url(@patient, @accident, @examination, @treatment, 'pdf') %>
+</div>
+
+<br/><br/>
+
+<div class="span-24">
+	After you complete processing the document, please click the below link to update the document status on the website.<br/>
+	<%= link_to 'Completed Processing Chiropractic Treatment Document', insurance_claim_processed_patient_accident_chiropractic_examination_chiropractic_treatment_url(@patient, @accident, @examination, @treatment) %>
+</div>
+
+<br/><br/>
+
+<div class="span-24">
+  Regards<br/>
+  MDManage Team
+</div>

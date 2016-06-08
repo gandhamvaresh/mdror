@@ -1,0 +1,41 @@
+<div class="span-24 non_printable_block">
+	<div class="span-24">
+			<%= link_to image_tag('logo.png'), root_url %>
+	</div>
+
+	<% if current_user %>
+
+		<% if current_user.front_desk? || current_user.doctor? %>
+			<div class="prepend-14 span-10">
+				<%= form_tag patients_path, :method => 'get' do %>
+				    <div class="span-4">
+						<%= select_tag :filter, options_for_select([['First Name', 'first_name'], ['Last Name', 'last_name'], ['Social Security Number', 'social_security_number'], ['Cell Phone', 'cell_phone']], session[:filter]) %>
+					</div>
+					<div class="span-6 last">
+						<%= text_field_tag :search, session[:search].blank? ? 'search for patient...' : session[:search], :class => 'search_field', :onFocus => "if(this.value == 'search for patient...') { this.value = ''; }", :onBlur => "if(this.value == '') { this.value = 'search for patient...'; }" %>
+					</div>
+				<% end %>
+			</div>
+		<% elsif current_user.staff? %>
+		<div class="prepend-12 span-12">
+			<%= form_tag clients_path, :method => 'get' do %>
+     		  <div class="span-6">
+				<%= select_tag :filter_client, options_for_select(Client.not_deleted.order('name').map{|c| ["Client - "+c.name, c.id]}, params[:filter_client]) %>
+			  </div>
+				<div class="span-6">
+					<%= select_tag :filter, options_for_select([['Patient - First Name', 'first_name'], ['Patient - Last Name', 'last_name'], ['Patient - Social Security Number', 'social_security_number'], ['Patient - Cell Phone', 'cell_phone']], session[:filter]) %>
+				</div>
+				<div class="span-6 last">
+					<%= text_field_tag :search, session[:search].blank? ? 'search for patient...' : session[:search], :class => 'search_field', :onFocus => "if(this.value == 'search for patient...') { this.value = ''; }", :onBlur => "if(this.value == '') { this.value = 'search for patient...'; }" %>
+				</div>
+			<% end %>
+		</div>
+		<% end %>
+	
+		<div class="span-24">
+			<%= render :partial => "/shared/#{current_user.role.name.downcase}_tabs" %>
+		</div>
+	<% end %>
+
+	<hr class="space"/>
+</div>

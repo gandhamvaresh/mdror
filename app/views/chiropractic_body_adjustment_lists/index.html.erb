@@ -1,0 +1,51 @@
+<h1>Listing chiropractic_body_adjustment_lists</h1>
+
+<table>
+  <tr>
+    <th>Spinal adjustment 1 2 regions</th>
+    <th>Spinal adjustment 3 4 regions</th>
+    <th>Spinal adjustment 5 or more regions</th>
+    <th>Extremity adjustment shoulder left</th>
+    <th>Extremity adjustment shoulder right</th>
+    <th>Extremity adjustment elbow left</th>
+    <th>Extremity adjustment elbow right</th>
+    <th>Extremity adjustment wrist left</th>
+    <th>Extremity adjustment wrist right</th>
+    <th>Extremity adjustment hip left</th>
+    <th>Extremity adjustment hip right</th>
+    <th>Extremity adjustment knee left</th>
+    <th>Extremity adjustment knee right</th>
+    <th>Extremity adjustment ankle left</th>
+    <th>Extremity adjustment ankle right</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_body_adjustment_lists.each do |chiropractic_body_adjustment_list| %>
+  <tr>
+    <td><%= chiropractic_body_adjustment_list.spinal_adjustment_1_2_regions %></td>
+    <td><%= chiropractic_body_adjustment_list.spinal_adjustment_3_4_regions %></td>
+    <td><%= chiropractic_body_adjustment_list.spinal_adjustment_5_or_more_regions %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_shoulder_left %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_shoulder_right %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_elbow_left %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_elbow_right %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_wrist_left %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_wrist_right %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_hip_left %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_hip_right %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_knee_left %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_knee_right %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_ankle_left %></td>
+    <td><%= chiropractic_body_adjustment_list.extremity_adjustment_ankle_right %></td>
+    <td><%= link_to 'Show', chiropractic_body_adjustment_list %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_body_adjustment_list_path(chiropractic_body_adjustment_list) %></td>
+    <td><%= link_to 'Archive', chiropractic_body_adjustment_list, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic body adjustment list', new_chiropractic_body_adjustment_list_path %>

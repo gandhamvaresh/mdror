@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Assessment improved:</b>
+  <%= @chiropractic_assessment.assessment_improved %>
+</p>
+
+<p>
+  <b>Assessment unimproved:</b>
+  <%= @chiropractic_assessment.assessment_unimproved %>
+</p>
+
+<p>
+  <b>Assessment exacerbation:</b>
+  <%= @chiropractic_assessment.assessment_exacerbation %>
+</p>
+
+<p>
+  <b>Updated diagnosis:</b>
+  <%= @chiropractic_assessment.updated_diagnosis %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @chiropractic_assessment.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_chiropractic_assessment_path(@chiropractic_assessment) %> |
+<%= link_to 'Back', chiropractic_assessments_path %>

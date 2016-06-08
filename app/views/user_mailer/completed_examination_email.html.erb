@@ -1,0 +1,22 @@
+<div class="span-24">
+	Hello Team,
+</div>
+
+<div class="span-24">
+	A new examination document is ready for claim processing. To download the PDF document, click the below link.<br/>
+	<%= link_to 'Chiropractic Examination Document (PDF)', print_friendly_patient_accident_chiropractic_examination_url(@patient, @accident, @examination, 'pdf') %>
+</div>
+
+<br/><br/>
+
+<div class="span-24">
+	After you complete processing the document, please click the below link to update the document status on the website.<br/>
+	<%= link_to 'Completed Processing Chiropractic Examination Document', insurance_claim_processed_patient_accident_chiropractic_examination_url(@patient, @accident, @examination) %>
+</div>
+
+<br/><br/>
+
+<div class="span-24">
+  Regards<br/>
+  MDManage Team
+</div>

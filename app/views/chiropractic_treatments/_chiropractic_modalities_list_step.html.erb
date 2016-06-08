@@ -1,0 +1,112 @@
+<div class="span-24">
+	
+	<%= f.fields_for :chiropractic_modalities_list do |builder| %>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">PROCEDURES/MODALITIES:</span><br/>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-6">
+			  <%= builder.check_box :electric_stimulation, :disabled => disable_option %>&nbsp;<label>Electric Stimulation (G0283)</label>
+			</div>
+			
+			<div class="span-6">
+			  <%= builder.check_box :mfr_cervical, :disabled => disable_option %>&nbsp;<label>MFR Cervical (97140-59)</label>
+			</div>
+			
+			<div class="span-6">
+			  <%= builder.check_box :mfr_thoracic, :disabled => disable_option %>&nbsp;<label>MFR Thoracic (97140-59)</label>
+			</div>
+			
+			<div class="span-6 last">
+			  <%= builder.check_box :mfr_lumbar, :disabled => disable_option %>&nbsp;<label>MFR Lumbar (97140-59)</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-6">
+			  <%= builder.check_box :mechanical_traction, :disabled => disable_option %>&nbsp;<label>Mechanical Traction (97012)</label>
+			</div>
+			
+			<div class="span-6">
+			  <%= builder.check_box :massage, :disabled => disable_option %>&nbsp;<label>Massage (97124 -59)</label>
+			</div>
+			
+			<div class="span-6">
+			  <%= builder.check_box :ultrasound, :disabled => disable_option %>&nbsp;<label>Ultrasound (97035)</label>
+			</div>
+			
+			<div class="span-6 last">
+			  <%= builder.check_box :therapeutic_exercise, :disabled => disable_option %>&nbsp;<label>Therapeutic Exercise (97110)</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-6">
+			  <%= builder.check_box :home_use_instruction, :disabled => disable_option %>&nbsp;<label>Self Care/Home MGMT (97535)</label>
+			</div>
+			
+			<div class="span-6">
+			  <%= builder.check_box :infrared, :disabled => disable_option %>&nbsp;<label>Infrared (97026)</label>
+			</div>
+
+			<div class="span-6">
+			  <%= builder.check_box :hot_cold_pack, :disabled => disable_option %>&nbsp;<label>Hot/Cold Pack (97010)</label>
+			</div>
+				
+			<div class="span-6 last">
+			  <%= builder.check_box :bio_feedback, :disabled => disable_option %>&nbsp;<label>Bio-Feedback (90901)</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			 <%= builder.check_box :therapeutic_functional_activities, :disabled => disable_option %>&nbsp;<label>Therapeutic Functional Activities (97530)</label>
+		</div>
+		
+		<div class="span-24">
+	  	<label>Other:</label>&nbsp;&nbsp;<%= builder.text_field :other, :class => 'small_font_span_8', :disabled => disable_option %>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">SUPPLIES:</span><br/>
+		</div>
+
+		<div class="span-24">
+			<div class="span-4">
+			  <%= builder.check_box :supplies_bio_freeze, :disabled => disable_option %>&nbsp;<label>Bio-freeze</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :supplies_ice_pack, :disabled => disable_option %>&nbsp;<label>Ice Pack</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :supplies_lumbar_belt, :disabled => disable_option %>&nbsp;<label>Lumbar Belt</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :supplies_cervical_pillow, :disabled => disable_option %>&nbsp;<label>Cervical Pillow</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :supplies_cervical_collar, :disabled => disable_option %>&nbsp;<label>Cervical Collar</label>
+			</div>
+		</div>
+			
+	<% end %>
+		
+		<hr class="space"/>
+	
+		<div class="span-24">
+			<label>Summary:</label>&nbsp;&nbsp;<%= f.text_field :summary, :class => 'small_font_span_8', :disabled => disable_option %>
+		</div>
+		
+		<hr class="space"/>
+	
+		<div class="span-24">
+			<% disable_option = true if @chiropractic_treatment.completed? %>
+			<%= f.check_box :completed, :disabled => disable_option %>&nbsp;<label>Treatment notes is complete.</label><br/>
+			<span class="quiet">Check this after you finish entering all the details for today's treatment and are ready to submit the form for medical insurance claim processing.
+		</div>
+		
+</div>
+

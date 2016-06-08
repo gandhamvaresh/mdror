@@ -1,0 +1,465 @@
+<% unless disable_option %>
+	<div class="span-24">
+			<label>Treatment date:</label><br />
+	    <%= f.date_select :treatment_date, :disabled => disable_option %>
+	</div>
+	<hr class="space"/>
+<% end %>
+
+<!--
+<div class="span-24">
+	 <label>Patient states:</label><br />
+		<% if disable_option %>
+			<%= @chiropractic_treatment.patient_states %>
+			<hr class="space"/>
+		<% else %>
+    	<%= f.text_area :patient_states, :class => 'text_area_span_23', :disabled => disable_option %>
+		<% end %>
+</div>
+-->
+
+<div class="span-24">
+	
+	<%= f.fields_for :chiropractic_observation_list do |builder| %>
+	
+	<div class="span-24">
+		<span style="text-decoration:underline; font-weight:bold;">Symptoms:</span>
+	</div>
+	
+	<div class="span-24">
+		<div class="span-4">
+			<%= builder.check_box :neck_pain, :disabled => disable_option %> <label>Neck Pain</label>
+		</div>
+		
+		<div class="span-2">
+			<%= builder.select :neck_pain_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+		</div>
+		
+		<div class="span-3">
+			<%= builder.select :neck_pain_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+		</div>
+		
+		<div class="span-15 last">
+			<%= builder.select :neck_pain_radiation_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>&nbsp;&nbsp;
+			<%= builder.check_box :neck_pain_radiates_to_shoulder, :disabled => disable_option %> <label>To Shoulder</label>&nbsp;&nbsp;
+			<%= builder.check_box :neck_pain_radiates_to_elbow, :disabled => disable_option %> <label>To Elbow</label>&nbsp;&nbsp;
+			<%= builder.check_box :neck_pain_radiates_to_hand, :disabled => disable_option %> <label>To Hand</label>
+			&nbsp;&nbsp;&nbsp;&nbsp;<label>Digits</label>&nbsp;
+			<%= builder.check_box :neck_pain_radiates_to_digit1, :disabled => disable_option %><label>1</label>
+			<%= builder.check_box :neck_pain_radiates_to_digit2, :disabled => disable_option %><label>2</label>
+			<%= builder.check_box :neck_pain_radiates_to_digit3, :disabled => disable_option %><label>3</label>
+			<%= builder.check_box :neck_pain_radiates_to_digit4, :disabled => disable_option %><label>4</label>
+			<%= builder.check_box :neck_pain_radiates_to_digit5, :disabled => disable_option %><label>5</label>
+		</div>
+	</div>
+	
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-4">
+			<%= builder.check_box :upper_mid_back_pain, :disabled => disable_option %> <label>Upper/Mid-back Pain</label>
+		</div>
+		
+		<div class="span-2">
+			<%= builder.select :upper_mid_back_pain_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+		</div>
+		
+		<div class="span-3">
+			<%= builder.select :upper_mid_back_pain_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+		</div>
+		
+		<div class="span-15 last">
+			<%= builder.select :upper_mid_back_pain_radiation_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both'], ['Around Rib Cage', 'Around Rib Cage']], {:prompt => "None"}, :disabled => disable_option %>
+		</div>
+	</div>
+	
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-4">
+			<%= builder.check_box :low_back_pain, :disabled => disable_option %> <label>Low back Pain</label>
+		</div>
+		
+		<div class="span-2">
+			<%= builder.select :low_back_pain_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+		</div>
+		
+		<div class="span-3">
+			<%= builder.select :low_back_pain_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+		</div>
+		
+		<div class="span-15 last">
+			<%= builder.select :low_back_pain_radiation_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>&nbsp;&nbsp;
+			<%= builder.check_box :low_back_pain_radiates_to_buttocks, :disabled => disable_option %> <label>To Buttocks</label>&nbsp;&nbsp;
+			<%= builder.check_box :low_back_pain_radiates_to_thighs, :disabled => disable_option %> <label>To Thighs</label>&nbsp;
+			<%= builder.check_box :low_back_pain_radiates_to_calf, :disabled => disable_option %> <label>To Calf</label>&nbsp;
+			<%= builder.check_box :low_back_pain_radiates_to_hips, :disabled => disable_option %><label>To Hips</label>&nbsp;
+			<%= builder.check_box :low_back_pain_radiates_to_knees, :disabled => disable_option %><label>To Knees</label>&nbsp;
+			<%= builder.check_box :low_back_pain_radiates_to_foot, :disabled => disable_option %><label>To Foot</label>
+		</div>
+	</div>
+	
+	   	<hr class="space"/>
+		<div class="span-24">
+			<div class="span-4">
+			  <%= builder.check_box :symptom_headache, :disabled => disable_option %> <label>Headache</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :symptom_pelvis_pain, :disabled => disable_option %> <label>Pelvis Pain</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :symptom_hip_pain, :disabled => disable_option %> <label>Hip Pain</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :symptom_knee_pain, :disabled => disable_option %> <label>Knee Pain</label>
+			</div>
+		</div>
+		
+		
+		<div class="span-24">
+			<div class="span-4">
+			  <%= builder.check_box :symptom_ankle_pain, :disabled => disable_option %> <label>Ankle Pain</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :symptom_shoulder_pain, :disabled => disable_option %> <label>Shoulder Pain</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :symptom_elbow_pain, :disabled => disable_option %> <label>Elbow Pain</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :symptom_wrist_pain, :disabled => disable_option %> <label>Wrist Pain</label>
+			</div>
+		</div>
+		
+		
+		<div class="span-24">
+			<label>Other:</label>&nbsp;<%= builder.text_field :symptom_other_pain, :class => 'small_font_span_7', :disabled => disable_option %> 
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">Observations:</span>
+		</div>
+				
+		<div class="span-24">
+			<div class="span-4">
+			  <%= builder.check_box :myospasms, :disabled => disable_option %> <label>Myospasms</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :tenderness, :disabled => disable_option %> <label>Tenderness</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :hypotonicity, :disabled => disable_option %> <label>Hypotonicity</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :flare_ups, :disabled => disable_option %> <label>Flare ups</label>
+			</div>
+		</div>
+				
+		<div class="span-24">
+			<div class="span-4">
+			  <%= builder.check_box :suboccipitals, :disabled => disable_option %> <label>Suboccipitals</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :rhomboids, :disabled => disable_option %> <label>Rhomboids</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :deltoids, :disabled => disable_option %> <label>Deltoids</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :quad_lumb, :disabled => disable_option %> <label>Quad Lumb</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+				<div class="span-4">
+				  <%= builder.check_box :uppertraps, :disabled => disable_option %> <label>Uppertraps</label>
+				</div>
+				<div class="span-4">
+				  <%= builder.check_box :levator_scap, :disabled => disable_option %> <label>Levator Scap</label>
+				</div>
+				<div class="span-4 last">
+				  <%= builder.check_box :ctl_paraspinals, :disabled => disable_option %> <label>CTL Paraspinals</label>
+				</div>
+		</div>
+			
+		<div class="span-24">
+			<label>Other:</label>&nbsp;<%= builder.text_field :other_observations, :class => 'small_font_span_7', :disabled => disable_option %> 
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">Muscle Spasm:</span><br/>
+		</div>
+				
+		<div class="span-24">
+			<div class="span-3">
+			  <%= builder.check_box :muscle_spasm_cervical, :disabled => disable_option %> <label>Cervical</label>
+			</div>
+			<div class="span-3">
+			  <%= builder.check_box :muscle_spasm_thoracic, :disabled => disable_option %> <label>Thoracic</label>
+			</div>
+			<div class="span-3">
+			  <%= builder.check_box :muscle_spasm_lumbar, :disabled => disable_option %> <label>Lumbar</label>
+			</div>
+			<div class="span-3">
+			  <%= builder.check_box :muscle_spasm_hip, :disabled => disable_option %> <label>Hip</label>
+			</div>
+			<div class="span-3">
+			  <%= builder.check_box :muscle_spasm_shoulder, :disabled => disable_option %> <label>Shoulder</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :muscle_spasm_upper_extremity, :disabled => disable_option %> <label>Upper Extremity</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :muscle_spasm_lower_extremity, :disabled => disable_option %> <label>Lower Extremity</label>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">Findings:</span><br/>
+		</div>
+				
+		<div class="span-24">
+			<div class="span-12">
+				<%= builder.check_box :findings_increased_muscle_spasm, :disabled => disable_option %> 
+				<label>Difficulty Manipulating due to increased muscle spasm</label>
+			</div>
+			<div class="span-12 last">
+				<%= builder.check_box :findings_increased_apprehension, :disabled => disable_option %>
+				<label>Difficulty stretching due to increased apprehension</label>
+			</div>
+		<div>
+		
+		<div class="span-24">
+			<div class="span-12">
+				<%= builder.check_box :findings_biomechanical_dysfunction, :disabled => disable_option %>
+				<label>Continue to experience intractable pain and bio-mechanical dysfunction</label>
+			</div>
+			<div class="span-12 last">
+				<%= builder.check_box :findings_upper_trapezius_spasm, :disabled => disable_option %>
+				<label>Chronic Upper Trapezius Spasm</label>
+			</div>
+		<div>
+		
+		<div class="span-24">
+			<div class="span-12">
+				<%= builder.check_box :findings_fibrous_tissue_adhesions, :disabled => disable_option %>
+				<label>Fibrous tissue adhesions causing incomplete manipulations</label>
+			</div>
+			<div class="span-12 last">
+				<%= builder.check_box :findings_activator_technique_used, :disabled => disable_option %>
+				<label>Used activator technique instead of diversified technique</label>
+			</div>
+		<div>
+		
+		<div class="span-24">
+			<div class="span-12">
+				<%= builder.check_box :findings_sub_optimal_response, :disabled => disable_option %>
+				<label>Overall response has been sub-optimal</label>
+			</div>
+			<div class="span-12 last">
+				<%= builder.check_box :findings_life_style_affected_by_pain, :disabled => disable_option %>
+				<label>Life style is affected by pain, difficult to perform ADLs and work habits</label>
+			</div>
+		<div>
+			
+		<div class="span-24">
+			<div class="span-12">
+				<%= builder.check_box :findings_patient_was_given_tens_unit_for_trial_period, :disabled => disable_option %>
+				<label>Patient was given a TENS Unit for trial period</label>
+			</div>
+			<div class="span-12 last">
+				<%= builder.check_box :findings_tens_unit_is_helping_patient, :disabled => disable_option %>
+				<label>TENS Unit is helping patient</label>
+			</div>
+		<div>		
+				
+		<div class="span-24">
+			<div class="span-12">
+				<%= builder.check_box :findings_involuntary_contractions, :disabled => disable_option %>
+				<label>Manipulation hindered due to involuntary contractions of the supporting tissues</label>
+			</div>
+			<div class="span-12 last">
+				<label>Other:</label>&nbsp;<%= builder.text_field :findings_other, :class => 'small_font_span_7', :disabled => disable_option %>
+			</div>
+		<div>
+		
+		<hr class="space"/>
+
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">ROM:</span><br/>
+		</div>
+			
+		<div class="span-24">
+			<div class="span-4">
+				<label>C-Spine</label> &nbsp; <%= builder.select :rom_cervical_spine, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+			<div class="span-4">
+				<label>L-Spine</label> &nbsp; <%= builder.select :rom_lumbar_spine, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+			<div class="span-4">
+				<label>T-Spine</label> &nbsp; <%= builder.select :rom_thoracic_spine, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+			<div class="span-4">
+				<label>Hip</label> &nbsp; <%= builder.select :rom_hip, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+			<div class="span-4">
+				<label>Shoulder</label> &nbsp; <%= builder.select :rom_shoulder, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+			<div class="span-4 last">
+				<label>Elbow</label> &nbsp; <%= builder.select :rom_elbow, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<label>Hand</label> &nbsp; <%= builder.select :rom_hand, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+			<div class="span-4">
+				<label>Knee</label> &nbsp; <%= builder.select :rom_knee, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+			<div class="span-4 last">
+				<label>Ankle</label> &nbsp; <%= builder.select :rom_ankle, [['', 0], ['Up', 1], ['Down', 2]], {}, :disabled => disable_option %>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+			
+		<div class="span-24">
+			<div class="span-8">
+				<label>Spasm:</label>
+				<%= builder.check_box :spasm_cervical, :disabled => disable_option %> <label>C</label>
+				<%= builder.check_box :spasm_thoracic, :disabled => disable_option %> <label>T</label>
+				<%= builder.check_box :spasm_lumbar, :disabled => disable_option %> <label>L</label> &nbsp;
+				<%= builder.text_field :spasm_note, :class => 'small_font_span_3', :disabled => disable_option %> 
+			</div>
+			<div class="span-8">
+				<label>Tenderness:</label>
+				<%= builder.check_box :tenderness_cervical, :disabled => disable_option %> <label>C</label>
+				<%= builder.check_box :tenderness_thoracic, :disabled => disable_option %> <label>T</label>
+				<%= builder.check_box :tenderness_lumbar, :disabled => disable_option %> <label>L</label> &nbsp;
+				<%= builder.text_field :tenderness_note, :class => 'small_font_span_3', :disabled => disable_option %>
+			</div>
+			<div class="span-8 last">
+				<label>Myofacitis:</label>
+				<%= builder.check_box :myofacitis_cervical, :disabled => disable_option %> <label>C</label>
+				<%= builder.check_box :myofacitis_thoracic, :disabled => disable_option %> <label>T</label>
+				<%= builder.check_box :myofacitis_lumbar, :disabled => disable_option %> <label>L</label> &nbsp;
+				<%= builder.text_field :myofacitis_note, :class => 'small_font_span_3', :disabled => disable_option %>
+			</div>
+		</div>
+		
+		<!--			
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">Spinal Manipulation Region:</span><br/>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-2">
+				 <%= builder.check_box :disc_c1, :disabled => disable_option %> <label>C1</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_c2, :disabled => disable_option %> <label>C2</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_c3, :disabled => disable_option %> <label>C3</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_c4, :disabled => disable_option %> <label>C4</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_c5, :disabled => disable_option %> <label>C5</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_c6, :disabled => disable_option %> <label>C6</label>
+			</div>
+			<div class="span-2 last">
+				 <%= builder.check_box :disc_c7, :disabled => disable_option %> <label>C7</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-2">
+				 <%= builder.check_box :disc_t1, :disabled => disable_option %> <label>T1</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t2, :disabled => disable_option %> <label>T2</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t3, :disabled => disable_option %> <label>T3</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t4, :disabled => disable_option %> <label>T4</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t5, :disabled => disable_option %> <label>T5</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t6, :disabled => disable_option %> <label>T6</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t7, :disabled => disable_option %> <label>T7</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t8, :disabled => disable_option %> <label>T8</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t9, :disabled => disable_option %> <label>T9</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t10, :disabled => disable_option %> <label>T10</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_t11, :disabled => disable_option %> <label>T11</label>
+			</div>
+			<div class="span-2 last">
+				 <%= builder.check_box :disc_t12, :disabled => disable_option %> <label>T12</label>
+			</div>
+	 	</div>
+	
+		<div class="span-24">
+			<div class="span-2">
+				 <%= builder.check_box :disc_l1, :disabled => disable_option %> <label>L1</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_l2, :disabled => disable_option %> <label>L2</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_l3, :disabled => disable_option %> <label>L3</label>
+			</div>
+			<div class="span-2">
+				 <%= builder.check_box :disc_l4, :disabled => disable_option %> <label>L4</label>
+			</div>
+			<div class="span-2 last">
+				 <%= builder.check_box :disc_l5, :disabled => disable_option %> <label>L5</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<%= builder.check_box :occiput, :disabled => disable_option %> <label>Occiput</label>
+			</div>
+			<div class="span-4">
+				<%= builder.check_box :sacrum, :disabled => disable_option %> <label>Sacrum</label>
+			</div>
+			<div class="span-4">
+				<%= builder.check_box :sacroiliac_right, :disabled => disable_option %> <label>Sacroiliac Right</label>
+			</div>
+			<div class="span-4 last">
+				<%= builder.check_box :sacroiliac_left, :disabled => disable_option %> <label>Sacroiliac Left</label>
+			</div>
+		</div>
+	-->
+			
+	<% end %>
+	
+</div>
+
+

@@ -1,0 +1,22 @@
+<% content_for(:main_header) do %>
+	<%= link_to 'Back', :back, :class => 'left' %>
+	<h1 class="title">New Case</h1>
+<% end %>
+
+<% content_for(:main_content) do %>
+	<div id="breadcrumb">
+		<ul class="crumbs">
+			<li><%= link_to 'Patients', patients_path %></li>
+			<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+		</ul>
+	</div>
+
+	<br/>
+	
+	<div>
+		<%=@patient.full_name%>
+		<br/>
+		<%= render 'form' %>
+	</div>
+	
+<% end %>

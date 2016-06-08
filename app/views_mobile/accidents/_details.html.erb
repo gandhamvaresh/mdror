@@ -1,0 +1,147 @@
+<div class="span-24 non_printable_block">	
+	
+	<h2 class="title2">Accident Details</h2>
+
+	<div class="box-white">
+		<p>
+			Accident type: <%= @accident.accident_type %>
+		</p>
+
+		<p>
+			Injury date: <%= @accident.injury_date %>
+		</p>
+
+		<p>
+			  <%= check_box_tag :pedestrian, 1, @accident.pedestrian, :disabled => true %>&nbsp;Pedestrian
+		</p>
+	
+		<p>
+			  <%= check_box_tag :driver, 1, @accident.driver, :disabled => true %>&nbsp;Driver
+		</p>
+	
+		<p>
+			  <%= check_box_tag :passenger, 1, @accident.passenger, :disabled => true %>&nbsp;Passenger
+		</p>
+		
+	</div>
+	
+	<h2 class="title2">Seating Details</h2>
+	
+	<div class="box-white">
+		<p>
+			Seating position: <%= @accident.seating_position %>
+		</p>
+
+		<p>
+			<%= check_box_tag :wearing_seat_belt, 1, @accident.wearing_seat_belt, :disabled => true %>&nbsp;Wearing seatbelt
+		</p>
+			
+		<p>
+			<%= check_box_tag :airbag_deploy, 1, @accident.airbag_deploy, :disabled => true %>&nbsp;Airbag deploy
+		</p>
+
+		<p>
+			<%= check_box_tag :loss_of_consciousness, 1, @accident.loss_of_consciousness, :disabled => true %>&nbsp;Loss of consciousness
+		</p>
+
+		<p>
+			<%= check_box_tag :lost_time_from_work, 1, @accident.lost_time_from_work, :disabled => true %>&nbsp;Lost time from work
+			<% if @accident.lost_time_from_work? %>
+				&nbsp; - &nbsp; <%= @accident.days_lost_from_work %> days
+			<% end %>
+		</p>
+		
+		<p>
+			<%= check_box_tag :fear_while_driving, 1, @accident.fear_while_driving, :disabled => true %>&nbsp;Fear while driving
+		</p>
+		
+	</div>
+
+	<h2 class="title2">Hospitalisation Details</h2>
+
+	<div class="box-white">
+		<p>
+			Hospital name: <%= @accident.hospital_name %>
+		</p>
+		
+		<p>
+			<%= check_box_tag :taken_to_hospital, 1, @accident.taken_to_hospital, :disabled => true %>&nbsp;Taken to hospital
+		</p>
+		
+		<p>
+			Transport mode: <%= @accident.hospital_transport_mode %>
+		</p>
+	
+		<p>
+			<%= check_box_tag :examined, 1, @accident.examined, :disabled => true %>&nbsp;Examined
+		</p>
+
+		<p>
+			<%= check_box_tag :xrays, 1, @accident.xrays, :disabled => true %>&nbsp;X-rays
+		</p>
+
+		<p>
+			<%= check_box_tag :ctscan, 1, @accident.ctscan, :disabled => true %>&nbsp;CT Scan
+		</p>
+
+		<p>
+			<%= check_box_tag :mri, 1, @accident.mri, :disabled => true %>&nbsp;MRI
+		</p>
+	
+		<p>
+			<%= check_box_tag :admitted, 1, @accident.admitted, :disabled => true %>&nbsp;Admitted
+		</p>
+	
+		<p>
+			<%= check_box_tag :released, 1, @accident.released, :disabled => true %>&nbsp;Released
+		</p>
+	</div>
+
+
+	<h2 class="title2">Injury &amp; Medications</h2>
+	
+	<div class="box-white">
+		<p>
+		  Injury description: <%= @accident.injury_description %>
+		</p>
+		
+		<p>
+		  Medications: <%= @accident.medications %>
+		</p>
+		
+		<p>
+		 Prior injuries: <%= @accident.prior_injuries %>
+		</p>
+	</div>
+
+	<h2 class="title2">Prior Diagnostic Studies</h2>
+
+	<div class="box-white">
+	
+		<p>
+			MRI: <%= (@accident.prior_diagnostic_study_mri == 'Other') ? @accident.prior_diagnostic_study_mri_other : @accident.prior_diagnostic_study_mri %>
+		</p>
+	
+		<p>
+			CT Scan: <%= (@accident.prior_diagnostic_study_ctscan == 'Other') ? @accident.prior_diagnostic_study_ctscan_other : @accident.prior_diagnostic_study_ctscan %>
+		</p>
+	
+		<p>
+			EMG: <%= @accident.prior_diagnostic_study_emg %>
+		</p>
+		
+		<p>
+			Results: <%= @accident.prior_diagnostic_results %>
+		</p>
+	</div>
+
+
+	<h2 class="title2">Medical History</h2>
+
+	<div class="box-white">
+		<p>
+			Details: <%= @accident.medical_history %>
+		</p>
+	</div>
+
+</div>

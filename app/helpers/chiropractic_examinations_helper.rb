@@ -1,0 +1,2 @@
+module ChiropracticExaminationsHelper
+end

@@ -1,0 +1,46 @@
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+		<% if !@clients.blank? %>
+          <th class="span-5">Name</th>
+          <th class="span-4">Location</th>
+          <th class="span-4">Claim Recipient</th>
+          <th class="span-3">Phone</th>
+          <th class="span-8"></th>
+		<% elsif !@patients.blank? %>
+          <th class="span-5">Client Name</th>
+          <th class="span-4">Patient Name</th>
+		<% end %>
+  </thead>
+
+	<tbody>
+		<% @clients.each do |client| %>
+		  <tr>
+		    <td><%= link_to client.name, client %></td>
+		    <td><%= client.city %>, <%= client.state %></td>
+		    <td><%= client.claim_recipient_email %></td>
+		    <td><%= client.phone %></td>
+		    <td><%= link_to 'Edit', edit_client_path(client) %> <!--| <%= link_to 'Archive', client, confirm: "Are you sure you want to archive this client. All the users and patients of this client will also be archived?", method: :delete %> --> | <%= link_to 'Users', users_client_path(client) %> | <%= link_to 'Examinations', completed_examinations_client_path(client) %> | <%= link_to 'Treatments', completed_treatments_client_path(client) %> <br/> <%= link_to 'Processed Examinations', processed_examinations_client_path(client) %> | <%= link_to 'Processed Treatments', processed_treatments_client_path(client) %></td>
+		  </tr>
+		<% end %>
+		<% @patients.each do |patient| %>
+		  <tr>
+			<td><%= patient.client.name %></td>
+		    <td><%= link_to patient.full_name, patient %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @clients unless @clients.blank? %>
+	<%= paginate @patients unless @patients.blank? %>
+</div>
+
+<br/>
+
+<div class="prepend-21 span-3">
+<%= link_to 'New Client', new_client_path, :class => 'button positive' %>
+</div>

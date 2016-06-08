@@ -1,0 +1,42 @@
+<h4>Clients Archive</h4>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+    <th class="span-4">Name</th>
+		<th class="span-5">Address Line1</th>
+    <th class="span-3">City</th>
+    <th class="span-2">State</th>
+		<th class="span-2">Zip</th>
+    <th class="span-3">Phone</th>
+		<th class="span-3">Fax</th>
+    <th class="span-2 last"></th>
+  </thead>
+
+	<tbody>
+		<% @clients.each do |client| %>
+		  <tr>
+		    <td><%= client.name %></td>
+				<td><%= client.address_line1 %></td>
+		    <td><%= client.city %></td>
+		    <td><%= client.state %></td>
+				<td><%= client.zip %></td>
+		    <td><%= client.phone %></td>
+				<td><%= client.fax %></td>
+		    <td><%= link_to 'Unarchive', client, confirm: "Are you sure you want to unarchive this client. All the users and patients of this client will also be unarchived?", method: :delete %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @clients %>
+</div>
+
+<br/>
+
+<div class="prepend-21 span-3">
+	<%= link_to 'Back', archives_index_path, :class => 'button' %>
+</div>

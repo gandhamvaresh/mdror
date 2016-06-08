@@ -1,0 +1,30 @@
+<div>
+	<%= form_for [@patient, @accident, @chiropractic_examination] do |f| %>
+
+ 		<%= render "shared/error_messages", :target => @chiropractic_examination %>
+
+		<%= render "#{@chiropractic_examination.current_step}_step", :f => f, :disable_option => false %>
+		
+		<br/>
+		
+		<div class="box-white">
+			<p>
+				<% if @chiropractic_examination.first_step? %>
+					&nbsp;
+				<% else %>
+					<%= f.submit "Back", :name => 'back_button' %>
+				<% end %>
+				<span class="detail">&nbsp;</span>
+				<span>
+					<% if @chiropractic_examination.last_step? %>
+						<%= f.submit "Done", :name => 'done_button' %>
+					<% else %>
+			    	<%= f.submit "Next" %>
+					<% end %>
+				</span>
+			</p>
+		</div>
+		
+	<% end %>
+
+</div>

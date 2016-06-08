@@ -1,0 +1,36 @@
+
+<% content_for(:main_header) do %>
+	<h1 class="title">MDManage</h1>
+<% end %>
+
+<% content_for(:main_content) do %>
+	<% unless flash.now[:alert].blank? %>
+		<p class="note"><%= flash.now[:alert] %></p>
+	<% end %>
+
+	<% unless notice.blank? %>
+		<p class="note"><%= notice %></p>
+	<% end %>
+
+	
+	<%= form_tag sessions_path do %>
+		<div class="box-white">
+			<p><%= label_tag :email %><%= text_field_tag :email, params[:email], :placeholder => 'Enter your email address' %></p>
+			<p><%= label_tag :password %><%= password_field_tag :password, nil, :placeholder => 'Enter your password' %></p>
+
+			<%= submit_tag "Sign in", :class => 'button red' %>
+			
+			<p class="note"><%= link_to 'Forgot Password?', new_password_reset_path %></p>
+		</div>
+	<% end %>
+<% end %>
+
+<% content_for(:sidebar_header) do %>
+	<p class="title">Our Vision</p>
+<% end %>
+
+<% content_for(:sidebar_content) do %>
+	<p>To provide quality medical services management by implementing a winning combination of technology and people to enhance the overall efficiency of client practices.</p>
+	<p>MD Manage provides healthcare consulting, and technology-based solutions for the healthcare providers. We provide effective and efficient services including billing, patient management, insurance receivables management and electronic document management.</p>
+	<p>We also specialize in providing business and technology analysis and counseling, supporting staffing solutions and/or delivering a fully outsourced service.</p>
+<% end %>

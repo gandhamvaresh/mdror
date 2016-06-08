@@ -1,0 +1,40 @@
+<% content_for(:main_header) do %>
+	<%= link_to 'Back', archives_index_path, :class => 'left' %>
+	<h1 class="title">Cases Archive</h1>
+<% end %>
+
+
+<% content_for(:main_content) do %>
+
+	<table class="advanced">
+	  <thead>
+			<th>Patient</th>
+	    <th>Injury Date</th>
+			<th>Description</th>
+	    <th></th>
+  	</thead>
+
+		<tbody>
+			<% if @accidents.blank? %>
+				<tr><td colspan="4"><p class="note">There are no archived cases.</p></td></tr>
+			<% else %>
+				<% @accidents.each do |accident| %>
+					<% patient = accident.patient %>
+				  <tr>
+				    <td><%= accident.patient.full_name %></td>
+				    <td><%= accident.injury_date.strftime('%b %d, %Y') %></td>
+				 		<td><%= truncate(accident.injury_description, :length => 100) %></td>
+				    <td><%= link_to 'Show', patient_accident_path(patient, accident) %> | <%= link_to 'Unarchive', patient_accident_path(patient, accident), confirm: 'Are you sure you want to unarchive this case? All related chiropractic examinations and chiropractic treatment notes will also be unarchived.', method: :delete %> </td>
+				  </tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+
+	<br/>
+
+	<div class="box-white">
+		<%= paginate @accidents %>
+	</div>
+
+<% end %>

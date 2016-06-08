@@ -1,0 +1,35 @@
+<h1>Listing chiropractic_compliances</h1>
+
+<table>
+  <tr>
+    <th>Compliance</th>
+    <th>Compliance</th>
+    <th>Compliance affected by transportation</th>
+    <th>Compliance affected by work schedule</th>
+    <th>Compliance affected by personal matter</th>
+    <th>Compliance affected by other reason</th>
+    <th>Other reason for compliance</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_compliances.each do |chiropractic_compliance| %>
+  <tr>
+    <td><%= chiropractic_compliance.compliance %></td>
+    <td><%= chiropractic_compliance.compliance %></td>
+    <td><%= chiropractic_compliance.compliance_affected_by_transportation %></td>
+    <td><%= chiropractic_compliance.compliance_affected_by_work_schedule %></td>
+    <td><%= chiropractic_compliance.compliance_affected_by_personal_matter %></td>
+    <td><%= chiropractic_compliance.compliance_affected_by_other_reason %></td>
+    <td><%= chiropractic_compliance.other_reason_for_compliance %></td>
+    <td><%= link_to 'Show', chiropractic_compliance %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_compliance_path(chiropractic_compliance) %></td>
+    <td><%= link_to 'Archive', chiropractic_compliance, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic compliance', new_chiropractic_compliance_path %>

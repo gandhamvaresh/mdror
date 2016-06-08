@@ -1,0 +1,1401 @@
+<div class="span-24">
+	<%= f.fields_for :chiropractic_investigation_list do |builder| %>
+	
+		<div class="span-24">
+			<label>EXAM:</label>&nbsp;&nbsp;
+			<label>BP</label>&nbsp;<%= builder.text_field :systolic_blood_pressure, :class => 'small_font_span_1', :disabled => disable_option %>&nbsp;/&nbsp;<%= builder.text_field :diastolic_blood_pressure, :class => 'small_font_span_1', :disabled => disable_option %>&nbsp;&nbsp;&nbsp;&nbsp;
+			<label>Pulse</label>&nbsp;<%= builder.text_field :pulse, :class => 'small_font_span_2', :disabled => disable_option %>&nbsp;&nbsp;&nbsp;&nbsp;
+			<label>Cranial Nerves II-XII:</label>&nbsp;<%= builder.check_box :cranial_nerves_grossly_intact, :disabled => disable_option %> <label>Grossly intact</label>&nbsp;&nbsp;<%= builder.check_box :cranial_nerves_abnormal, :disabled => disable_option %> <label>Abnormal</label>&nbsp;&nbsp;<%= builder.text_field :cranial_nerves_abnormality, :class => 'small_font_span_7', :disabled => disable_option %>
+			<br/>
+			<%= builder.check_box :ecohymosis, :disabled => disable_option %> <label>Ecohymosis</label>&nbsp;&nbsp;
+			<%= builder.check_box :lacerations, :disabled => disable_option %> <label>Lacerations</label>&nbsp;&nbsp;
+			<%= builder.check_box :edema, :disabled => disable_option %> <label>Edema</label>&nbsp;&nbsp;
+			<label>Noted:</label>&nbsp;&nbsp;
+			<%= builder.text_field :exam_notes, :class => 'small_font_span_14', :disabled => disable_option %>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-26">
+			<div class="span-2">
+				<label>C-ROM's</label>
+			</div>
+			
+			<div class="span-2">
+				<label>NORM</label>
+			</div>
+			
+			<div class="span-3">
+				<label>EXAM</label>
+			</div>
+			
+			<div class="span-1">
+				<center><label>PAIN</label></center>
+			</div>
+			
+			<div class="span-3">
+				<center><label>DISCOMFORT</label></center>
+			</div>
+			
+			<div class="prepend-2 span-2">
+				<label>L-ROM's</label>
+			</div>
+			
+			<div class="span-2">
+				<label>NORM</label>
+			</div>
+			
+			<div class="span-3">
+				<label>EXAM</label>
+			</div>
+			
+			<div class="span-1">
+				<center><label>PAIN</label></center>
+			</div>
+			
+			<div class="span-3 last">
+				<center><label>DISCOMFORT</label><center>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		<div class="span-24">
+			<div class="span-2">
+				<label>Flex</label>
+			</div>
+			
+			<div class="span-2">
+				<label>60+</label>
+			</div>
+			
+			<div class="span-3">
+			  <div class="slider-100" style="float:left;width:70%;"></div>
+			  <div style="float:right;" class="slider-value"></div>
+			  <%= builder.hidden_field :crom_flex_exam, :disabled => disable_option, :class => 'sliderValue' %>		
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :crom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :crom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="prepend-2 span-2">
+				<label>Flex</label>
+			</div>
+			
+			<div class="span-2">
+				<label>90+</label>
+			</div>
+			
+			<div class="span-3">
+			  <div class="slider-100" style="float:left;width:70%;"></div>
+			  <div style="float:right;" class="slider-value"></div>
+			  <%= builder.hidden_field :lrom_flex_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :lrom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3 last">
+				<center><%= builder.check_box :lrom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Ext</label>
+			</div>
+			
+			<div class="span-2">
+				<label>50+</label>
+			</div>
+			
+			<div class="span-3">
+			  <div class="slider-100" style="float:left;width:70%;"></div>
+			  <div style="float:right;" class="slider-value"></div>
+			  <%= builder.hidden_field :crom_ext_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :crom_ext_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :crom_ext_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="prepend-2 span-2">
+				<label>Ext</label>
+			</div>
+			
+			<div class="span-2">
+				<label>35+</label>
+			</div>
+			
+			<div class="span-3">
+			  <div class="slider-100" style="float:left;width:70%;"></div>
+			  <div style="float:right;" class="slider-value"></div>
+			  <%= builder.hidden_field :lrom_ext_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :lrom_ext_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3 last">
+				<center><%= builder.check_box :lrom_ext_discomfort, :disabled => disable_option %></center>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>L Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>80+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :crom_lrot_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :crom_lrot_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :crom_lrot_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="prepend-2 span-2">
+				<label>L Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>40+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :lrom_lrot_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :lrom_lrot_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3 last">
+				<center><%= builder.check_box :lrom_lrot_discomfort, :disabled => disable_option %></center>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>R Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>80+</label>
+			</div>
+			
+			<div class="span-3">
+    		  <div class="slider-100" style="float:left;width:70%;"></div>
+    		  <div style="float:right;" class="slider-value"></div>
+    		  <%= builder.hidden_field :crom_rrot_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :crom_rrot_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :crom_rrot_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="prepend-2 span-2">
+				<label>R Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>40+</label>
+			</div>
+			
+			<div class="span-3">
+      		  <div class="slider-100" style="float:left;width:70%;"></div>
+      		  <div style="float:right;" class="slider-value"></div>
+      		  <%= builder.hidden_field :lrom_rrot_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :lrom_rrot_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3 last">
+				<center><%= builder.check_box :lrom_rrot_discomfort, :disabled => disable_option %></center>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>LLF</label>
+			</div>
+			
+			<div class="span-2">
+				<label>40+</label>
+			</div>
+			
+			<div class="span-3">
+      		  <div class="slider-100" style="float:left;width:70%;"></div>
+      		  <div style="float:right;" class="slider-value"></div>
+      		  <%= builder.hidden_field :crom_llf_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :crom_llf_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :crom_llf_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="prepend-2 span-2">
+				<label>LLF</label>
+			</div>
+			
+			<div class="span-2">
+				<label>40+</label>
+			</div>
+			
+			<div class="span-3">
+      		  <div class="slider-100" style="float:left;width:70%;"></div>
+      		  <div style="float:right;" class="slider-value"></div>
+      		  <%= builder.hidden_field :lrom_llf_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :lrom_llf_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3 last">
+				<center><%= builder.check_box :lrom_llf_discomfort, :disabled => disable_option %></center>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>RLF</label>
+			</div>
+			
+			<div class="span-2">
+				<label>40+</label>
+			</div>
+			
+			<div class="span-3">
+      		  <div class="slider-100" style="float:left;width:70%;"></div>
+      		  <div style="float:right;" class="slider-value"></div>
+      		  <%= builder.hidden_field :crom_rlf_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :crom_rlf_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :crom_rlf_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="prepend-2 span-2">
+				<label>RLF</label>
+			</div>
+			
+			<div class="span-2">
+				<label>40+</label>
+			</div>
+			
+			<div class="span-3">
+      		  <div class="slider-100" style="float:left;width:70%;"></div>
+      		  <div style="float:right;" class="slider-value"></div>
+      		  <%= builder.hidden_field :lrom_rlf_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-1">
+				<center><%= builder.check_box :lrom_rlf_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3 last">
+				<center><%= builder.check_box :lrom_rlf_discomfort, :disabled => disable_option %></center>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-26">
+			<div class="span-2">
+				<label>SHOULDER ROM</label>
+			</div>
+			
+			<div class="span-2">
+				<label>NORM</label>
+			</div>
+			
+			<div class="span-3">
+				<label>RIGHT</label>
+			</div>
+			
+			<div class="span-3">
+				<label>LEFT</label>
+			</div>
+			
+			<div class="span-2">
+				<center><label>PAIN</label></center>
+			</div>
+			
+			<div class="span-3">
+				<center><label>DISCOMFORT</label></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Flex</label>
+			</div>
+			
+			<div class="span-2">
+				<label>135+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_flex_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_flex_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :srom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :srom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Ext</label>
+			</div>
+			
+			<div class="span-2">
+				<label>75+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_ext_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_ext_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :srom_ext_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :srom_ext_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Int Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>70+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_int_rot_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_int_rot_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :srom_int_rot_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :srom_int_rot_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Ext Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>45+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_ext_rot_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_ext_rot_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :srom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :srom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>ADDUCTION</label>
+			</div>
+			
+			<div class="span-2">
+				<label>45+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_adduction_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_adduction_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+						
+			<div class="span-2">
+				<center><%= builder.check_box :srom_adduction_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :srom_adduction_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>ABDUCTION</label>
+			</div>
+			
+			<div class="span-2">
+				<label>140+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_abduction_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :srom_abduction_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :srom_abduction_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :srom_abduction_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		
+		<div class="span-26">
+			<div class="span-2">
+				<label>HIP ROM</label>
+			</div>
+			
+			<div class="span-2">
+				<label>NORM</label>
+			</div>
+			
+			<div class="span-3">
+				<label>RIGHT</label>
+			</div>
+			
+			<div class="span-3">
+				<label>LEFT</label>
+			</div>
+			
+			<div class="span-2">
+				<center><label>PAIN</label></center>
+			</div>
+			
+			<div class="span-3">
+				<center><label>DISCOMFORT</label></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Flex</label>
+			</div>
+			
+			<div class="span-2">
+				<label>135+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_flex_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_flex_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :hrom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :hrom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Ext</label>
+			</div>
+			
+			<div class="span-2">
+				<label>75+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_ext_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_ext_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :hrom_ext_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :hrom_ext_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Int Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>70+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_int_rot_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_int_rot_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :hrom_int_rot_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :hrom_int_rot_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Ext Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>45+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_ext_rot_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_ext_rot_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :hrom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :hrom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>ADDUCTION</label>
+			</div>
+			
+			<div class="span-2">
+				<label>45+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_adduction_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_adduction_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :hrom_adduction_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :hrom_adduction_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>ABDUCTION</label>
+			</div>
+			
+			<div class="span-2">
+				<label>140+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_abduction_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :hrom_abduction_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :hrom_abduction_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :hrom_abduction_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		
+		<div class="span-26">
+			<div class="span-2">
+				<label>KNEE ROM</label>
+			</div>
+			
+			<div class="span-2">
+				<label>NORM</label>
+			</div>
+			
+			<div class="span-3">
+				<label>RIGHT</label>
+			</div>
+			
+			<div class="span-3">
+				<label>LEFT</label>
+			</div>
+			
+			<div class="span-2">
+				<center><label>PAIN</label></center>
+			</div>
+			
+			<div class="span-3">
+				<center><label>DISCOMFORT</label></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Flex</label>
+			</div>
+			
+			<div class="span-2">
+				<label>135+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_flex_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_flex_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :krom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :krom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Ext</label>
+			</div>
+			
+			<div class="span-2">
+				<label>75+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_ext_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_ext_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :krom_ext_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :krom_ext_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Int Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>70+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_int_rot_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_int_rot_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :krom_int_rot_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :krom_int_rot_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>Ext Rot</label>
+			</div>
+			
+			<div class="span-2">
+				<label>45+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_ext_rot_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_ext_rot_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :krom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :krom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>ADDUCTION</label>
+			</div>
+			
+			<div class="span-2">
+				<label>45+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_adduction_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_adduction_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :krom_adduction_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :krom_adduction_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-2">
+				<label>ABDUCTION</label>
+			</div>
+			
+			<div class="span-2">
+				<label>140+</label>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_abduction_right_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-3">
+  			  <div class="slider-100" style="float:left;width:70%;"></div>
+  			  <div style="float:right;" class="slider-value"></div>
+  			  <%= builder.hidden_field :krom_abduction_left_exam, :disabled => disable_option, :class => 'sliderValue' %>
+			</div>
+			
+			<div class="span-2">
+				<center><%= builder.check_box :krom_flex_pain, :disabled => disable_option %></center>
+			</div>
+			
+			<div class="span-3">
+				<center><%= builder.check_box :krom_flex_discomfort, :disabled => disable_option %></center>
+			</div>
+			
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-3">
+				<br/>
+				<label>Other ROM's:</label>
+			</div>
+			<div class="span-21 last">
+				<%= builder.text_field :other_roms , :class => 'large_font_span_20', :disabled => disable_option %>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24 page_break_margin_top_200">
+			<hr/>
+			<div class="span-12">
+				<div class="span-3">
+					<label>Hypertonicity / Spasm Noted:</label>
+				</div>
+				
+				<div class="span-9 last">
+					<%= builder.check_box :cervical_paraspinal_musculature_noted, :disabled => disable_option %> C Paraspinal musculature &nbsp;&nbsp;<%= builder.select :cervical_paraspinal_musculature_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %> <br/>
+					<%= builder.check_box :throacic_paraspinal_musculature_noted, :disabled => disable_option %> T Paraspinal musculature &nbsp;&nbsp;<%= builder.select :throacic_paraspinal_musculature_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %> <br/>
+					<%= builder.check_box :lumbar_paraspinal_musculature_noted, :disabled => disable_option %> L Paraspinal musculature &nbsp;&nbsp;<%= builder.select :lumbar_paraspinal_musculature_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+				</div>
+			</div>
+			
+			<div class="span-12 last">
+				<div class="span-12">
+					<div class="span-3">
+						<label>Motor Testing:</label>
+					</div>
+				
+					<div class="span-9 last">
+						<%= builder.check_box :motor_testing, :disabled => disable_option %> + 5/5 upper / lower extremities.
+					</div>
+				</div>
+								
+				<div class="span-12 last">
+					<div class="span-3">
+						<label>Exception:</label>
+					</div>
+				
+					<div class="span-9 last">
+						<% if disable_option %>
+							<%= @chiropractic_examination.chiropractic_investigation_list.motor_testing_exception %>
+						<% else %>
+							<%= builder.text_area :motor_testing_exception, :class => 'text_area_span_8', :disabled => disable_option %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-12">
+				<div class="span-3">
+					<label>Subluxation</label>
+				</div>
+				
+				<div class="span-9 last">
+					<span class="span-2">Cervical:</span>
+					<%= builder.check_box :subluxation_c1, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_c1? && disable_option %>">C1</span>&nbsp;
+					<%= builder.check_box :subluxation_c2, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_c2? && disable_option %>">C2</span>&nbsp;
+					<%= builder.check_box :subluxation_c3, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_c3? && disable_option %>">C3</span>&nbsp;
+					<%= builder.check_box :subluxation_c4, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_c4? && disable_option %>">C4</span>&nbsp;
+					<%= builder.check_box :subluxation_c5, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_c5? && disable_option %>">C5</span>&nbsp;
+					<%= builder.check_box :subluxation_c6, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_c6? && disable_option %>">C6</span>&nbsp;
+					<%= builder.check_box :subluxation_c7, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_c7? && disable_option %>">C7</span><br/> <br/>
+					
+					<span class="span-2">Thoracic:</span>
+					<%= builder.check_box :subluxation_t1, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t1? && disable_option %>">T1</span>&nbsp;
+					<%= builder.check_box :subluxation_t2, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t2? && disable_option %>">T2</span>&nbsp;
+					<%= builder.check_box :subluxation_t3, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t3? && disable_option %>">T3</span>&nbsp;
+					<%= builder.check_box :subluxation_t4, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t4? && disable_option %>">T4</span>&nbsp;
+					<%= builder.check_box :subluxation_t5, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t5? && disable_option %>">T5</span>&nbsp;
+					<%= builder.check_box :subluxation_t6, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t6? && disable_option %>">T6</span>&nbsp;
+					<%= builder.check_box :subluxation_t7, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t7? && disable_option %>">T7</span> <br/>
+					<span class="span-2">&nbsp;</span>
+					<%= builder.check_box :subluxation_t8, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t8? && disable_option %>">T8</span>&nbsp;
+					<%= builder.check_box :subluxation_t9, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t9? && disable_option %>">T9</span>&nbsp;
+					<%= builder.check_box :subluxation_t10, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t10? && disable_option %>">T10</span>&nbsp;
+					<%= builder.check_box :subluxation_t11, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t11? && disable_option %>">T11</span>&nbsp;
+					<%= builder.check_box :subluxation_t12, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_t12? && disable_option %>">T12</span> <br/> <br/>
+					
+					<span class="span-2">Lumbar:</span>
+					<%= builder.check_box :subluxation_l1, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_l1? && disable_option %>">L1</span>&nbsp;
+					<%= builder.check_box :subluxation_l2, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_l2? && disable_option %>">L2</span>&nbsp;
+					<%= builder.check_box :subluxation_l3, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_l3? && disable_option %>">L3</span>&nbsp;
+					<%= builder.check_box :subluxation_l4, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_l4? && disable_option %>">L4</span>&nbsp;
+					<%= builder.check_box :subluxation_l5, :disabled => disable_option %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_investigation_list.subluxation_l5? && disable_option %>">L5</span> 
+				</div>
+			</div>
+			
+			<div class="span-12 last">
+				<div class="span-12">
+					<div class="span-3">
+						<label>Dermatomes:</label>
+					</div>
+				
+					<div class="span-9 last">
+						<%= builder.check_box :dermatomes, :disabled => disable_option %> Equal bilaterally upper / lower extremities.
+					</div>
+				</div>
+								
+				<div class="span-12 last">
+					<div class="span-3">
+						<label>Exception:</label>
+					</div>
+				
+					<div class="span-9 last">
+						<% if disable_option %>
+							<%= @chiropractic_examination.chiropractic_investigation_list.dermatomes_exception %>
+						<% else %>
+							<%= builder.text_area :dermatomes_exception, :class => 'text_area_span_8', :disabled => disable_option %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+	
+		<!--<div class="span-24">
+			<div class="span-3">
+				<br/>
+				<label>Orthopedic/Neuro Tests:</label>
+			</div>
+			<div class="span-21 last">
+				<%= builder.text_field :orthopedic_neuro_tests , :class => 'large_font_span_20', :disabled => disable_option %>
+			</div>
+		</div>-->
+	
+		<hr class="space"/>
+	
+		<div class="span-24">
+			<div class="span-3">
+				<br/>
+				<label>Other Diagnostic Tests:</label>
+			</div>
+			<div class="span-21 last">
+				<%= builder.text_field :other_diagnostic_tests , :class => 'large_font_span_20', :disabled => disable_option %>
+			</div>
+		</div>
+	
+		<hr class="space"/>
+				
+		<hr/>
+		
+		<div class="span-24">
+			<div class="span-12" style="overflow: auto;">
+				<table>
+				  <thead>
+						<th class="span-6">DTR</th>
+			    	<th class="span-3" style="text-align:center;">R</th>
+			    	<th class="span-3" style="text-align:center;">L</th>
+			  	</thead>
+		
+					<tr>
+						<td>BICEPS</td>
+						<td><%= builder.select :dtr_biceps_right, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+						<td><%= builder.select :dtr_biceps_left, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+					</tr>
+			
+					<tr>
+						<td>PRONATOR</td>
+						<td><%= builder.select :dtr_pronator_right, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+						<td><%= builder.select :dtr_pronator_left, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+					</tr>
+			
+					<tr>
+						<td>TRICEPS</td>
+						<td><%= builder.select :dtr_triceps_right, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+						<td><%= builder.select :dtr_triceps_left, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+					</tr>
+			
+					<tr>
+						<td>PATELLA</td>
+						<td><%= builder.select :dtr_patella_right, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+						<td><%= builder.select :dtr_patella_left, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+					</tr>
+			
+					<tr>
+						<td>ACHILLES</td>
+                                                <td><%= builder.select :dtr_achilles_right, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+						<td><%= builder.select :dtr_achilles_left, [['0', '0'], ['1+', '1+'], ['2+', '2+'], ['3+', '3+'], ['4+', '4+'], ['5+', '5+']], {}, :disabled => disable_option %></td>
+					</tr>
+				</table>
+			</div>
+			<div class="span-12 last">
+				<table>
+					<thead>
+					<th class="span-8">ORTHOPEDIC TEST</th>
+					<th></th>
+					<th class="span-2" style="text-align:center;">R</th>
+			    	<th class="span-2" style="text-align:center;">L</th>
+			  	</thead>
+		
+					<tr>
+						<td>CERVICAL COMP</td>
+						<td style="text-align:center;"><%= builder.check_box :show_cervical_comp, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_cervical_comp_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_cervical_comp_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>DISTRACTION</td>
+						<td style="text-align:center;"><%= builder.check_box :show_distraction, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_distraction_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_distraction_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>SHOULDER DEP</td>
+						<td style="text-align:center;"><%= builder.check_box :show_shoulder_dep, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_shoulder_dep_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_shoulder_dep_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>SOTO-HALL</td>
+						<td style="text-align:center;"><%= builder.check_box :show_soto_hall, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_soto_hall_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_soto_hall_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>SLR</td>
+						<td style="text-align:center;"><%= builder.check_box :show_slr, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_slr_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_slr_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>BRAGGARD</td>
+						<td style="text-align:center;"><%= builder.check_box :show_braggard, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_braggard_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_braggard_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>KEMPS</td>
+						<td style="text-align:center;"><%= builder.check_box :show_kemps, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_kemps_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_kemps_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>VALSALVA</td>
+						<td style="text-align:center;"><%= builder.check_box :show_valsalva, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_valsalva_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_valsalva_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>NACHLAS'</td>
+						<td style="text-align:center;"><%= builder.check_box :show_nachlas, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_nachlas_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_nachlas_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>YEOMANS'</td>
+						<td style="text-align:center;"><%= builder.check_box :show_yeomans, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_yeomans_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_yeomans_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>FABERE PATRICK</td>
+						<td style="text-align:center;"><%= builder.check_box :show_fabere_patrick, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_fabere_patrick_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_fabere_patrick_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>ELYS</td>
+						<td style="text-align:center;"><%= builder.check_box :show_elys, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_elys_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_elys_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+				
+					<tr>
+						<td>GEORGES</td>
+						<td style="text-align:center;"><%= builder.check_box :show_georges, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_georges_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_georges_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+					
+					<tr>
+						<td>SQUAT</td>
+						<td style="text-align:center;"><%= builder.check_box :show_squat, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_squat_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_squat_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+					
+					<tr>
+						<td>SPURLINGS</td>
+						<td style="text-align:center;"><%= builder.check_box :show_spurlings, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_spurlings_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_spurlings_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+					
+					<tr>
+						<td>SUPRASPINATUS</td>
+						<td style="text-align:center;"><%= builder.check_box :show_supraspinatus, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_supraspinatus_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_supraspinatus_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+					
+					<tr>
+						<td>MINORS SIGN</td>
+						<td style="text-align:center;"><%= builder.check_box :show_minors_sign, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_minors_sign_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_minors_sign_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+					
+					<tr>
+						<td>TRENDELENBERG</td>
+						<td style="text-align:center;"><%= builder.check_box :show_trendelenberg, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_trendelenberg_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_trendelenberg_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+					
+					<tr>
+						<td>JACKSON</td>
+						<td style="text-align:center;"><%= builder.check_box :show_jackson, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_jackson_right, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+						<td style="text-align:center;"><%= builder.select :orthopedic_test_jackson_left, [['-', false], ['+', true]], {}, :disabled => disable_option %></td>
+					</tr>
+					
+					<tr>
+						<td colspan="4">OTHER:<br/><%= builder.text_field :orthopedic_test_other, :class => 'small_font_span_11', :disabled => disable_option %></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	
+		<hr class="space"/>
+		<hr>
+	
+		<div class="span-24">
+			<div class="span-3">
+				<label>Activities Affected:</label>
+			</div>
+			<div class="span-21 last">
+				<%= builder.check_box :standing_activity_affected, :disabled => disable_option %> Standing
+				<%= builder.check_box :sitting_activity_affected, :disabled => disable_option %> Sitting
+				<%= builder.check_box :bending_activity_affected, :disabled => disable_option %> Bending
+				<%= builder.check_box :lifting_activity_affected, :disabled => disable_option %> Lifting
+				<%= builder.check_box :walking_activity_affected, :disabled => disable_option %> Walking
+				<%= builder.check_box :sleeping_activity_affected, :disabled => disable_option %> Sleeping
+			</div>
+		</div>
+	
+		<div class="span-24">
+			<div class="span-3">
+				<br/>
+				<label>Other:</label>
+			</div>
+			<div class="span-21 last">
+				<%= builder.text_field :other_activities_affected , :class => 'large_font_span_20', :disabled => disable_option %>
+			</div>
+	  </div>
+	
+	<% end %>
+</div>

@@ -1,0 +1,19 @@
+<style type="text/css">
+@media all
+{
+	table {
+	border-collapse:collapse;
+	border:1px solid #999999;
+	}
+
+	table td {
+	border:1px solid #999999;
+	}	
+}
+</style>
+
+<% if @chiropractic_examination.initial_examination? %>
+	<%= render :partial => 'initial_examination_details' %>
+<% else %>
+	<%= render :partial => 'reexamination_details' %>
+<% end %>

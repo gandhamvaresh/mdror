@@ -1,0 +1,25 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">Editing Chiropractic Treatment</h1>	
+<% end %>
+
+<% content_for(:main_content) do %>
+
+  <p><%= @patient.full_name %></p>
+	<div id="breadcrumb">
+		<ul class="crumbs">
+			<li><%= link_to 'Patients', patients_path %></li>
+			<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+			<li><%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, @accident) %></li>
+			<li><%= link_to 'Chiropractic Treatments', patient_accident_chiropractic_examination_chiropractic_treatments_path(@patient, @accident, @chiropractic_examination) %></li>
+		</ul>
+	</div>
+
+  <div style="float: right">
+    <%= @patient.deleted_at ? "Deleted" : (link_to 'Delete', patient_path(@patient), method: :delete, confirm: "Are you sure. Do you want to delete?", style: '') %>
+  </div>
+
+	<br/> <br/>
+	
+	<%= render 'form' %>
+
+<% end %>

@@ -1,0 +1,36 @@
+<h4>Cases Archive</h4>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+			<th class="span-4">Patient</th>
+	    <th class="span-3">Injury Date</th>
+			<th class="span-14">Description</th>
+	    <th class="span-3"></th>
+  	</thead>
+
+		<tbody>
+			<% @accidents.each do |accident| %>
+				<% patient = accident.patient %>
+			  <tr>
+			    <td><%= accident.patient.full_name %></td>
+			    <td><%= accident.injury_date.strftime('%b %d, %Y') %></td>
+			 		<td><%= truncate(accident.injury_description, :length => 100) %></td>
+			    <td><%= link_to 'Show', patient_accident_path(patient, accident) %> | <%= link_to 'Unarchive', patient_accident_path(patient, accident), confirm: 'Are you sure you want to unarchive this case? All related chiropractic examinations and chiropractic treatment notes will also be unarchived.', method: :delete %> </td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @accidents %>
+</div>
+
+<br/>
+
+<div class="prepend-21 span-3">
+	<%= link_to 'Back', archives_index_path, :class => 'button' %>
+</div>

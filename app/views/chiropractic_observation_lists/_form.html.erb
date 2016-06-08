@@ -1,0 +1,177 @@
+<%= form_for(@chiropractic_observation_list) do |f| %>
+  <% if @chiropractic_observation_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_observation_list.errors.count, "error") %> prohibited this chiropractic_observation_list from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_observation_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :myospasms %><br />
+    <%= f.check_box :myospasms %>
+  </div>
+  <div class="field">
+    <%= f.label :tenderness %><br />
+    <%= f.check_box :tenderness %>
+  </div>
+  <div class="field">
+    <%= f.label :hypotonicity %><br />
+    <%= f.check_box :hypotonicity %>
+  </div>
+  <div class="field">
+    <%= f.label :flare_ups %><br />
+    <%= f.check_box :flare_ups %>
+  </div>
+  <div class="field">
+    <%= f.label :suboccipitals %><br />
+    <%= f.check_box :suboccipitals %>
+  </div>
+  <div class="field">
+    <%= f.label :rhomboids %><br />
+    <%= f.check_box :rhomboids %>
+  </div>
+  <div class="field">
+    <%= f.label :deltoids %><br />
+    <%= f.check_box :deltoids %>
+  </div>
+  <div class="field">
+    <%= f.label :quad_lumb %><br />
+    <%= f.check_box :quad_lumb %>
+  </div>
+  <div class="field">
+    <%= f.label :uppertraps %><br />
+    <%= f.check_box :uppertraps %>
+  </div>
+  <div class="field">
+    <%= f.label :levator_scap %><br />
+    <%= f.check_box :levator_scap %>
+  </div>
+  <div class="field">
+    <%= f.label :ctl_paraspinals %><br />
+    <%= f.check_box :ctl_paraspinals %>
+  </div>
+  <div class="field">
+    <%= f.label :other_observations %><br />
+    <%= f.text_field :other_observations %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_c1 %><br />
+    <%= f.check_box :disc_c1 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_c2 %><br />
+    <%= f.check_box :disc_c2 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_c3 %><br />
+    <%= f.check_box :disc_c3 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_c4 %><br />
+    <%= f.check_box :disc_c4 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_c5 %><br />
+    <%= f.check_box :disc_c5 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_c6 %><br />
+    <%= f.check_box :disc_c6 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_c7 %><br />
+    <%= f.check_box :disc_c7 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t1 %><br />
+    <%= f.check_box :disc_t1 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t2 %><br />
+    <%= f.check_box :disc_t2 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t3 %><br />
+    <%= f.check_box :disc_t3 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t4 %><br />
+    <%= f.check_box :disc_t4 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t5 %><br />
+    <%= f.check_box :disc_t5 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t6 %><br />
+    <%= f.check_box :disc_t6 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t7 %><br />
+    <%= f.check_box :disc_t7 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t8 %><br />
+    <%= f.check_box :disc_t8 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t9 %><br />
+    <%= f.check_box :disc_t9 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t10 %><br />
+    <%= f.check_box :disc_t10 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t11 %><br />
+    <%= f.check_box :disc_t11 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_t12 %><br />
+    <%= f.check_box :disc_t12 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_l1 %><br />
+    <%= f.check_box :disc_l1 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_l2 %><br />
+    <%= f.check_box :disc_l2 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_l3 %><br />
+    <%= f.check_box :disc_l3 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_l4 %><br />
+    <%= f.check_box :disc_l4 %>
+  </div>
+  <div class="field">
+    <%= f.label :disc_l5 %><br />
+    <%= f.check_box :disc_l5 %>
+  </div>
+	<div class="field">
+    <%= f.label :occiput %><br />
+    <%= f.check_box :occiput %>
+  </div>
+  <div class="field">
+    <%= f.label :sacrum %><br />
+    <%= f.check_box :sacrum %>
+  </div>
+  <div class="field">
+    <%= f.label :sacroiliac_left %><br />
+    <%= f.check_box :sacroiliac_left %>
+  </div>
+  <div class="field">
+    <%= f.label :sacroiliac_right %><br />
+    <%= f.check_box :sacroiliac_right %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

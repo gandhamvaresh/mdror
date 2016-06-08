@@ -1,0 +1,20 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">New Chiropractic Treatment</h1>	
+<% end %>
+
+<% content_for(:main_content) do %>
+
+	<div id="breadcrumb">
+		<ul class="crumbs">
+			<li><%= link_to 'Patients', patients_path %></li>
+			<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+			<li><%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, @accident) %></li>
+			<li><%= link_to 'Chiropractic Treatments', patient_accident_chiropractic_examination_chiropractic_treatments_path(@patient, @accident, @chiropractic_examination) %></li>
+		</ul>
+	</div>
+
+	<br/> <br/>
+	
+	<%= render 'form' %>
+
+<% end %>

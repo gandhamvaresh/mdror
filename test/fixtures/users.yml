@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Sarat Kongara
+  email: sarat@passionworks.in
+  password_digest: $2a$10$2uGfizpRDqYu3iS22fVw7eWjz01k7xfNB3E.r8Rye1Fpw.bx.VnYG
+  role_id : 1
+  
+two:
+  id: 2
+  name: Kumar Reddy
+  email: kumar@mdmanage.com
+  password_digest: $2a$10$2uGfizpRDqYu3iS22fVw7eWjz01k7xfNB3E.r8Rye1Fpw.bx.VnYG
+  role_id : 1

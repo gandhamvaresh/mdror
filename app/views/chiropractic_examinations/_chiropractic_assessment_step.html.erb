@@ -1,0 +1,37 @@
+<div class="span-24">
+	
+	<%= f.fields_for :chiropractic_assessment do |builder| %>
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">ASSESSMENT:</span><br/><br/>
+		</div>
+	
+		<div class="span-24">
+			<%= builder.check_box :assessment_improved, :disabled => disable_option %> <label>Improved</label>
+			<%= builder.check_box :assessment_unimproved, :disabled => disable_option%> <label>Unimproved</label>
+			<%= builder.check_box :assessment_exacerbation, :disabled => disable_option %> <label>Exacerbation</label>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<label>Updated diagnosis:</label><br/>
+			<% if disable_option %>
+				<%= @chiropractic_examination.chiropractic_assessment.updated_diagnosis %>
+			<% else %>
+				<%= builder.text_area :updated_diagnosis, :class => 'text_area_span_10', :disabled => disable_option %>
+			<% end %>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<label>Comments:</label><br/>
+			<% if disable_option %>
+				<%= @chiropractic_examination.chiropractic_assessment.comments %>
+			<% else%>
+				<%= builder.text_area :comments, :class => 'text_area_span_10', :disabled => disable_option %>
+			<% end %>
+		</div>
+	<% end %>
+	
+</div>

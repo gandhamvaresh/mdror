@@ -1,0 +1,365 @@
+<div class="span-24">
+	
+<%= form_for(@patient) do |f| %>
+ 
+	<%= render "shared/error_messages", :target => @patient %>
+
+	<div class="span-24">
+		<div class="span-12">
+			<%= f.label :first_name %><br />
+	    	<%= f.text_field :first_name, :class => 'title' %>
+		</div>
+		<div class="span-12 last">
+			<%= f.label :last_name %><br />
+	    	<%= f.text_field :last_name, :class => 'title' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-12">
+			<%= f.label :street_address %><br />
+	    	<%= f.text_field :street_address, :class => 'title' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :city %><br />
+	    <%= f.text_field :city, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-3">
+			<%= f.label :state %><br />
+	    <%= f.text_field :state, :class => 'large_font_span_2' %>
+		</div>
+		<div class="span-3 last">
+			<%= f.label :zip %><br />
+	    <%= f.text_field :zip, :class => 'large_font_span_2' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-6">
+			<%= f.label :cell_phone %><br />
+	    	<%= f.text_field :cell_phone, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :home_phone %><br />
+	    	<%= f.text_field :home_phone, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :work_phone %><br />
+	    	<%= f.text_field :work_phone, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6 last">
+			<%= f.label :email %><br />
+	    	<%= f.text_field :email, :class => 'large_font_span_5' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+ 	<div class="span-24">
+		<div class="span-12">
+			<%= f.label :date_of_birth %><br />
+	    <%= f.date_select :date_of_birth, {:start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>  [:month, :day, :year]}, :class => 'large_font_span_2' %>
+		</div>
+		<div class="span-12 last">
+			<%= f.label :social_security_number %><br />
+	    	<%= f.text_field :social_security_number, :class => 'title', :placeholder => 'xxx-xx-xxxx', :id => 'ssn' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-12">
+			<%= f.label :occupation %><br />
+	    	<%= f.text_field :occupation, :class => 'title' %>
+		</div>
+		<!--<div class="span-12 last">
+			<%= f.label :cell_phone %><br />
+	    	<%= f.text_field :cell_phone, :class => 'title' %>
+		</div>-->
+  </div>
+
+	<hr class="space"/>
+	
+  <div class="span-24">
+		<div class="span-12">
+			<%= f.label :height %><br />
+	    <%= f.text_field :height_feet_component, :class => 'large_font_span_2' %> Feet&nbsp;&nbsp;&nbsp;
+			<%= f.text_field :height_inches_component, :class => 'large_font_span_2' %> Inches
+		</div>
+		<div class="span-4">
+			<%= f.label :weight %><br />
+	    <%= f.text_field :weight, :class => 'large_font_span_2' %> Pounds
+		</div>
+		<div class="span-3">
+			<%= f.label :gender %><br />
+	    <%= f.select(:gender, [['Male', 'Male'], ['Female', 'Female']]) %>
+		</div>
+		<div class="span-4 last">
+			<%= f.label :handed %><br />
+	    <%= f.select(:handed, [['Right', 'Right'], ['Left', 'Left']]) %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<label><u>Emergency Contact</u></label> <br/><br/>
+	
+	<div class="span-24">
+		<div class="span-6">
+			<%= f.label :name %><br />
+	    <%= f.text_field :emergency_contact_name, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :phone %><br />
+	    <%= f.text_field :emergency_contact_phone, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6 last">
+			<%= f.label :relationship %><br />
+	    <%= f.text_field :emergency_contact_relationship, :class => 'large_font_span_5' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<label><u>Legal Representative</u></label> <br/><br/>
+	
+	<div class="span-24">
+		<div class="span-6">
+			<%= f.label :name %><br />
+	    <%= f.text_field :legal_representative_name, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :street %><br />
+	    <%= f.text_field :legal_representative_street_address, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :city %><br />
+	    <%= f.text_field :legal_representative_city, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-3">
+			<%= f.label :state %><br />
+	    <%= f.text_field :legal_representative_state, :class => 'large_font_span_2' %>
+		</div>
+		<div class="span-3 last">
+			<%= f.label :zip %><br />
+	    <%= f.text_field :legal_representative_zip, :class => 'large_font_span_2' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-6">
+			<%= f.label :phone %><br />
+	    <%= f.text_field :legal_representative_phone, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :fax %><br />
+	    <%= f.text_field :legal_representative_fax, :class => 'large_font_span_5' %>
+		</div>
+	</div>
+	
+	<hr class="space"/>
+	
+	<label><u>Guarantor Information</u></label> <br/><br/>
+	
+	<div class="span-24">
+		<div class="span-6">
+			<%= f.label :name %><br />
+	    <%= f.text_field :guarantor_name, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+		  <%= f.label :ssn %><br />
+	      <%= f.text_field :guarantor_ssn, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6 last">
+			<%= f.label :date_of_birth %><br />
+			<%= f.date_select :guarantor_date_of_birth, {:start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>  [:month, :day, :year]}, :class => 'large_font_span_5' %>			
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-6">
+			<%= f.label :street %><br />
+	    <%= f.text_field :guarantor_street_address, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :city %><br />
+	    <%= f.text_field :guarantor_city, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-3">
+			<%= f.label :state %><br />
+	    <%= f.text_field :guarantor_state, :class => 'large_font_span_2' %>
+		</div>
+		<div class="span-3 last">
+			<%= f.label :zip %><br />
+	    <%= f.text_field :guarantor_zip, :class => 'large_font_span_2' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-6">
+			<%= f.label :phone %><br />
+	    <%= f.text_field :guarantor_phone, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6">
+			<%= f.label :fax %><br />
+	    <%= f.text_field :guarantor_fax, :class => 'large_font_span_5' %>
+		</div>
+		<div class="span-6 last">
+			<%= f.label :email %><br />
+	    <%= f.text_field :guarantor_email, :class => 'large_font_span_5' %>
+		</div>
+  </div>
+
+	<hr class="space"/>
+	
+	<div class="span-24">
+		<div class="span-12">
+				<label><u>Primary Medical Insurance</u></label> <br/><br/>
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Subscriber's Name</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :primary_insurance_subscribers_name, :class => 'large_font_span_6' %>
+					</div>
+				</div>
+				
+				<div class="span-12">
+					<div class="span-5">
+						<label>Date of birth</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.date_select :primary_insurance_subscribers_date_of_birth, {:start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>  [:month, :day, :year]}, :class => 'large_font_span_2' %>
+					</div>
+				</div>
+				
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Relationship</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :primary_insurance_subscribers_relationship, :class => 'large_font_span_6' %>
+					</div>
+				</div>
+				
+				<div class="span-12">
+					<div class="span-5">
+						<label>Insurance Company</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.collection_select(:primary_insurance_company_id, InsuranceCompany.not_deleted, :id, :name, {:prompt => "None"}) %>
+					</div>
+				</div>
+
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Claim Number/Subscriber ID</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :primary_insurance_claim_number, :class => "large_font_span_5" %>
+					</div>
+				</div>
+
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Policy Number/Group Number</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :primary_insurance_policy_number, :class => "large_font_span_5" %>
+					</div>
+				</div>
+		</div>
+
+	 	<div class="span-12 last">
+				<label><u>Secondary Medical Insurance</u></label> <br/><br/>
+				
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Subscriber's Name</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :secondary_insurance_subscribers_name, :class => 'large_font_span_6' %>
+					</div>
+				</div>
+				
+				<div class="span-12">
+					<div class="span-5">
+						<label>Date of birth</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.date_select :secondary_insurance_subscribers_date_of_birth, {:start_year => Time.now.year - 100, :end_year => Time.now.year, :order =>  [:month, :day, :year]}, :class => 'large_font_span_2' %>
+					</div>
+				</div>
+				
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Relationship</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :secondary_insurance_subscribers_relationship, :class => 'large_font_span_6' %>
+					</div>
+				</div>
+				
+				<div class="span-12">
+					<div class="span-5">
+						<label>Insurance Company</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.collection_select(:secondary_insurance_company_id, InsuranceCompany.not_deleted, :id, :name, {:prompt => "None"}) %>
+					</div>
+				</div>
+
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Claim Number/Subscriber ID</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :secondary_insurance_claim_number, :class => "large_font_span_5" %>
+					</div>
+				</div>
+
+				<div class="span-12">
+					<div class="span-5">
+						<br/>
+						<label>Policy Number/Group Number</label>
+					</div>
+					<div class="span-7 last">
+						<%= f.text_field :secondary_insurance_policy_number, :class => "large_font_span_5" %>
+					</div>
+				</div>			
+		</div>
+	</div>
+	
+	<hr class="space"/>
+	
+  <div class="span-24">
+		<div class="span-3">
+			<%= link_to 'Back', patients_path, :class => 'button' %>
+		</div>
+		<div class="prepend-16 span-3 last">
+				<br/>
+	    	<%= f.submit %>
+		</div>
+  </div>
+
+<% end %>
+
+</div>

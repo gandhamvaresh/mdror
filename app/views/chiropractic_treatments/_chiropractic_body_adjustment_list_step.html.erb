@@ -1,0 +1,120 @@
+<div class="span-24">
+	
+	<%= f.fields_for :chiropractic_body_adjustment_list do |builder| %>
+	
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">FIXATION/CMT:</span><br/>
+		</div>
+	
+		<div class="span-24">
+			<div class="span-10">
+			<span class="span-2">Cervical:</span><%= builder.check_box :subluxation_c1, :disabled => disable_option %>C1&nbsp;<%= builder.check_box :subluxation_c2, :disabled => disable_option %>C2&nbsp;<%= builder.check_box :subluxation_c3, :disabled => disable_option %>C3&nbsp;<%= builder.check_box :subluxation_c4, :disabled => disable_option %>C4&nbsp;<%= builder.check_box :subluxation_c5, :disabled => disable_option %>C5&nbsp;<%= builder.check_box :subluxation_c6, :disabled => disable_option %>C6&nbsp;<%= builder.check_box :subluxation_c7, :disabled => disable_option %>C7 <br/> <br/>
+			<span class="span-2">Thoracic:</span><%= builder.check_box :subluxation_t1, :disabled => disable_option %>T1&nbsp;<%= builder.check_box :subluxation_t2, :disabled => disable_option %>T2&nbsp;<%= builder.check_box :subluxation_t3, :disabled => disable_option %>T3&nbsp;<%= builder.check_box :subluxation_t4, :disabled => disable_option %>T4&nbsp;<%= builder.check_box :subluxation_t5, :disabled => disable_option %>T5&nbsp;<%= builder.check_box :subluxation_t6, :disabled => disable_option %>T6&nbsp;<%= builder.check_box :subluxation_t7, :disabled => disable_option %>T7 <br/>
+			<span class="span-2">&nbsp;</span><%= builder.check_box :subluxation_t8, :disabled => disable_option %>T8&nbsp;<%= builder.check_box :subluxation_t9, :disabled => disable_option %>T9&nbsp;<%= builder.check_box :subluxation_t10, :disabled => disable_option %>T10&nbsp;<%= builder.check_box :subluxation_t11, :disabled => disable_option %>T11&nbsp;<%= builder.check_box :subluxation_t12, :disabled => disable_option %>T12 <br/> <br/>
+			<span class="span-2">Lumbar:</span><%= builder.check_box :subluxation_l1, :disabled => disable_option %>L1&nbsp;<%= builder.check_box :subluxation_l2, :disabled => disable_option %>L2&nbsp;<%= builder.check_box :subluxation_l3, :disabled => disable_option %>L3&nbsp;<%= builder.check_box :subluxation_l4, :disabled => disable_option %>L4&nbsp;<%= builder.check_box :subluxation_l5, :disabled => disable_option %>L5
+		</div>
+			<div class="span-4">
+			  <div class="span-4">
+			    <%= builder.check_box :cmt_hip, :disabled => disable_option %>&nbsp;<label>Hip</label>
+		      </div>
+  			  <div class="span-4">
+  			    <%= builder.check_box :cmt_shoulder, :disabled => disable_option %>&nbsp;<label>Shoulder</label>
+  			  </div>
+  			  <div class="span-4">
+  			    <%= builder.check_box :cmt_knee, :disabled => disable_option %>&nbsp;<label>Knee</label>
+  			  </div>
+			</div>
+			<div class="span-4">
+     		  <div class="span-4">
+			    <%= builder.check_box :cmt_pelvis, :disabled => disable_option %>&nbsp;<label>Pelvis</label>
+			  </div>
+  			  <div class="span-4">
+  			    <%= builder.check_box :cmt_elbow, :disabled => disable_option %>&nbsp;<label>Elbow</label>
+  			  </div>
+  			  <div class="span-4 last">
+  			    <%= builder.check_box :cmt_ankle, :disabled => disable_option %>&nbsp;<label>Ankle</label>
+  			  </div>
+			</div>
+			<div class="span-4 last">
+			  <div class="span-4">
+			    <%= builder.check_box :cmt_sacrum, :disabled => disable_option %>&nbsp;<label>Sacrum</label>
+		      </div>
+  			  <div class="span-4">
+  			    <%= builder.check_box :cmt_hand, :disabled => disable_option %>&nbsp;<label>Hand</label>
+  			  </div>
+			</div>
+		</div>
+	
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">SPINAL ADJUSTMENT:</span><br/>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-8">
+			  <%= builder.check_box :spinal_adjustment_1_2_regions, :disabled => disable_option %>&nbsp;<label>98940 (1-2 spinal regions)</label>
+			</div>
+			<div class="span-8">
+			  <%= builder.check_box :spinal_adjustment_3_4_regions, :disabled => disable_option %>&nbsp;<label>98941 (3-4 spinal regions)</label>
+			</div>
+			<div class="span-8 last">
+			  <%= builder.check_box :spinal_adjustment_5_or_more_regions, :disabled => disable_option %>&nbsp;<label>98942 (5 or more spinal regions)</label>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<span style="text-decoration:underline; font-weight:bold;">EXTREMITY ADJUSTMENT:</span><br/>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_shoulder_left, :disabled => disable_option %>&nbsp;<label>Left Shoulder</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_shoulder_right, :disabled => disable_option %>&nbsp;<label>Right Shoulder</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_elbow_left, :disabled => disable_option %>&nbsp;<label>Left Elbow</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_elbow_right, :disabled => disable_option %>&nbsp;<label>Right Elbow</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_wrist_left, :disabled => disable_option %>&nbsp;<label>Left Wrist</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :extremity_adjustment_wrist_right, :disabled => disable_option %>&nbsp;<label>Right Wrist</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_hip_left, :disabled => disable_option %>&nbsp;<label>Left Hip</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_hip_right, :disabled => disable_option %>&nbsp;<label>Right Hip</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_knee_left, :disabled => disable_option %>&nbsp;<label>Left Knee</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_knee_right, :disabled => disable_option %>&nbsp;<label>Right Knee</label>
+			</div>
+			<div class="span-4">
+			  <%= builder.check_box :extremity_adjustment_ankle_left, :disabled => disable_option %>&nbsp;<label>Left Ankle</label>
+			</div>
+			<div class="span-4 last">
+			  <%= builder.check_box :extremity_adjustment_ankle_right, :disabled => disable_option %>&nbsp;<label>Right Ankle</label>
+			</div>
+		</div>
+		
+	<% end %>
+	
+</div>
+
+
+
+

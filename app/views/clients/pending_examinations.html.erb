@@ -1,0 +1,28 @@
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+		<th class="span-4">Patient</th>
+		<th class="span-4">Examination Date</th>
+		<th class="span-4">Re-examination</th>
+    <th class="span-5 last"></th>
+  </thead>
+
+<% @chiropractic_examinations.each do |chiropractic_examination| %>
+	<% accident = chiropractic_examination.accident %>
+	<% patient = accident.patient %>
+  <tr>
+		<td><%= patient.full_name %></td>
+		<td><%= chiropractic_examination.examination_date.strftime('%b %d, %Y') %></td>
+		<td><%= chiropractic_examination.initial_examination? ? 'No' : 'Yes' %></td>
+    <td><%= link_to 'Show', patient_accident_chiropractic_examination_path(patient, accident, chiropractic_examination) %> | 	<%= link_to 'Edit', edit_patient_accident_chiropractic_examination_path(patient, accident, chiropractic_examination) %> |	<%= link_to 'Archive', patient_accident_chiropractic_examination_path(patient, accident, chiropractic_examination), confirm: 'Are you sure you want to archive this examination? All related treatment notes will also be archived.', method: :delete %> </td>
+  </tr>
+<% end %>
+</table>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @chiropractic_examinations %>
+</div>
+
+<br/>

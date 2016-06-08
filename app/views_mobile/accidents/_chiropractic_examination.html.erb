@@ -1,0 +1,10 @@
+<tr>
+  <td><a href="#" onclick="$('.daily_treatment_notes_<%= chiropractic_examination.id %>').toggle(); toggle_disclosure_triangle($(this).find('#disclosure_triangle')); return false;"><%= image_tag('arrow_right.png', :id => 'disclosure_triangle') %></a></td>
+  <td><%= chiropractic_examination.examination_date.strftime('%b %d, %Y') %></td>
+	<td><%= chiropractic_examination.initial_examination? ? 'Initial Examination' : 'Re-examination' %></td>
+	<td><%= chiropractic_examination.summary %></td>
+	<td>&nbsp;</td>		
+	<td><%= link_to image_tag('details.png'), patient_accident_chiropractic_examination_path(patient, accident, chiropractic_examination) %></td>
+</tr>
+
+<%= render(:partial => "chiropractic_treatment", :collection => chiropractic_examination.chiropractic_treatments, :locals => {:patient => @patient, :accident => accident, :chiropractic_examination => chiropractic_examination} ) %>

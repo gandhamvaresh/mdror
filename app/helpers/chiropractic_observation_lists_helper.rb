@@ -1,0 +1,2 @@
+module ChiropracticObservationListsHelper
+end

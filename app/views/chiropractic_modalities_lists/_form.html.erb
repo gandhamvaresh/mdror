@@ -1,0 +1,81 @@
+<%= form_for(@chiropractic_modalities_list) do |f| %>
+  <% if @chiropractic_modalities_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_modalities_list.errors.count, "error") %> prohibited this chiropractic_modalities_list from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_modalities_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nmr %><br />
+    <%= f.check_box :nmr %>
+  </div>
+  <div class="field">
+    <%= f.label :ultrasound %><br />
+    <%= f.check_box :ultrasound %>
+  </div>
+  <div class="field">
+    <%= f.label :gait_training %><br />
+    <%= f.check_box :gait_training %>
+  </div>
+  <div class="field">
+    <%= f.label :electric_stimulation %><br />
+    <%= f.check_box :electric_stimulation %>
+  </div>
+  <div class="field">
+    <%= f.label :moist_heat %><br />
+    <%= f.check_box :moist_heat %>
+  </div>
+  <div class="field">
+    <%= f.label :massage %><br />
+    <%= f.check_box :massage %>
+  </div>
+  <div class="field">
+    <%= f.label :mfr %><br />
+    <%= f.check_box :mfr %>
+  </div>
+  <div class="field">
+    <%= f.label :mfr_cervical %><br />
+    <%= f.check_box :mfr_cervical %>
+  </div>
+  <div class="field">
+    <%= f.label :mfr_thoracic %><br />
+    <%= f.check_box :mfr_thoracic %>
+  </div>
+  <div class="field">
+    <%= f.label :mfr_lumbar %><br />
+    <%= f.check_box :mfr_lumbar %>
+  </div>
+  <div class="field">
+    <%= f.label :therapeutic_exercise %><br />
+    <%= f.check_box :therapeutic_exercise %>
+  </div>
+  <div class="field">
+    <%= f.label :mechanical_traction %><br />
+    <%= f.check_box :mechanical_traction %>
+  </div>
+  <div class="field">
+    <%= f.label :kinetic_activity %><br />
+    <%= f.check_box :kinetic_activity %>
+  </div>
+  <div class="field">
+    <%= f.label :exam_re_exam %><br />
+    <%= f.check_box :exam_re_exam %>
+  </div>
+  <div class="field">
+    <%= f.label :home_use_instruction %><br />
+    <%= f.check_box :home_use_instruction %>
+  </div>
+  <div class="field">
+    <%= f.label :other %><br />
+    <%= f.text_field :other %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,56 @@
+<% content_for(:main_header) do %>
+	<%= link_to 'Back', patients_path, :class => 'left' %>
+	<h1 class="title">Patient Details</h1>
+	<%= link_to 'Edit', edit_patient_path(@patient), :class => 'right' %>
+<% end %>
+
+<% content_for(:main_content) do %>
+
+	<div id="breadcrumb">
+		<ul class="crumbs">
+			<li><%= link_to 'Patients', patients_path %></li>
+		</ul>
+	</div>
+
+	<br/>
+	
+	<% unless notice.blank? %>
+		<p class="note">
+			<%= notice %>
+		</p>
+	<% end %>
+
+	<%= render :partial => 'details' %>
+
+	<br/>
+	<br/>
+
+	<div>
+		<label>Date of registration:</label>
+		<%= @patient.created_at.strftime('%b %d, %Y') %>
+	</div>
+
+	<% unless @patient_history.blank? %>
+			<table>
+				<thead>
+					<th>Case Registration Dates</th>
+					<th>Examination Dates</th>
+					<th>Treatment Dates</th>
+				</thead>
+				<tbody>
+					<% @patient_history.each_with_index do |record, index| %>
+						<% previous_case = Accident.find(@patient_history[index-1][0]) unless (index == 0 || @patient_history[index-1][0].blank?) %>
+						<% previous_examination = ChiropracticExamination.find(@patient_history[index-1][1]) unless (index == 0 || @patient_history[index-1][1].blank?) %>
+						<% current_case = Accident.find(record[0]) %>
+						<% current_examination = ChiropracticExamination.find(record[1]) unless record[1].blank? %>
+						<tr>
+							<td><%= current_case != previous_case ? link_to(current_case.injury_date.strftime('%b %d, %Y'), patient_accident_path(@patient, current_case)) : ' ' %></td>
+							<td><%= current_examination != previous_examination && current_examination ? link_to(current_examination.examination_date.strftime('%b %d, %Y'), patient_accident_chiropractic_examination_path(@patient, current_case, current_examination)) : ' ' %></td>
+							<td><%= record[2].blank? ? '' : link_to(ChiropracticTreatment.find(record[2]).treatment_date.strftime('%b %d, %Y'), patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, current_case, current_examination, ChiropracticTreatment.find(record[2])))  %></td>
+						</tr>	
+					<% end %>
+				</tbody>
+			</table>
+	<% end %>
+
+<% end %>

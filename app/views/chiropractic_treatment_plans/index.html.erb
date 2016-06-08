@@ -1,0 +1,63 @@
+<h1>Listing chiropractic_treatment_plans</h1>
+
+<table>
+  <tr>
+    <th>Spine xray</th>
+    <th>Need xray reports</th>
+    <th>Need past medical records</th>
+    <th>Spinal adjustments</th>
+    <th>Spinal adjustments frequency</th>
+		<th>Extremity adjustments</th>
+    <th>Extremity adjustments frequency</th>
+		<th>Extremity adjustment body part</th>
+    <th>Recommend medical consultation</th>
+    <th>Recommended medical evaluation</th>
+    <th>Re examine in 4 weeks</th>
+    <th>Spine mri</th>
+    <th>Pending medical clearance for medications</th>
+    <th>Taping frequency</th>
+    <th>Taping cervical paraspinal scm trapezious muscles</th>
+    <th>Taping cervical disc bulge disc herniation</th>
+    <th>Taping thoracic paraspinal scapular muscles</th>
+    <th>Taping low back lumbar paraspinal lumbar erectors</th>
+    <th>Taping lumbar disc bulge disc herniation</th>
+    <th>Taping sacroiliac joint</th>
+    <th>Taping other</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_treatment_plans.each do |chiropractic_treatment_plan| %>
+  <tr>
+    <td><%= chiropractic_treatment_plan.spine_xray %></td>
+    <td><%= chiropractic_treatment_plan.need_xray_reports %></td>
+    <td><%= chiropractic_treatment_plan.need_past_medical_records %></td>
+    <td><%= chiropractic_treatment_plan.spinal_adjustments %></td>
+    <td><%= chiropractic_treatment_plan.spinal_adjustments_frequency %></td>
+		<td><%= chiropractic_treatment_plan.extremity_adjustments %></td>
+    <td><%= chiropractic_treatment_plan.extremity_adjustments_frequency %></td>
+		<td><%= chiropractic_treatment_plan.extremity_adjustment_body_part %></td>
+    <td><%= chiropractic_treatment_plan.recommend_medical_consultation %></td>
+    <td><%= chiropractic_treatment_plan.recommended_medical_evaluation %></td>
+    <td><%= chiropractic_treatment_plan.re_examine_in_4_weeks %></td>
+    <td><%= chiropractic_treatment_plan.spine_mri %></td>
+    <td><%= chiropractic_treatment_plan.pending_medical_clearance_for_medications %></td>
+    <td><%= chiropractic_treatment_plan.taping_frequency %></td>
+    <td><%= chiropractic_treatment_plan.taping_cervical_paraspinal_scm_trapezious_muscles %></td>
+    <td><%= chiropractic_treatment_plan.taping_cervical_disc_bulge_disc_herniation %></td>
+    <td><%= chiropractic_treatment_plan.taping_thoracic_paraspinal_scapular_muscles %></td>
+    <td><%= chiropractic_treatment_plan.taping_low_back_lumbar_paraspinal_lumbar_erectors %></td>
+    <td><%= chiropractic_treatment_plan.taping_lumbar_disc_bulge_disc_herniation %></td>
+    <td><%= chiropractic_treatment_plan.taping_sacroiliac_joint %></td>
+    <td><%= chiropractic_treatment_plan.other_recommendations %></td>
+    <td><%= link_to 'Show', chiropractic_treatment_plan %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_treatment_plan_path(chiropractic_treatment_plan) %></td>
+    <td><%= link_to 'Archive', chiropractic_treatment_plan, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic treatment plan', new_chiropractic_treatment_plan_path %>

@@ -1,0 +1,51 @@
+<% if current_user.admin? || current_user.staff? %>
+	<div class="span-24">
+		<ul id="crumbs">
+			<li><%= link_to 'Clients', clients_path %></li>
+		</ul>
+	</div>
+<% end %>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+			<th class="span-3">Patient</th>
+			<th class="span-3">Doctor</th>
+			<th class="span-3">Treatment Date</th>
+			<th class="span-4">Form Completion Date</th>
+			<th class="span-4">Claim Filed</th>
+    <th class="span-4 last"></th>
+  </thead>
+
+<% @chiropractic_treatments.each do |chiropractic_treatment| %>
+	<% chiropractic_examination = chiropractic_treatment.chiropractic_examination %>
+	<% accident = chiropractic_examination.accident %>
+	<% patient = accident.patient %>
+  <tr>
+    <td><%= patient.full_name %></td>
+		<td><%= User.find(chiropractic_treatment.completed_by).name %></td>
+    <td><%= chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %></td>
+		<td><%= chiropractic_treatment.completed_at.strftime('%b %d, %Y %I:%M %p') %></td>
+		<td><%= chiropractic_treatment.insurance_claim_filed? ? chiropractic_treatment.insurance_claim_filed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+    <td><%= link_to 'Show', patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment) %> 
+			<% if (current_user.doctor? || current_user.front_desk?) && (!chiropractic_treatment.insurance_claim_filed?) %>
+		 	| <%= link_to 'Edit', edit_patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment) %>
+			<% end %>
+			| <%= link_to 'Archive', patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment), confirm: 'Are you sure you want to archive this chiropractic treatment record?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @chiropractic_treatments %>
+</div>
+
+<br/>
+
+<% if current_user.admin? || current_user.staff? %>
+	<div class="span-24">
+		<%= link_to 'Back', clients_path, :class => 'button' %>
+	</div>
+<% end %>

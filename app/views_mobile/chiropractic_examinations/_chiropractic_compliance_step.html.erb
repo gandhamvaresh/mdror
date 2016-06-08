@@ -1,0 +1,46 @@
+<div class="span-24">
+	
+	<%= f.fields_for :chiropractic_compliance do |builder| %>
+
+		<table>
+			<thead>
+				<th>Compliance:</th>
+				<th>&nbsp;</th>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td>
+						<label>Notes:</label>
+					</td>
+					<td>
+						<%= builder.text_field :compliance, :disabled => disable_option, :style => "width:500px;" %>
+					</td>
+				</tr>
+					
+				<tr>
+					<td>
+						<label>Affected by:</label>
+					</td>
+					<td>
+						<%= builder.check_box :compliance_affected_by_transportation, :disabled => disable_option %> Transportation
+						<%= builder.check_box :compliance_affected_by_work_schedule, :disabled => disable_option %> Work Schedule
+						<%= builder.check_box :compliance_affected_by_personal_matter, :disabled => disable_option %> Personal Matter
+					</td>
+				</tr>
+					
+				<tr>
+					<td>
+						<label>Other:</label>
+					</td>
+					<td>
+						<%= builder.text_field :other_reason_for_compliance, :disabled => disable_option, :style => "width:500px;" %>
+					</td>
+				</tr>
+					
+			</tbody>
+		</table>		
+
+	<% end %>
+	
+</div>

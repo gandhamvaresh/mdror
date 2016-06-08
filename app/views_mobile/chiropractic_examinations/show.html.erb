@@ -1,0 +1,92 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">Chiropractic Examination Details</h1>
+		
+	<% if session[:current_tab] == 'Archives' %>
+		<%= link_to 'Back', archives_chiropractic_examinations_path, :class => 'left' %>
+	<% else %>
+		<div class="span-24">
+			<% if current_user.doctor? || current_user.front_desk? %>
+				<%= link_to 'Back', patient_accident_chiropractic_examinations_path(@patient, @accident), :class => 'left' %>	
+				<%= link_to 'Edit', edit_patient_accident_chiropractic_examination_path(@patient, @accident, @chiropractic_examination), :class => 'right' unless @chiropractic_examination.insurance_claim_filed? %>
+			<% else %>
+				<%= link_to 'Back', completed_examinations_client_path(@client), :class => 'left' %>
+				<%= link_to 'Medical Insurance Claim Filed', insurance_claim_processed_patient_accident_chiropractic_examination_path(@patient, @accident, @chiropractic_examination), :class => 'right' unless @chiropractic_examination.insurance_claim_filed? %>
+			<% end %>
+		</div>
+	<% end %>
+	
+<% end %>
+
+<% content_for(:main_content) do %>
+  <% unless session[:current_tab] == 'Archives' %>
+  	<% if current_user.doctor? || current_user.front_desk? %>
+  		<div id="breadcrumb">
+  			<ul class="crumbs">
+  				<li><%= link_to 'Patients', patients_path %></li>
+  				<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+  				<li><%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, @accident) %></li>
+  			</ul>
+  		</div>
+  	<% else %>
+  		<div id="breadcrumb">
+  			<ul class="crumbs">
+  				<li><%= link_to 'Clients', clients_path %></li>
+  				<li><%= link_to 'Examinations', completed_examinations_client_path(@client) %></li>
+  			</ul>
+  		</div>
+  	<% end %>
+  <% end %>
+
+	<br/> <br/>
+	
+	<% if current_user.in_house_user? && (@chiropractic_examination.completed_at < @chiropractic_examination.updated_at) %>
+		<p class="note">
+			<label>Note:</label>&nbsp;This examination form was marked as complete by <%= User.find(@chiropractic_examination.completed_by).name %> on <%= @chiropractic_examination.completed_at.strftime('%b %d, %Y %I:%M %p') %>. The form was later updated and changes were made on <%= @chiropractic_examination.updated_at.strftime('%b %d, %Y %I:%M %p') %>. Please make sure you capture the latest information when filing the medical insurance claim. Please contact the doctor if you have any questions.
+		</p>
+		
+		<br/>
+	<% end %>
+
+  <% unless notice.blank? %>
+  	<p class="note">
+  		<%= notice %>
+  	</p>
+
+		<br/>
+  <% end %>
+	
+	<div class="box-white">
+		<p>Examination Date: <span class="detail"><%= @chiropractic_examination.examination_date.strftime('%b %d, %Y') %></span><span><%= link_to 'Print Friendly', print_friendly_patient_accident_chiropractic_examination_path(@patient, @accident, @chiropractic_examination), :class => 'button red' %></span></p>
+	</div>
+	
+  <%= render :partial => 'patients/details' %>
+
+  <%= render :partial => 'accidents/details' %>
+
+  <hr class="space"/>
+
+  <% if @chiropractic_examination.initial_examination? %>
+  	<div class="span-24">
+  		<%= form_for [@patient, @accident, @chiropractic_examination] do |f| %>
+  			<%= render "chiropractic_symptom_list_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_investigation_list_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_diagnosis_list_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_treatment_plan_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_confirmation_step", :f => f, :disable_option => true %>
+  		<% end %>
+  	</div>
+  <% else %>
+  	<div class="span-24">
+  		<%= form_for [@patient, @accident, @chiropractic_examination] do |f| %>
+  			<%= render "chiropractic_symptom_list_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_investigation_list_step", :f => f, :disable_option => true %>
+				<%= render "chiropractic_diagnosis_list_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_assessment_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_treatment_plan_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_compliance_step", :f => f, :disable_option => true %>
+  			<%= render "chiropractic_confirmation_step", :f => f, :disable_option => true %>
+  		<% end %>
+  	</div>
+  <% end %>
+  
+<% end %>

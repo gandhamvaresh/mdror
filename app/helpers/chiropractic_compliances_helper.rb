@@ -1,0 +1,2 @@
+module ChiropracticCompliancesHelper
+end

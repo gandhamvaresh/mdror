@@ -1,0 +1,31 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">MDManage</h1>
+<% end %>
+
+<% content_for(:main_content) do %>
+	<% unless @user.errors.blank? %>
+		<p class="note"><%= render "shared/error_messages", :target => @user %></p>
+	<% end %>
+	
+	<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+		
+		<div class="box-white">
+			<p><%= f.label :password %><%= f.password_field :password, :placeholder => 'Enter your new password' %></p>
+			<p><%= f.label :password_confirmation %><%= f.password_field :password_confirmation, :placeholder => 'Re-enter your new password' %></p>
+
+			<%= f.submit "Update Password", :class => 'button red' %>
+			
+			<p class="note"><%= link_to 'Back', root_url %></p>
+		</div>
+	<% end %>
+<% end %>
+
+<% content_for(:sidebar_header) do %>
+	<p class="title">Our Vision</p>
+<% end %>
+
+<% content_for(:sidebar_content) do %>
+	<p>To provide quality medical services management by implementing a winning combination of technology and people to enhance the overall efficiency of client practices.</p>
+	<p>MD Manage provides healthcare consulting, and technology-based solutions for the healthcare providers. We provide effective and efficient services including billing, patient management, insurance receivables management and electronic document management.</p>
+	<p>We also specialize in providing business and technology analysis and counseling, supporting staffing solutions and/or delivering a fully outsourced service.</p>
+<% end %>

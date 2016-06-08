@@ -1,0 +1,101 @@
+<h1>Listing chiropractic_observation_lists</h1>
+
+<table>
+  <tr>
+    <th>Myospasms</th>
+    <th>Tenderness</th>
+    <th>Hypotonicity</th>
+    <th>Flare ups</th>
+    <th>Suboccipitals</th>
+    <th>Rhomboids</th>
+    <th>Deltoids</th>
+    <th>Quad lumb</th>
+    <th>Uppertraps</th>
+    <th>Levator scap</th>
+    <th>Ctl paraspinals</th>
+    <th>Other observations</th>
+    <th>Disc c1</th>
+    <th>Disc c2</th>
+    <th>Disc c3</th>
+    <th>Disc c4</th>
+    <th>Disc c5</th>
+    <th>Disc c6</th>
+    <th>Disc c7</th>
+    <th>Disc t1</th>
+    <th>Disc t2</th>
+    <th>Disc t3</th>
+    <th>Disc t4</th>
+    <th>Disc t5</th>
+    <th>Disc t6</th>
+    <th>Disc t7</th>
+    <th>Disc t8</th>
+    <th>Disc t9</th>
+    <th>Disc t10</th>
+    <th>Disc t11</th>
+    <th>Disc t12</th>
+    <th>Disc l1</th>
+    <th>Disc l2</th>
+    <th>Disc l3</th>
+    <th>Disc l4</th>
+    <th>Disc l5</th>
+		<th>Occiput</th>
+    <th>Sacrum</th>
+    <th>Sacroiliac left</th>
+    <th>Sacroiliac right</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_observation_lists.each do |chiropractic_observation_list| %>
+  <tr>
+    <td><%= chiropractic_observation_list.myospasms %></td>
+    <td><%= chiropractic_observation_list.tenderness %></td>
+    <td><%= chiropractic_observation_list.hypotonicity %></td>
+    <td><%= chiropractic_observation_list.flare_ups %></td>
+    <td><%= chiropractic_observation_list.suboccipitals %></td>
+    <td><%= chiropractic_observation_list.rhomboids %></td>
+    <td><%= chiropractic_observation_list.deltoids %></td>
+    <td><%= chiropractic_observation_list.quad_lumb %></td>
+    <td><%= chiropractic_observation_list.uppertraps %></td>
+    <td><%= chiropractic_observation_list.levator_scap %></td>
+    <td><%= chiropractic_observation_list.ctl_paraspinals %></td>
+    <td><%= chiropractic_observation_list.other_observations %></td>
+    <td><%= chiropractic_observation_list.disc_c1 %></td>
+    <td><%= chiropractic_observation_list.disc_c2 %></td>
+    <td><%= chiropractic_observation_list.disc_c3 %></td>
+    <td><%= chiropractic_observation_list.disc_c4 %></td>
+    <td><%= chiropractic_observation_list.disc_c5 %></td>
+    <td><%= chiropractic_observation_list.disc_c6 %></td>
+    <td><%= chiropractic_observation_list.disc_c7 %></td>
+    <td><%= chiropractic_observation_list.disc_t1 %></td>
+    <td><%= chiropractic_observation_list.disc_t2 %></td>
+    <td><%= chiropractic_observation_list.disc_t3 %></td>
+    <td><%= chiropractic_observation_list.disc_t4 %></td>
+    <td><%= chiropractic_observation_list.disc_t5 %></td>
+    <td><%= chiropractic_observation_list.disc_t6 %></td>
+    <td><%= chiropractic_observation_list.disc_t7 %></td>
+    <td><%= chiropractic_observation_list.disc_t8 %></td>
+    <td><%= chiropractic_observation_list.disc_t9 %></td>
+    <td><%= chiropractic_observation_list.disc_t10 %></td>
+    <td><%= chiropractic_observation_list.disc_t11 %></td>
+    <td><%= chiropractic_observation_list.disc_t12 %></td>
+    <td><%= chiropractic_observation_list.disc_l1 %></td>
+    <td><%= chiropractic_observation_list.disc_l2 %></td>
+    <td><%= chiropractic_observation_list.disc_l3 %></td>
+    <td><%= chiropractic_observation_list.disc_l4 %></td>
+    <td><%= chiropractic_observation_list.disc_l5 %></td>
+		<td><%= chiropractic_observation_list.occiput %></td>
+    <td><%= chiropractic_observation_list.sacrum %></td>
+    <td><%= chiropractic_observation_list.sacroiliac_left %></td>
+    <td><%= chiropractic_observation_list.sacroiliac_right %></td>
+    <td><%= link_to 'Show', chiropractic_observation_list %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_observation_list_path(chiropractic_observation_list) %></td>
+    <td><%= link_to 'Archive', chiropractic_observation_list, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic observation list', new_chiropractic_observation_list_path %>

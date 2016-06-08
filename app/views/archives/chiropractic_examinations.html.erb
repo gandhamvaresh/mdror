@@ -1,0 +1,41 @@
+<h4>Chiropractic Examinations Archive</h4>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+			<th class="span-4">Patient</th>
+			<th class="span-3">Examination Date</th>
+			<th class="span-3">Re-examination</th>
+	    <th class="span-3">Completed</th>
+			<th class="span-3">Claim Filed</th>
+	    <th class="span-4 last"></th>
+  	</thead>
+
+		<tbody>
+			<% @chiropractic_examinations.each do |chiropractic_examination| %>
+				<% accident = chiropractic_examination.accident %>
+				<% patient = accident.patient %>
+			  <tr>
+					<td><%= patient.full_name %></td>
+					<td><%= chiropractic_examination.examination_date.strftime('%b %d, %Y') %></td>
+					<td><%= chiropractic_examination.initial_examination? ? 'No' : 'Yes' %></td>
+					<td><%= chiropractic_examination.completed? ? chiropractic_examination.completed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+					<td><%= chiropractic_examination.insurance_claim_filed? ? chiropractic_examination.insurance_claim_filed_at.strftime('%b %d, %Y %I:%M %p') : 'No' %></td>
+			    <td><%= link_to 'Show', patient_accident_chiropractic_examination_path(patient, accident, chiropractic_examination) %> |	<%= link_to 'Unarchive', patient_accident_chiropractic_examination_path(patient, accident, chiropractic_examination), confirm: 'Are you sure you want to unarchive this chiropractic examination? All related chiropractic treatment notes will also be unarchived.', method: :delete %> </td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @chiropractic_examinations %>
+</div>
+
+<br/>
+
+<div class="prepend-21 span-3">
+	<%= link_to 'Back', archives_index_path, :class => 'button' %>
+</div>

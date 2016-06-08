@@ -1,0 +1,77 @@
+<%= form_for(@chiropractic_body_adjustment_list) do |f| %>
+  <% if @chiropractic_body_adjustment_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_body_adjustment_list.errors.count, "error") %> prohibited this chiropractic_body_adjustment_list from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_body_adjustment_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :spinal_adjustment_1_2_regions %><br />
+    <%= f.check_box :spinal_adjustment_1_2_regions %>
+  </div>
+  <div class="field">
+    <%= f.label :spinal_adjustment_3_4_regions %><br />
+    <%= f.check_box :spinal_adjustment_3_4_regions %>
+  </div>
+  <div class="field">
+    <%= f.label :spinal_adjustment_5_or_more_regions %><br />
+    <%= f.check_box :spinal_adjustment_5_or_more_regions %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_shoulder_left %><br />
+    <%= f.check_box :extremity_adjustment_shoulder_left %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_shoulder_right %><br />
+    <%= f.check_box :extremity_adjustment_shoulder_right %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_elbow_left %><br />
+    <%= f.check_box :extremity_adjustment_elbow_left %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_elbow_right %><br />
+    <%= f.check_box :extremity_adjustment_elbow_right %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_wrist_left %><br />
+    <%= f.check_box :extremity_adjustment_wrist_left %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_wrist_right %><br />
+    <%= f.check_box :extremity_adjustment_wrist_right %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_hip_left %><br />
+    <%= f.check_box :extremity_adjustment_hip_left %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_hip_right %><br />
+    <%= f.check_box :extremity_adjustment_hip_right %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_knee_left %><br />
+    <%= f.check_box :extremity_adjustment_knee_left %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_knee_right %><br />
+    <%= f.check_box :extremity_adjustment_knee_right %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_ankle_left %><br />
+    <%= f.check_box :extremity_adjustment_ankle_left %>
+  </div>
+  <div class="field">
+    <%= f.label :extremity_adjustment_ankle_right %><br />
+    <%= f.check_box :extremity_adjustment_ankle_right %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

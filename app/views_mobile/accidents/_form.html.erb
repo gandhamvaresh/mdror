@@ -1,0 +1,218 @@
+<div>
+	<%= form_for [@patient, @accident] do |f| %>
+ 
+		<%= render "shared/error_messages", :target => @accident %>
+
+		<h2 class="title2">Injury Details</h2>
+	
+		<div class="box-white">
+			<p>
+				<%= f.label :accident %>
+		    <%= f.select :accident_type, [['MVA', 'MVA'], ['Slip and Fall', 'Slip and Fall'], ['Work Related', 'Work Related'], ['Other', 'Other']] %>
+			</p>
+		
+			<p>
+				<%= f.label :injury_date %>
+			</p>
+		
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :month %>
+				<%= select_month(@accident.injury_date.try(:month) || Date.today, :add_month_numbers => true, :prefix => 'accident', :field_name => 'injury_date(2i)') %>
+			</p>
+		
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :day %>
+				<%= select_day(@accident.injury_date.try(:day) || Date.today, :prefix => 'accident', :field_name => 'injury_date(3i)') %>
+			</p>
+		
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :year %>
+				<%= select_year(@accident.injury_date.try(:year) || Date.today, :start_year => Date.today.year - 100, :end_year => Date.today.year, :prefix => 'accident', :field_name => 'injury_date(1i)') %>
+			</p>
+		
+			<p>
+				<%= f.label :seating %>
+		    <%= f.select :seating_position, [["Front Passenger Side", "Front Passenger Side"], ["Front Driver's Side", "Front Driver's Side"], ["Rear Passenger Side", "Rear Passenger Side"], ["Rear Middle", "Rear Middle"], ["Rear Driver's Side", "Rear Driver's Side"]], :prompt => "None" %>
+			</p>
+		
+			<p>
+				<%= f.check_box :wearing_seat_belt %> <%= f.label :seat_belt %>
+			</p>
+		
+			<p>
+				<%= f.check_box :driver %> <%= f.label :driver %>
+			</p>
+		
+			<p>
+				<%= f.check_box :passenger %> <%= f.label :passenger %>
+			</p>
+			
+			<p>
+				<%= f.check_box :pedestrian %> <%= f.label :pedestrian %>
+			</p>
+		
+			<p>
+				<%= f.check_box :airbag_deploy %> <%= f.label :airbag_deploy %>
+			</p>
+
+			<p>
+				<%= f.check_box :loss_of_consciousness %> <%= f.label :loss_of_consciousness %>
+			</p>
+			
+			<p>
+					<%= f.check_box :lost_time_from_work %> <%= f.label :lost_time_from_work %>
+			</p>
+			
+			<p>
+				<%= f.label :days_lost %>
+				<%= f.text_field :days_lost_from_work, :placeholder => "days lost from work" %>
+			</p>
+			
+			<p>
+				<%= f.check_box :fear_while_driving %> <%= f.label :fear_while_driving %>
+			</p>
+		</div>
+	
+		<br/>
+
+		<h2 class="title2">Injury Description</h2>
+
+		<div class="box-white">
+	    <%= f.text_area :injury_description, :style => 'margin: 10px; width: 96%' %>
+		</div>
+	
+		<h2 class="title2">Hospitalisation Details</h2>
+	
+		<div class="box-white">
+			<p>
+				<%= f.check_box :taken_to_hospital %> <%= f.label :taken_to_hospital %>
+			</p>
+	
+			<p>
+				<%= f.label :transport %>
+				<%= f.select :hospital_transport_mode, [['Ambulance', 'Ambulance'], ['Car', 'Car']], :prompt => "None" %>
+			</p>
+	
+			<p>
+				<%= f.label :hospital %>
+				<%= f.text_field :hospital_name, :placeholder => "hospital name" %>
+			</p>
+		
+			<p>
+				<%= f.check_box :examined %> <%= f.label :examined %>
+			</p>
+		
+			<p>
+				<%= f.check_box :xrays %> <label>X-rays</label>
+			</p>
+		
+			<p>
+				<%= f.check_box :ctscan %> <label>CT Scan</label>
+			</p>
+		
+			<p>
+				<%= f.check_box :mri %> <label>MRI</label>
+			</p>
+		
+			<p>
+				<%= f.check_box :released %> <%= f.label :released %>
+			</p>
+		
+			<p>
+				<%= f.check_box :admitted %> <%= f.label :admitted %>
+			</p>
+	  </div>
+	
+		<h2 class="title2">Medications</h2>
+	
+		<div class="box-white">
+			<p>
+	    	<%= f.text_area :medications, :style => 'margin: 10px; width: 96%' %>
+	  	</p>
+		</div>
+	
+		<h2 class="title2">Prior Injuries</h2>
+
+	  <div class="box-white">
+			<p>
+	    <%= f.text_area :prior_injuries, :style => 'margin: 10px; width: 96%' %>
+			</p>
+	  </div>
+	
+		<h2 class="title2">Prior Diagnostic Studies</h2>
+	
+		<div class="box-white">
+			<p>
+				<label>MRI</label>
+		    <%= f.select :prior_diagnostic_study_mri, [['Cervical', 'Cervical'], ['Lumbar', 'Lumbar'], ['Other', 'Other']], {:prompt => "None"}, :onChange => "toggle_other_MRI_CTScan_fields();" %>&nbsp;<%= f.text_field :prior_diagnostic_study_mri_other, :class => 'small_font_span_4', :style => "display:none;" %>
+			</p>
+		
+			<p>
+				<label>CT Scan</label>
+		    <%= f.select :prior_diagnostic_study_ctscan, [['Cervical', 'Cervical'], ['Lumbar', 'Lumbar'], ['Other', 'Other']], {:prompt => "None"}, :onChange => "toggle_other_MRI_CTScan_fields();" %>&nbsp;<%= f.text_field :prior_diagnostic_study_ctscan_other, :class => 'small_font_span_4', :style => "display:none;" %>
+			</p>
+		
+			<p>
+				<label>EMG</label>
+		    <%= f.select :prior_diagnostic_study_emg, [['Upper', 'Upper'], ['Lower', 'Lower']], :prompt => "None" %>
+			</p>
+	  </div>
+
+		<br/>
+	
+		<h2 class="title2">Prior Diagnostic Results</h2>
+	
+		<div class="box-white">
+			<p>
+		    <%= f.text_area :prior_diagnostic_results, :style => 'margin: 10px; width: 96%' %>
+		  </p>
+		</div>
+	
+		<br/>
+	
+		<h2 class="title2">Medical History</h2>
+	
+		<div class="box-white">
+			<p>
+		    <%= f.text_area :medical_history, :style => 'margin: 10px; width: 96%' %>
+		  </p>
+		</div>
+	
+		<br/>
+	
+		<div>
+				<% if @accident.new_record? %>
+					<%= f.submit 'Create Case', :class => 'button red' %>
+				<% else %>
+	    		<%= f.submit 'Update Case', :class => 'button red' %>
+				<% end %>
+	  </div>
+
+	<% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	function toggle_other_MRI_CTScan_fields() {
+		var mri_element = document.getElementById("accident_prior_diagnostic_study_mri");
+		var mri_text = mri_element.options[mri_element.selectedIndex].text;
+		
+		var ctscan_element = document.getElementById("accident_prior_diagnostic_study_ctscan");
+		var ctscan_text = ctscan_element.options[ctscan_element.selectedIndex].text;
+		
+		if (mri_text == 'Other') {
+			$("#accident_prior_diagnostic_study_mri_other").show();
+		} else {
+			$("#accident_prior_diagnostic_study_mri_other").hide();
+		}
+		
+		if (ctscan_text == 'Other') {
+			$("#accident_prior_diagnostic_study_ctscan_other").show();
+		} else {
+			$("#accident_prior_diagnostic_study_ctscan_other").hide();
+		}
+	}
+	
+	$(function() {
+	 toggle_other_MRI_CTScan_fields();
+	});
+</script>

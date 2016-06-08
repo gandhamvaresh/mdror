@@ -1,0 +1,17 @@
+<% content_for(:main_header) do %>
+	<%= link_to 'Back', patients_path, :class => 'left' %>
+	<h1 class="title">Editing Patient</h1>
+<% end %>
+
+<% content_for(:main_content) do %>
+	<div>
+		<ul id="crumbs">
+			<li><%= link_to 'Patients', patients_path %></li>
+		</ul>
+	</div>
+
+	<div>
+		<%= render 'form' %>
+	</div>
+	
+<% end %>

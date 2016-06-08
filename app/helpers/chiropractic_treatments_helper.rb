@@ -1,0 +1,2 @@
+module ChiropracticTreatmentsHelper
+end

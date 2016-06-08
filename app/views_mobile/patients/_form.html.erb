@@ -1,0 +1,353 @@
+<div>
+	
+<%= form_for(@patient) do |f| %>
+ 
+	<%= render "shared/error_messages", :target => @patient %>
+
+	<h2 class="title2">Demographics</h2>
+	
+	<div class="box-white">
+		<p>
+			<%= f.label :first_name %>
+	    <%= f.text_field :first_name %>
+		</p>
+		
+		<p>
+			<%= f.label :last_name %>
+	    <%= f.text_field :last_name %>
+		</p>
+		
+		<p>
+			<%= f.label :date_of_birth %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :month %>
+			<%= select_month(@patient.date_of_birth.try(:month) || Date.today, :add_month_numbers => true, :prefix => 'patient', :field_name => 'date_of_birth(2i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :day %>
+			<%= select_day(@patient.date_of_birth.try(:day) || Date.today, :prefix => 'patient', :field_name => 'date_of_birth(3i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :year %>
+			<%= select_year(@patient.date_of_birth.try(:year) || Date.today, :start_year => Date.today.year - 100, :end_year => Date.today.year, :prefix => 'patient', :field_name => 'date_of_birth(1i)') %>
+		</p>
+		
+		<p>
+			<label>SSN</label>
+	    <%= f.text_field :social_security_number %>
+		</p>
+		
+		<p>
+			<%= f.label :job_title %>
+	    <%= f.text_field :occupation %>
+		</p>
+		
+		<p>
+			<%= f.label :Height %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :feet %>
+	    <%= f.text_field :height_feet_component, :placeholder => 'feet' %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :inches %>
+			<%= f.text_field :height_inches_component, :placeholder => 'inches' %>
+		</p>
+		
+		<p>
+			<%= f.label :weight %>
+	    <%= f.text_field :weight, :placeholder => 'pounds' %>
+		</p>
+		
+		<p>
+			<%= f.label :gender %>
+	    <%= f.select(:gender, [['Male', 'Male'], ['Female', 'Female']]) %>
+		</p>
+		
+		<p>
+			<%= f.label :handed %>
+	    <%= f.select(:handed, [['Right', 'Right'], ['Left', 'Left']]) %>
+		</p>
+  </div>
+	
+	<h2 class="title2">Contact Details</h2>
+	
+	<div class="box-white">
+		<p>
+			<%= f.label 'Street' %>
+	    <%= f.text_field :street_address %>
+		</p>
+		
+		<p>
+			<%= f.label :city %>
+	    <%= f.text_field :city %>
+		</p>
+		
+		<p>
+			<%= f.label :state %>
+	    <%= f.text_field :state %>
+		</p>
+		
+		<p>
+			<%= f.label :zip %>
+	    <%= f.text_field :zip %>
+		</p>
+				
+		<p>
+			<%= f.label 'Phone(C)' %>
+	    <%= f.text_field :cell_phone %>
+		</p>
+		
+		<p>
+			<%= f.label 'Phone(H)' %>
+	    <%= f.text_field :home_phone %>
+		</p>
+		
+		<p>
+			<%= f.label 'Phone(W)' %>
+	    <%= f.text_field :work_phone %>
+		</p>
+		
+		<p>
+			<%= f.label :email %>
+	    <%= f.text_field :email %>
+		</p>
+	</div>
+	
+	<h2 class="title2">Emergency Contact</h2>
+	
+	<div class="box-white">
+		<p>
+			<%= f.label :name %>
+	    <%= f.text_field :emergency_contact_name %>
+		</p>
+		
+		<p>
+			<%= f.label :phone %>
+	    <%= f.text_field :emergency_contact_phone %>
+		</p>
+		
+		<p>
+			<label>Relation<br>to patient</label>
+	    <%= f.text_field :emergency_contact_relationship %>
+		</p>
+	</div>
+	
+	<h2 class="title2">Legal Representative</h2>
+	
+	<div class="box-white">
+		<p>
+			<%= f.label :name %>
+	    <%= f.text_field :legal_representative_name %>
+		</p>
+		
+		<p>
+			<%= f.label :street %>
+	    <%= f.text_field :legal_representative_street_address %>
+		</p>
+		
+		<p>
+			<%= f.label :city %>
+	    <%= f.text_field :legal_representative_city %>
+		</p>
+
+		<p>
+			<%= f.label :state %>
+	    <%= f.text_field :legal_representative_state %>
+		</p>
+
+		<p>
+			<%= f.label :zip %>
+	    <%= f.text_field :legal_representative_zip %>
+		</p>
+
+		<p>
+			<%= f.label :phone %>
+	    <%= f.text_field :legal_representative_phone %>
+		</p>
+		
+		<p>
+			<%= f.label :fax %>
+	    <%= f.text_field :legal_representative_fax %>
+		</p>
+	</div>
+	
+	<h2 class="title2">Guarantor</h2>
+	
+	<div class="box-white">
+		<p>
+			<%= f.label :name %>
+	    <%= f.text_field :guarantor_name %>
+		</p>
+		
+		<p>
+			<label>SSN<label>
+	    <%= f.text_field :guarantor_ssn %>
+		</p>
+		
+		<p>
+			<%= f.label :date_of_birth %>
+		</p>
+
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :month %>
+			<%= select_month(@patient.guarantor_date_of_birth.try(:month) || Date.today, :add_month_numbers => true, :prefix => 'patient', :field_name => 'guarantor_date_of_birth(2i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :day %>
+			<%= select_day(@patient.guarantor_date_of_birth.try(:day) || Date.today, :prefix => 'patient', :field_name => 'guarantor_date_of_birth(3i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :year %>
+			<%= select_year(@patient.guarantor_date_of_birth.try(:year) || Date.today, :start_year => Date.today.year - 100, :end_year => Date.today.year, :prefix => 'patient', :field_name => 'guarantor_date_of_birth(1i)') %>
+		</p>
+	
+		<p>
+			<%= f.label :street %>
+	    <%= f.text_field :guarantor_street_address %>
+		</p>
+		
+		<p>
+			<%= f.label :city %>
+	    <%= f.text_field :guarantor_city %>
+		</p>
+
+		<p>
+			<%= f.label :state %>
+	    <%= f.text_field :guarantor_state %>
+		</p>
+
+		<p>
+			<%= f.label :zip %>
+	    <%= f.text_field :guarantor_zip %>
+		</p>
+
+		<p>
+			<%= f.label :phone %>
+	    <%= f.text_field :guarantor_phone %>
+		</p>
+		
+		<p>
+			<%= f.label :fax %>
+	    <%= f.text_field :guarantor_fax %>
+		</p>
+		
+		<p>
+			<%= f.label :email %>
+	    <%= f.text_field :guarantor_email %>
+		</p>
+	</div>
+	
+	<h2 class="title2">Primary Medical Insurance</h2>
+	
+	<div class="box-white">
+		<p>
+			<%= f.label :subscriber %>
+	    <%= f.text_field :primary_insurance_subscribers_name %>
+		</p>
+		
+		<p>
+			<%= f.label :date_of_birth %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :month %>
+			<%= select_month(@patient.primary_insurance_subscribers_date_of_birth.try(:month) || Date.today, :add_month_numbers => true, :prefix => 'patient', :field_name => 'primary_insurance_subscribers_date_of_birth(2i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :day %>
+			<%= select_day(@patient.primary_insurance_subscribers_date_of_birth.try(:day) || Date.today, :prefix => 'patient', :field_name => 'primary_insurance_subscribers_date_of_birth(3i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :year %>
+			<%= select_year(@patient.primary_insurance_subscribers_date_of_birth.try(:year) || Date.today, :start_year => Date.today.year - 100, :end_year => Date.today.year, :prefix => 'patient', :field_name => 'primary_insurance_subscribers_date_of_birth(1i)') %>
+		</p>
+		
+		<p>
+			<label>Relation<br>to patient</label>
+	    <%= f.text_field :primary_insurance_subscribers_relationship %>
+		</p>
+			
+		<p>
+			<label>Company</label>
+			<%= f.collection_select(:primary_insurance_company_id, InsuranceCompany.not_deleted, :id, :name, {:prompt => "None"}) %>
+		</p>
+
+		<p>
+			<label>Claim#/<br>Subscriber</label>
+			<%= f.text_field :primary_insurance_claim_number, :placeholder => "primary insurance claim number or subscriber ID" %>
+		</p>
+
+		<p>
+			<label>Policy/<br>Group#</label>
+			<%= f.text_field :primary_insurance_policy_number, :placeholder => "primary insurance policy number or group number" %>
+		</p>
+	</div>
+
+	<h2 class="title2">Secondary Medical Insurance</h2>
+	
+	<div class="box-white">
+		<p>
+			<%= f.label :subscriber %>
+	    <%= f.text_field :secondary_insurance_subscribers_name %>
+		</p>
+		
+		<p>
+			<%= f.label :date_of_birth %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :month %>
+			<%= select_month(@patient.secondary_insurance_subscribers_date_of_birth.try(:month) || Date.today, :add_month_numbers => true, :prefix => 'patient', :field_name => 'secondary_insurance_subscribers_date_of_birth(2i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :day %>
+			<%= select_day(@patient.secondary_insurance_subscribers_date_of_birth.try(:day) || Date.today, :prefix => 'patient', :field_name => 'secondary_insurance_subscribers_date_of_birth(3i)') %>
+		</p>
+		
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :year %>
+			<%= select_year(@patient.secondary_insurance_subscribers_date_of_birth.try(:year) || Date.today, :start_year => Date.today.year - 100, :end_year => Date.today.year, :prefix => 'patient', :field_name => 'secondary_insurance_subscribers_date_of_birth(1i)') %>
+		</p>
+		
+		<p>
+			<label>Relation<br>to patient</label>
+	    <%= f.text_field :secondary_insurance_subscribers_relationship %>
+		</p>
+		
+		<p>
+			<label>Company</label>
+			<%= f.collection_select(:secondary_insurance_company_id, InsuranceCompany.not_deleted, :id, :name, {:prompt => "None"}) %>
+		</p>
+
+		<p>
+			<label>Claim#/<br>Subscriber</label>
+			<%= f.text_field :secondary_insurance_claim_number, :placeholder => "secondary insurance claim number or subscriber ID" %>
+		</p>
+
+		<p>
+			<label>Policy/<br>Group#</label>
+			<%= f.text_field :secondary_insurance_policy_number, :placeholder => "secondary insurance policy number or group numberh" %>
+		</p>
+	</div>
+	
+	<br/>
+	
+  <div>
+		<%= f.submit :class => 'button red' %>
+  </div>
+
+<% end %>
+
+</div>

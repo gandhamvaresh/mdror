@@ -1,0 +1,45 @@
+<%= form_for(@chiropractic_compliance) do |f| %>
+  <% if @chiropractic_compliance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_compliance.errors.count, "error") %> prohibited this chiropractic_compliance from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_compliance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :compliance %><br />
+    <%= f.text_field :compliance %>
+  </div>
+  <div class="field">
+    <%= f.label :compliance %><br />
+    <%= f.text_field :compliance %>
+  </div>
+  <div class="field">
+    <%= f.label :compliance_affected_by_transportation %><br />
+    <%= f.check_box :compliance_affected_by_transportation %>
+  </div>
+  <div class="field">
+    <%= f.label :compliance_affected_by_work_schedule %><br />
+    <%= f.check_box :compliance_affected_by_work_schedule %>
+  </div>
+  <div class="field">
+    <%= f.label :compliance_affected_by_personal_matter %><br />
+    <%= f.check_box :compliance_affected_by_personal_matter %>
+  </div>
+  <div class="field">
+    <%= f.label :compliance_affected_by_other_reason %><br />
+    <%= f.check_box :compliance_affected_by_other_reason %>
+  </div>
+  <div class="field">
+    <%= f.label :other_reason_for_compliance %><br />
+    <%= f.text_field :other_reason_for_compliance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

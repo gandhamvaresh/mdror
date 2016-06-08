@@ -1,0 +1,53 @@
+<h1>Listing chiropractic_modalities_lists</h1>
+
+<table>
+  <tr>
+    <th>Ultrasound</th>
+    <th>Electric stimulation</th>
+    <th>Moist heat</th>
+    <th>Massage</th>
+    <th>Mfr</th>
+    <th>Mfr cervical</th>
+    <th>Mfr thoracic</th>
+    <th>Mfr lumbar</th>
+    <th>Therapeutic exercise</th>
+    <th>Mechanical traction</th>
+    <th>Kinetic activity</th>
+    <th>Nmr</th>
+    <th>Gait training</th>
+    <th>Exam re exam</th>
+    <th>Home use instruction</th>
+    <th>Other</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_modalities_lists.each do |chiropractic_modalities_list| %>
+  <tr>
+    <td><%= chiropractic_modalities_list.ultrasound %></td>
+    <td><%= chiropractic_modalities_list.electric_stimulation %></td>
+    <td><%= chiropractic_modalities_list.moist_heat %></td>
+    <td><%= chiropractic_modalities_list.massage %></td>
+    <td><%= chiropractic_modalities_list.mfr %></td>
+    <td><%= chiropractic_modalities_list.mfr_cervical %></td>
+    <td><%= chiropractic_modalities_list.mfr_thoracic %></td>
+    <td><%= chiropractic_modalities_list.mfr_lumbar %></td>
+    <td><%= chiropractic_modalities_list.therapeutic_exercise %></td>
+    <td><%= chiropractic_modalities_list.mechanical_traction %></td>
+    <td><%= chiropractic_modalities_list.kinetic_activity %></td>
+    <td><%= chiropractic_modalities_list.nmr %></td>
+    <td><%= chiropractic_modalities_list.gait_training %></td>
+    <td><%= chiropractic_modalities_list.exam_re_exam %></td>
+    <td><%= chiropractic_modalities_list.home_use_instruction %></td>
+    <td><%= chiropractic_modalities_list.other %></td>
+    <td><%= link_to 'Show', chiropractic_modalities_list %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_modalities_list_path(chiropractic_modalities_list) %></td>
+    <td><%= link_to 'Archive', chiropractic_modalities_list, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic modalities list', new_chiropractic_modalities_list_path %>

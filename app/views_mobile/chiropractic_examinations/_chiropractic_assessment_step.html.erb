@@ -1,0 +1,61 @@
+<div class="span-24">
+	
+	<%= f.fields_for :chiropractic_assessment do |builder| %>
+	
+		<table>
+			<thead>
+				<th>ASSESSMENT:</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td>
+						<%= builder.check_box :assessment_improved, :disabled => disable_option %> <label>Improved</label>
+					</td>
+					<td>
+						<%= builder.check_box :assessment_unimproved, :disabled => disable_option%> <label>Unimproved</label>
+					</td>
+					<td>
+						<%= builder.check_box :assessment_exacerbation, :disabled => disable_option %> <label>Exacerbation</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="3">
+						<label>Updated diagnosis:</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="3">
+						<% if disable_option %>
+							<%= @chiropractic_examination.chiropractic_assessment.updated_diagnosis %>
+						<% else %>
+							<%= builder.text_area :updated_diagnosis, :style => 'margin: 10px; width: 96%', :disabled => disable_option %>
+						<% end %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="3">
+						<label>Comments:</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="3">
+						<% if disable_option %>
+							<%= @chiropractic_examination.chiropractic_assessment.comments %>
+						<% else%>
+							<%= builder.text_area :comments, :style => 'margin: 10px; width: 96%', :disabled => disable_option %>
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<% end %>
+	
+</div>

@@ -1,0 +1,242 @@
+<div class="span-24">
+
+	<% unless disable_option %>
+		<div class="span-24">
+				<label>Examination date:</label><br />
+		    <%= f.date_select :examination_date, :disabled => disable_option %>
+		</div>
+	
+		<hr class="space"/>
+	<% end %>
+	
+	<div class="span-24 non_printable_block">
+		<%= f.check_box :initial_examination, :onChange => "toggle_initial_examination_fields();", :disabled => disable_option %>&nbsp;<label>Initial Chiropractic Examination</label>
+			
+		<hr class="space"/>
+	</div>
+	
+	<%= f.fields_for :chiropractic_symptom_list do |builder| %>
+	
+		<div class="span-24 non_printable_block" id="initial_examination_fields">
+			<div class="span-24">
+				<%= builder.check_box :significant_prior_illness_or_injury, :disabled => disable_option %> <label>No significant prior illness / injury / medical condition.</label>
+			</div>
+		
+			<hr class="space"/>
+		
+			<div class="span-24">
+				<div class="span-14 box">
+					<div class="span-4">
+						<label>Pain Level <br/>on VAS</label>
+					</div>
+					<div class="span-5">
+						<label>Resting:</label> <%= builder.select :pain_level_on_vas_resting, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+					</div>
+					<div class="span-5 last">
+						<label>Activity:</label> <%= builder.select :pain_level_on_vas_activity, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+					</div>
+				</div>
+			</div>
+		
+			<hr class="space"/>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<label>SYMPTOMS:</label>
+			</div>
+			
+			<div class="span-2">
+				<label>Side</label>
+			</div>
+			
+			<div class="span-3">
+				<label>Scale 1 - 10</label>
+			</div>
+			
+			<div class="span-15 last">
+				<label>Radiates</label>
+			</div>
+		</div>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<%= builder.check_box :neck_pain, :disabled => disable_option %> <label>Neck Pain</label>
+			</div>
+			
+			<div class="span-2">
+				<%= builder.select :neck_pain_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-3">
+				<%= builder.select :neck_pain_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-15 last">
+				<%= builder.select :neck_pain_radiation_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>&nbsp;&nbsp;
+				<%= builder.check_box :neck_pain_radiates_to_shoulder, :disabled => disable_option %> <label>To Shoulder</label>&nbsp;&nbsp;
+				<%= builder.check_box :neck_pain_radiates_to_elbow, :disabled => disable_option %> <label>To Elbow</label>&nbsp;&nbsp;
+				<%= builder.check_box :neck_pain_radiates_to_hand, :disabled => disable_option %> <label>To Hand</label>
+				&nbsp;&nbsp;&nbsp;&nbsp;<label>Digits</label>&nbsp;
+				<%= builder.check_box :neck_pain_radiates_to_digit1, :disabled => disable_option %><label>1</label>
+				<%= builder.check_box :neck_pain_radiates_to_digit2, :disabled => disable_option %><label>2</label>
+				<%= builder.check_box :neck_pain_radiates_to_digit3, :disabled => disable_option %><label>3</label>
+				<%= builder.check_box :neck_pain_radiates_to_digit4, :disabled => disable_option %><label>4</label>
+				<%= builder.check_box :neck_pain_radiates_to_digit5, :disabled => disable_option %><label>5</label>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<%= builder.check_box :upper_mid_back_pain, :disabled => disable_option %> <label>Upper/Mid-back Pain</label>
+			</div>
+			
+			<div class="span-2">
+				<%= builder.select :upper_mid_back_pain_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-3">
+				<%= builder.select :upper_mid_back_pain_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-15 last">
+				<%= builder.select :upper_mid_back_pain_radiation_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both'], ['Around Rib Cage', 'Around Rib Cage']], {:prompt => "None"}, :disabled => disable_option %>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<%= builder.check_box :low_back_pain, :disabled => disable_option %> <label>Low back Pain</label>
+			</div>
+			
+			<div class="span-2">
+				<%= builder.select :low_back_pain_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-3">
+				<%= builder.select :low_back_pain_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-15 last">
+				<%= builder.select :low_back_pain_radiation_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>&nbsp;&nbsp;
+				<%= builder.check_box :low_back_pain_radiates_to_buttocks, :disabled => disable_option %> <label>To Buttocks</label>&nbsp;&nbsp;
+				<%= builder.check_box :low_back_pain_radiates_to_thighs, :disabled => disable_option %> <label>To Thighs</label>&nbsp;
+				<%= builder.check_box :low_back_pain_radiates_to_calf, :disabled => disable_option %> <label>To Calf</label>&nbsp;
+				<%= builder.check_box :low_back_pain_radiates_to_hips, :disabled => disable_option %><label>To Hips</label>&nbsp;
+				<%= builder.check_box :low_back_pain_radiates_to_knees, :disabled => disable_option %><label>To Knees</label>&nbsp;
+				<%= builder.check_box :low_back_pain_radiates_to_foot, :disabled => disable_option %><label>To Foot</label>
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<%= builder.check_box :headaches, :disabled => disable_option %> <label>Headaches</label>
+			</div>
+			
+			<div class="span-2">
+				<%= builder.select :headaches_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-3">
+				<%= builder.select :headaches_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-15 last">
+				<%= builder.check_box :headaches_frontal, :disabled => disable_option %> <label>Frontal</label>&nbsp;&nbsp;
+				<%= builder.check_box :headaches_suboccipital, :disabled => disable_option %> <label>Suboccipital</label>&nbsp;&nbsp;
+				<%= builder.check_box :headaches_temporal, :disabled => disable_option %> <label>Temporal</label>&nbsp;&nbsp;
+				<%= builder.check_box :headaches_bitemporal, :disabled => disable_option %><label>Bitemporal</label>&nbsp;&nbsp;
+				<%= builder.check_box :headaches_parietal, :disabled => disable_option %><label>Parietal</label>&nbsp;&nbsp;
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<%= builder.check_box :numbness, :disabled => disable_option %> <label>Numbness</label>
+			</div>
+			
+			<div class="span-2">
+				<%= builder.select :numbness_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-3">
+				<%= builder.select :numbness_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-15 last">
+				<label>Upper extrem to:</label>
+				<%= builder.check_box :numbness_upper_extremity_to_elbow, :disabled => disable_option %> <label>Elbow</label>&nbsp;&nbsp;
+				<%= builder.check_box :numbness_upper_extremity_to_hand, :disabled => disable_option %> <label>Hand</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label>Lower extrem to:</label>
+				<%= builder.check_box :numbness_lower_extremity_to_knee, :disabled => disable_option %> <label>Knee</label>&nbsp;&nbsp;
+				<%= builder.check_box :numbness_lower_extremity_to_foot, :disabled => disable_option %><label>Foot</label>&nbsp;&nbsp;
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<%= builder.check_box :tingling, :disabled => disable_option %> <label>Tingling</label>
+			</div>
+			
+			<div class="span-2">
+				<%= builder.select :tingling_side, [['Right', 'Right'], ['Left', 'Left'], ['Both', 'Both']], {:prompt => "None"}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-3">
+				<%= builder.select :tingling_scale, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {}, :disabled => disable_option %>
+			</div>
+			
+			<div class="span-15 last">
+				<label>Upper extrem to:</label>
+				<%= builder.check_box :tingling_upper_extremity_to_elbow, :disabled => disable_option %> <label>Elbow</label>&nbsp;&nbsp;
+				<%= builder.check_box :tingling_upper_extremity_to_hand, :disabled => disable_option %> <label>Hand</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label>Lower extrem to:</label>
+				<%= builder.check_box :tingling_lower_extremity_to_knee, :disabled => disable_option %> <label>Knee</label>&nbsp;&nbsp;
+				<%= builder.check_box :tingling_lower_extremity_to_foot, :disabled => disable_option %><label>Foot</label>&nbsp;&nbsp;
+			</div>
+		</div>
+		
+		<hr class="space"/>
+		
+		<div class="span-24">
+			<div class="span-4">
+				<label>Other:</label>
+			</div>
+			
+			<div class="span-20 last">
+				<% if disable_option %>
+					<%= @chiropractic_examination.chiropractic_symptom_list.other_symptoms %>
+				<% else %>
+					<%= builder.text_area :other_symptoms, :class => "text_area_span_18", :disabled => disable_option %>
+				<% end %>
+			</div>
+		</div>
+		
+	<% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	function toggle_initial_examination_fields() {
+		var checkbox_element = document.getElementById("chiropractic_examination_initial_examination");
+		
+		if (checkbox_element.checked == true) {
+			$("#initial_examination_fields").show();
+		} else {
+			$("#initial_examination_fields").hide();
+		}
+	}
+	
+	$(function() {
+	 toggle_initial_examination_fields();
+	});
+</script>

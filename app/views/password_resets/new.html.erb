@@ -1,0 +1,40 @@
+<div class="span-24">
+	<div class="span-15">
+		<span class="large">MD Manage Vision</span>
+		<p>To provide quality medical services management by implementing a winning combination of technology and people to enhance the overall efficiency of client practices.</p>
+		<p>MD Manage provides healthcare consulting, and technology-based solutions for the healthcare providers. We provide effective and efficient services including billing, patient management, insurance receivables management and electronic document management. We also specialize in providing business and technology analysis and counseling, supporting staffing solutions and/or delivering a fully outsourced service.</p>
+	</div>
+	
+	<div class="span-8 box last">
+		
+		<% unless alert.blank? %>
+			<div class="span-7 notice">
+				<%= alert %>
+			</div>
+		<% end %>
+		
+		<%= form_tag password_resets_path do %>
+			<div class="span-8">
+				<div class="span-8">
+					<h3>Forgot Password?</h3>
+				</div>
+
+				<div class="span-8">
+					<%= label_tag :email %><br />
+			    <%= text_field_tag :email, params[:email], :class => 'title' %>
+				</div>
+
+				<div class="span-8 last">	
+					<div class="span-5">
+						<%= link_to "Back to sign in page", root_url %>
+					</div>
+					<div class="span-3 last">				
+						<%= submit_tag "Reset Password" %>
+					</div>
+			  </div>
+			</div>
+		<% end %>
+	</div>
+	
+	<hr class="space"/>
+</div>

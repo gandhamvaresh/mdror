@@ -1,0 +1,16 @@
+<tr class="daily_treatment_notes_<%= chiropractic_examination.id %>" style="display:none;">
+  <td colspan="4">
+		<% 6.times do %>
+			&nbsp;
+		<% end %>
+		<%= link_to 'Daily Treatment Notes',  patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment) %>
+		<% unless chiropractic_treatment.treatment_date.blank? %>
+			on <%= chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %>
+		<% else %>
+			in progress
+		<% end %>	
+		<% unless chiropractic_treatment.summary.blank? %>
+		 - <%= chiropractic_treatment.summary %>
+		<% end %>
+	</td>
+</tr>

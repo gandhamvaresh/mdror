@@ -1,0 +1,217 @@
+<h2 class="title2">RECOMMENDED TREATMENT PLAN:</h2>	
+
+<div class="box-white page_break">
+	<%= f.fields_for :chiropractic_treatment_plan do |builder| %>
+		<table>
+			<thead>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td>
+						<%= builder.check_box :spine_xray, :disabled => disable_option %>&nbsp;X-ray of&nbsp;&nbsp;
+					</td>
+					<td>
+						<%= builder.check_box :spine_xray_cervical, :disabled => disable_option %>&nbsp;Cervical&nbsp;&nbsp;
+					</td>
+					<td>
+						<%= builder.check_box :spine_xray_thoracic, :disabled => disable_option %>&nbsp;Thoracic&nbsp;&nbsp;
+					</td>
+					<td>
+						<%= builder.check_box :spine_xray_lumbar, :disabled => disable_option %>&nbsp;Lumbar&nbsp;&nbsp;spine due to history of trauma.
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Other X-ray:&nbsp;&nbsp;
+					</td>
+					<td colspan="3">
+						<%= builder.text_field :other_xray, :class => "small_font_span_8", :disabled => disable_option %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :need_xray_reports, :disabled => disable_option %>&nbsp;Obtain X-ray reports from hospital and / or previous treating facility
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :need_past_medical_records, :disabled => disable_option %>&nbsp;Advised patient to obtain past medical records for review
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2">
+						<%= builder.check_box :spinal_adjustments, :disabled => disable_option %>&nbsp;Spinal Adjustments:&nbsp;&nbsp;
+					</td>
+					<td colspan="2">
+						<%= builder.select :spinal_adjustments_frequency, [['3x/wk', '3x/wk'], ['2x/wk', '2x/wk'], ['1x/wk', '1x/wk']], {:prompt => "None"}, :disabled => disable_option %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2">
+						<%= builder.check_box :extremity_adjustments, :disabled => disable_option %>&nbsp;Extremity Adjustments:
+					</td>
+					<td>
+						<%= builder.select :extremity_adjustments_frequency, [['3x/wk', '3x/wk'], ['2x/wk', '2x/wk'], ['1x/wk', '1x/wk']], {:prompt => "None"}, :disabled => disable_option %>&nbsp;
+					</td>
+					<td>
+						To:&nbsp;&nbsp;<%= builder.text_field :extremity_adjustment_body_part, :class => "small_font_span_6", :disabled => disable_option %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						Modalities:
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :ultrasound, :disabled => disable_option %>&nbsp;Ultrasound
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :electric_stimulation, :disabled => disable_option %>&nbsp;Electric Stimulation
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :massage, :disabled => disable_option %>&nbsp;Massage
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :mfr_cervical, :disabled => disable_option %>&nbsp;MFR Cervical
+					</td>
+				</tr>
+		
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :mfr_thoracic, :disabled => disable_option %>&nbsp;MFR Thoracic
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :mfr_lumbar, :disabled => disable_option %>&nbsp;MFR Lumbar
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :mechanical_traction, :disabled => disable_option %>&nbsp;Mechanical Traction
+					</td>
+				</tr>
+					
+				<tr>
+					<td colspan="4">
+					<%= builder.check_box :infrared, :disabled => disable_option %>&nbsp;Infrared
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">
+					<%= builder.check_box :hot_cold_pack, :disabled => disable_option %>&nbsp;Hot/Cold Pack
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">
+					<%= builder.check_box :bio_feedback, :disabled => disable_option %>&nbsp;Bio-Feedback
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">
+					<%= builder.check_box :self_care_home_mgmt, :disabled => disable_option %>&nbsp;Self Care/Home MGMT
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">
+					<%= builder.check_box :therapeutic_exercises, :disabled => disable_option %>&nbsp;Therapeutic Exercises
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">
+					<%= builder.check_box :therapeutic_functional_activities, :disabled => disable_option %>&nbsp;Therapeutic/Functional Activities
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						Other Modality:&nbsp;&nbsp;<%= builder.text_field :other_therapeutic_modality, :class => "small_font_span_8", :disabled => disable_option %>
+					</td>
+				</tr>
+								
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :recommend_medical_consultation, :disabled => disable_option %>&nbsp;Recommend Medical consultation for evaluation of&nbsp;&nbsp;<%= builder.text_field :recommended_medical_evaluation, :class => "small_font_span_6", :disabled => disable_option %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :re_examine_in_4_weeks, :disabled => disable_option %>&nbsp;Re-examine in approximately 4 weeks
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :spine_mri, :disabled => disable_option %>&nbsp;Consider MRI of&nbsp;<%= builder.check_box :spine_mri_cervical, :disabled => disable_option %>&nbsp;Cervical&nbsp;<%= builder.check_box :spine_mri_thoracic, :disabled => disable_option %>&nbsp;Thoracic&nbsp;<%= builder.check_box :spine_mri_lumbar, :disabled => disable_option %>&nbsp;Lumbar&nbsp;spine if radiating symptoms persist.
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						Other MRI:&nbsp;&nbsp;<%= builder.text_field :other_mri, :class => "small_font_span_8", :disabled => disable_option %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :spine_ct_scan, :disabled => disable_option %>Consider CT Scan of<%= builder.check_box :spine_ct_scan_cervical, :disabled => disable_option %>Cervical&nbsp;<%= builder.check_box :spine_ct_scan_thoracic, :disabled => disable_option %>&nbsp;Thoracic&nbsp;<%= builder.check_box :spine_ct_scan_lumbar, :disabled => disable_option %>&nbsp;Lumbar&nbsp;spine if radiating symptoms persist.
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						Other CT Scan:&nbsp;&nbsp;<%= builder.text_field :other_ct_scan, :class => "small_font_span_8", :disabled => disable_option %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.check_box :pending_medical_clearance_for_medications, :disabled => disable_option %>&nbsp;No Chiropractic treatment recommended at this time pending medical clearance
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						Other Recommendations:
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="4">
+						<%= builder.text_area :other_recommendations, :style => 'margin: 10px; width: 96%', :disabled => disable_option %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+</div>

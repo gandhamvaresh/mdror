@@ -1,0 +1,88 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">Chiropractic Treatment</h1>		
+	
+	<% if session[:current_tab] == 'Archives' %>
+			<%= link_to 'Back', archives_chiropractic_treatments_path, :class => 'left' %>
+	<% else %>
+			<% if current_user.doctor? || current_user.front_desk? %>	
+				<%= link_to 'Back', patient_accident_chiropractic_examination_chiropractic_treatments_path(@patient, @accident, @chiropractic_examination), :class => 'left' %>
+				<%= link_to 'Edit', edit_patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, @accident, @chiropractic_examination, @chiropractic_treatment), :class => 'right' unless @chiropractic_treatment.insurance_claim_filed? %>
+			<% else %>
+				<%= link_to 'Back', completed_treatments_client_path(@client), :class => 'back' %>
+				<%= link_to 'Medical Insurance Claim Filed', insurance_claim_processed_patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, @accident, @chiropractic_examination, @chiropractic_treatment), :class => 'right' unless @chiropractic_treatment.insurance_claim_filed? %>
+			<% end %>
+	<% end %>
+	
+<% end %>
+
+<% content_for(:main_content) do %>
+
+  <% unless session[:current_tab] == 'Archives' %>
+		<% if current_user.doctor? || current_user.front_desk? %>
+			<div id="breadcrumb">
+				<ul class="crumbs">
+					<li><%= link_to 'Patients', patients_path %></li>
+					<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+					<li><%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, @accident) %></li>
+					<li><%= link_to 'Chiropractic Treatments', patient_accident_chiropractic_examination_chiropractic_treatments_path(@patient, @accident, @chiropractic_examination) %></li>
+				</ul>
+			</div>
+		<% else %>
+			<div id="breadcrumb">
+				<ul class="crumbs">
+					<li><%= link_to 'Clients', clients_path %></li>
+					<li><%= link_to 'Treatments', completed_treatments_client_path(@client) %></li>
+				</ul>
+			</div>
+		<% end %>
+		
+		<br/>
+		<br/>
+  <% end %>
+	
+	
+	<% if current_user.in_house_user? && (@chiropractic_treatment.completed_at < @chiropractic_treatment.updated_at) %>
+		<p class="note">
+			<label>Note:</label>&nbsp;This treatment form was marked as complete by <%= User.find(@chiropractic_treatment.completed_by).name %> on <%= @chiropractic_treatment.completed_at.strftime('%b %d, %Y %I:%M %p') %>. The form was later updated and changes were made on <%= @chiropractic_treatment.updated_at.strftime('%b %d, %Y %I:%M %p') %>. Please make sure you capture the latest information when filing the medical insurance claim. Please contact the doctor if you have any questions.
+		</p>
+		
+		<br/>
+	<% end %>
+	
+	<% unless notice.blank? %>
+		<p class="note">
+			<%= notice %>
+		</p>
+		
+		<br/>
+	<% end %>
+	
+	
+	<div class="box-white">
+		<p>Treatment Date: <span class="detail"><%= @chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %></span><span><%= link_to 'Print Friendly', print_friendly_patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, @accident, @chiropractic_examination, @chiropractic_treatment), :class => 'button red' %></span></p>
+	</div>
+	
+	<br/>
+	
+	<div class="box-white">
+		<p>
+			Name: <%= @patient.full_name %>
+		</p>
+
+		<p>
+			Age: <%= @patient.age %> yrs
+		</p>
+	</div>
+		
+	<br/>
+
+	<div class="span-24">
+		<%= form_for [@patient, @accident, @chiropractic_examination, @chiropractic_treatment] do |f| %>	  
+			<%= render "chiropractic_observation_list_step", :f => f, :disable_option => true %>
+			<%= render "chiropractic_body_adjustment_list_step", :f => f, :disable_option => true %>
+			<%= render "chiropractic_modalities_list_step", :f => f, :disable_option => true %>
+		<% end %>
+	</div>
+
+
+<% end %>

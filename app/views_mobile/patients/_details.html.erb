@@ -1,0 +1,223 @@
+<h2 class="title2">Demographics</h2>
+
+<div class="box-white">
+	<p>
+		First name: <%= @patient.first_name %>
+	</p>
+	
+	<p>
+		Last name: <%= @patient.last_name %>
+	</p>
+	
+	<p>
+		Age: <%= @patient.age %> Years
+	</p>
+	
+	<p>
+		Sex: <%= @patient.gender %>
+	</p>
+	
+	<div class="non_printable_block">
+		<p>	
+			Occupation: <%= @patient.occupation %>
+		</p>
+
+		<p>
+			Handed: <%= @patient.handed %>
+		</p>
+
+		<p>
+			Height: <%= @patient.height %>
+		</p>
+
+		<p>
+			Weight: <%= @patient.weight %> Pounds
+		</p>
+	</div>
+</div>
+
+<h2 class="title2">Contact Details</h2>
+
+<div class="box-white">
+	<p>
+		Street: <%= @patient.street_address %>
+	</p>
+	
+	<p>
+		City: <%= @patient.city %>
+	</p>
+	
+	<p>
+		State: <%= @patient.state %>
+	</p>
+	
+	<p>
+		Zip: <%= @patient.zip %>
+	</p>
+	
+	<p>
+		Cell Phone: <%= @patient.cell_phone %>
+	</p>
+	
+	<p>
+		Home Phone: <%= @patient.home_phone %>
+	</p>
+	
+	<p>
+		Work Phone: <%= @patient.work_phone %>
+	</p>
+	
+	<p>
+		E-mail: <%= @patient.email %>
+	</p>
+	
+</div>
+
+<h2 class="title2">Emergency Contact</h2>
+
+<div class="box-white">
+	<p>
+		Name: <%= @patient.emergency_contact_name %>
+	</p>
+	
+	<p>
+		Phone: <%= @patient.emergency_contact_phone %>
+	</p>
+	
+	<p>
+		Relationship: <%= @patient.emergency_contact_relationship %>
+	</p>
+</div>
+
+<h2 class="title2">Legal Representative</h2>
+
+<div class="box-white">
+	<p>
+		Name: <%= @patient.legal_representative_name %>
+	</p>
+	
+	<p>
+		Street: <%= @patient.legal_representative_street_address %>
+	</p>
+	
+	<p>
+		City: <%= @patient.legal_representative_city %>
+	</p>
+	
+	<p>
+		State: <%= @patient.legal_representative_state %>
+	</p>
+	
+	<p>
+		Zip: <%= @patient.legal_representative_zip %>
+	</p>
+	
+	<p>
+		Phone: <%= @patient.legal_representative_phone %>
+	</p>
+	
+	<p>
+		Fax: <%= @patient.legal_representative_fax %>
+	</p>
+</div>
+
+
+<h2 class="title2">Guarantor</h2>
+
+<div class="box-white">
+	<p>
+		Name: <%= @patient.guarantor_name %>
+	</p>
+	
+	<p>
+		SSN: <%= @patient.guarantor_ssn %>
+	</p>
+	
+	<p>
+		Date of birth: <%= @patient.guarantor_date_of_birth.strftime('%b/%d/%Y') %>
+	</p>
+	
+	<p>
+		Street: <%= @patient.guarantor_street_address %>
+	</p>
+	
+	<p>
+		City: <%= @patient.guarantor_city %>
+	</p>
+	
+	<p>
+		State: <%= @patient.guarantor_state %>
+	</p>
+	
+	<p>
+		Zip: <%= @patient.guarantor_zip %>
+	</p>
+
+	<p>
+		Phone: <%= @patient.guarantor_phone %>
+	</p>
+	
+	<p>
+		Fax: <%= @patient.guarantor_fax %>
+	</p>
+	
+	<p>
+		E-mail: <%= @patient.guarantor_email %>
+	</p>
+</div>
+
+<h2 class="title2">Primary Medical Insurance</h2>
+
+<div class="box-white">	
+	<p>
+		Subscriber: <%= @patient.primary_insurance_subscribers_name %>
+	</p>
+	
+	<p>
+		Date of birth: <%= @patient.primary_insurance_subscribers_date_of_birth.strftime('%b/%d/%Y') %>
+	</p>
+	
+	<p>
+		Relationship: <%= @patient.primary_insurance_subscribers_relationship %>
+	</p>
+	
+	<p>
+		Company: <%= @patient.primary_insurance_company %>
+	</p>
+
+	<p>
+		Claim#: <%= @patient.primary_insurance_claim_number %>
+	</p>
+	
+	<p>
+		Policy#: <%= @patient.primary_insurance_policy_number %>
+	</p>
+</div>
+
+<h2 class="title2">Secondary Medical Insurance</h2>
+
+<div class="box-white">	
+	<p>
+		Subscriber: <%= @patient.secondary_insurance_subscribers_name %>
+	</p>
+	
+	<p>
+		Date of birth: <%= @patient.secondary_insurance_subscribers_date_of_birth.strftime('%b/%d/%Y') %>
+	</p>
+	
+	<p>
+		Relationship: <%= @patient.secondary_insurance_subscribers_relationship %>
+	</p>
+	
+	<p>
+		Company: <%= @patient.secondary_insurance_company %>
+	</p>
+
+	<p>
+		Claim#: <%= @patient.secondary_insurance_claim_number %>
+	</p>
+	
+	<p>
+		Policy#: <%= @patient.secondary_insurance_policy_number %>
+	</p>
+</div>

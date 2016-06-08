@@ -1,0 +1,36 @@
+<% content_for(:main_header) do %>
+	<% if session[:current_tab] == 'Archives' %>
+		<div class="span-24">
+			<%= link_to 'Back', archives_accidents_path, :class => 'left' %>
+		</div>
+	<% else %>
+		<%= link_to 'Back', patient_accidents_path(@patient), :class => 'left' %>
+	<% end %>
+	
+	<h1 class="title">Case Details</h1>
+	
+	<%= link_to 'Edit', edit_patient_accident_path(@patient, @accident), :class => 'right' %>
+<% end %>
+
+<% content_for(:main_content) do %>
+
+	<% unless session[:current_tab] == 'Archives' %>
+		<div id="breadcrumb">
+			<ul class="crumbs">
+				<li><%= link_to 'Patients', patients_path %></li>
+				<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+			</ul>
+		</div>
+	<% end %>
+
+	<% unless notice.blank? %>
+		<p class="note">
+			<%= notice %>
+		</p>
+	<% end %>
+
+	<br/>
+	
+	<%= render :partial => 'details' %>
+
+<% end %>

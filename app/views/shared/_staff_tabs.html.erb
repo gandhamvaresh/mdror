@@ -1,0 +1,12 @@
+<% clients_class = 'current' if session[:current_tab] == 'Clients' %>
+<% insurance_companies_class = 'current' if session[:current_tab] == 'Insurance Companies' %>
+<% archives_class = 'current' if session[:current_tab] == 'Archives' %>
+
+<div class="invertedshiftdown">
+	<ul>
+		<li><%= link_to 'Logout', logout_path, :title => 'Logout' %></li>
+		<li class="<%= archives_class %>"><%= link_to 'Archives', archives_index_path, :title => 'Archived Records' %></li>
+		<li class='<%= insurance_companies_class %>'><%= link_to 'Insurance Companies', insurance_companies_path, :title => 'Insurance Companies' %></li>
+		<li class='<%= clients_class %>'><%= link_to 'Clients', clients_path, :title => 'Clients Database' %></li>
+	</ul>
+</div>

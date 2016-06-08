@@ -1,0 +1,125 @@
+<h1>Listing chiropractic_symptom_lists</h1>
+
+<table>
+  <tr>
+    <th>Significant prior illness or injury</th>
+    <th>Pain level on vas resting</th>
+    <th>Pain level on vas activity</th>
+    <th>Neck pain</th>
+    <th>Neck pain side</th>
+    <th>Neck pain scale</th>
+    <th>Neck pain radiation side</th>
+    <th>Neck pain radiates to shoulder</th>
+    <th>Neck pain radiates to elbow</th>
+    <th>Neck pain radiates to hand</th>
+    <th>Neck pain radiates to elbow</th>
+    <th>Neck pain radiates to digit1</th>
+    <th>Neck pain radiates to digit2</th>
+    <th>Neck pain radiates to digit3</th>
+    <th>Neck pain radiates to digit4</th>
+    <th>Neck pain radiates to digit5</th>
+    <th>Upper mid back pain</th>
+    <th>Upper mid back pain side</th>
+    <th>Upper mid back pain scale</th>
+    <th>Upper mid back pain radiation side</th>
+    <th>Low back pain</th>
+    <th>Low back pain side</th>
+    <th>Low back pain scale</th>
+    <th>Low back pain radiation side</th>
+    <th>Low back pain radiates to buttocks</th>
+    <th>Low back pain radiates to thighs</th>
+    <th>Low back pain radiates to calf</th>
+    <th>Low back pain radiates to foot</th>
+    <th>Headaches</th>
+    <th>Headaches side</th>
+    <th>Headaches scale</th>
+    <th>Headaches frontal</th>
+    <th>Headaches suboccipital</th>
+    <th>Headaches temporal</th>
+    <th>Headaches bitemporal</th>
+    <th>Headaches parietal</th>
+    <th>Numbness</th>
+    <th>Numbness side</th>
+    <th>Numbness scale</th>
+    <th>Numbness upper extremity to elbow</th>
+    <th>Numbness upper extremity to hand</th>
+    <th>Numbness lower extremity to knee</th>
+    <th>Numbness lower extremity to foot</th>
+    <th>Tingling</th>
+    <th>Tingling side</th>
+    <th>Tingling scale</th>
+    <th>Tingling upper extremity to elbow</th>
+    <th>Tingling upper extremity to hand</th>
+    <th>Tingling lower extremity to knee</th>
+    <th>Tingling lower extremity to foot</th>
+    <th>Other symptoms</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chiropractic_symptom_lists.each do |chiropractic_symptom_list| %>
+  <tr>
+    <td><%= chiropractic_symptom_list.significant_prior_illness_or_injury %></td>
+    <td><%= chiropractic_symptom_list.pain_level_on_vas_resting %></td>
+    <td><%= chiropractic_symptom_list.pain_level_on_vas_activity %></td>
+    <td><%= chiropractic_symptom_list.neck_pain %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_side %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_scale %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiation_side %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_shoulder %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_elbow %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_hand %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_elbow %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_digit1 %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_digit2 %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_digit3 %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_digit4 %></td>
+    <td><%= chiropractic_symptom_list.neck_pain_radiates_to_digit5 %></td>
+    <td><%= chiropractic_symptom_list.upper_mid_back_pain %></td>
+    <td><%= chiropractic_symptom_list.upper_mid_back_pain_side %></td>
+    <td><%= chiropractic_symptom_list.upper_mid_back_pain_scale %></td>
+    <td><%= chiropractic_symptom_list.upper_mid_back_pain_radiation_side %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain_side %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain_scale %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain_radiation_side %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain_radiates_to_buttocks %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain_radiates_to_thighs %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain_radiates_to_calf %></td>
+		<td><%= chiropractic_symptom_list.low_back_pain_radiates_to_hips %></td>
+		<td><%= chiropractic_symptom_list.low_back_pain_radiates_to_knees %></td>
+    <td><%= chiropractic_symptom_list.low_back_pain_radiates_to_foot %></td>
+    <td><%= chiropractic_symptom_list.headaches %></td>
+    <td><%= chiropractic_symptom_list.headaches_side %></td>
+    <td><%= chiropractic_symptom_list.headaches_scale %></td>
+    <td><%= chiropractic_symptom_list.headaches_frontal %></td>
+    <td><%= chiropractic_symptom_list.headaches_suboccipital %></td>
+    <td><%= chiropractic_symptom_list.headaches_temporal %></td>
+    <td><%= chiropractic_symptom_list.headaches_bitemporal %></td>
+    <td><%= chiropractic_symptom_list.headaches_parietal %></td>
+    <td><%= chiropractic_symptom_list.numbness %></td>
+    <td><%= chiropractic_symptom_list.numbness_side %></td>
+    <td><%= chiropractic_symptom_list.numbness_scale %></td>
+    <td><%= chiropractic_symptom_list.numbness_upper_extremity_to_elbow %></td>
+    <td><%= chiropractic_symptom_list.numbness_upper_extremity_to_hand %></td>
+    <td><%= chiropractic_symptom_list.numbness_lower_extremity_to_knee %></td>
+    <td><%= chiropractic_symptom_list.numbness_lower_extremity_to_foot %></td>
+    <td><%= chiropractic_symptom_list.tingling %></td>
+    <td><%= chiropractic_symptom_list.tingling_side %></td>
+    <td><%= chiropractic_symptom_list.tingling_scale %></td>
+    <td><%= chiropractic_symptom_list.tingling_upper_extremity_to_elbow %></td>
+    <td><%= chiropractic_symptom_list.tingling_upper_extremity_to_hand %></td>
+    <td><%= chiropractic_symptom_list.tingling_lower_extremity_to_knee %></td>
+    <td><%= chiropractic_symptom_list.tingling_lower_extremity_to_foot %></td>
+    <td><%= chiropractic_symptom_list.other_symptoms %></td>
+    <td><%= link_to 'Show', chiropractic_symptom_list %></td>
+    <td><%= link_to 'Edit', edit_chiropractic_symptom_list_path(chiropractic_symptom_list) %></td>
+    <td><%= link_to 'Archive', chiropractic_symptom_list, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chiropractic symptom list', new_chiropractic_symptom_list_path %>

@@ -1,0 +1,890 @@
+<style type="text/css">
+@media all
+{
+	table {
+	border-collapse:collapse;
+	border:1px solid #999999;
+	}
+
+	table td {
+	border:1px solid #999999;
+	}	
+}
+</style>
+
+<div class="span-24">
+	<center><%= image_tag @client.report_header.url(:banner) if @client.report_header.exists? %><center>
+</div>
+
+<% if mobile_device? %>
+	<div class="prepend-21 span-3">
+		<%= link_to image_tag('back.png'), patient_accident_chiropractic_examination_chiropractic_treatment_path(@patient, @accident, @chiropractic_examination, @chiropractic_treatment), :class => "non_printable_block" %> 
+		&nbsp; &nbsp; &nbsp;
+		<a href="#" onclick="window.print();return false;" class="non_printable_block">
+			<%= image_tag('printer.png') %> 
+		</a>
+	</div>
+<% else %>	
+<div class="prepend-22 span-2">
+	<a href="#" onclick="window.print();return false;" class="non_printable_block">
+		<%= image_tag('printer.png') %>
+	</a>
+</div>
+<% end %>
+
+<hr class="space"/>
+
+<h3 style="text-align:center; text-transform: uppercase; text-decoration:underline;">Daily Treatment Notes</h3>
+
+<hr class="space"/>
+
+<div class="span-24">
+	
+	<div class="span-6">
+		<div class="span-3">
+		  <label>Patient Name:</label>
+		</div>
+		<div class="span-3 last">
+		  <%= @patient.full_name %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-1">
+		  <label>Case#:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @accident.id %>
+		</div>
+	</div>
+	
+	<div class="span-6">
+		<div class="span-3">
+		  <label>Date of Service:</label>
+		</div>
+		<div class="span-3 last">
+		  <%= @chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %>
+		</div>
+	</div>
+	
+	<div class="span-6 last">
+		<div class="span-1">
+		  <label>Visit#:</label>
+		</div>
+		<div class="span-4 last">
+		  <%= @chiropractic_examination.visit_number_for_treatment(@chiropractic_treatment) %>
+		</div>
+	</div>
+	
+</div>
+
+<hr class="space"/>
+
+<!--
+<div class="span-24">
+	 <label>Patient states:</label>&nbsp;<%= @chiropractic_treatment.patient_states %>
+</div>
+
+<hr class="space"/>
+-->
+
+<span style="text-decoration:underline; font-weight:bold;">Symptoms:</span>
+
+<div class="span-24">
+	<table>
+		<thead>
+			<th class="span-4">SYMPTOMS</th>
+			<th class="span-4">&nbsp;</th>
+			<th class="span-3">Scale 1 - 10</th>
+			<th class="span-2">&nbsp;</th>
+			<th class="span-11 last">Radiates</th>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<td><%= check_box_for_display(:neck_pain, @chiropractic_examination.chiropractic_symptom_list.neck_pain?, 'Neck Pain') %></td>
+				<td> 
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_side =~ /Right/ %>">R</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_side =~ /Left/ %>">L</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_side =~ /Both/ %>">B</span>
+				</td>
+				<td>
+					<% if @chiropractic_examination.chiropractic_symptom_list.neck_pain? %> 
+							<%= @chiropractic_examination.chiropractic_symptom_list.neck_pain_scale %>
+					<% else %>
+						&nbsp;
+					<% end %>
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiation_side =~ /Right/ %>">R</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiation_side =~ /Left/ %>">L</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiation_side =~ /Both/ %>">B</span> 
+					<%= check_box_for_display(:neck_pain_radiates_to_shoulder, @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_shoulder?, 'To Shoulder') %>&nbsp;
+					<%= check_box_for_display(:neck_pain_radiates_to_elbow, @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_elbow?, 'To Elbow') %>&nbsp;
+					<%= check_box_for_display(:neck_pain_radiates_to_hand, @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_hand?, 'Hand') %>&nbsp;
+					<%= check_box_for_display(:neck_pain_radiates_to_digits, @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit1? || @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit2? || @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit3? || @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit4? || @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit5?, 'Digits') %>&nbsp;
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit1? %>">1</span>&nbsp;
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit2? %>">2</span>&nbsp;
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit3? %>">3</span>&nbsp;
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit4? %>">4</span>&nbsp;
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.neck_pain_radiates_to_digit5? %>">5</span></td>
+			</tr>
+			
+			<tr>
+				<td><%= check_box_for_display(:upper_mid_back_pain, @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain?, 'Upper/Mid-back Pain') %></td>
+				<td> 
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_side =~ /Right/ %>">R</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_side =~ /Left/ %>">L</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_side =~ /Both/ %>">B</span>
+				</td>
+				<td>
+					<% if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain? %> 
+							<%= @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_scale %>
+					<% else %>
+						&nbsp;
+					<% end %>
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_radiation_side =~ /Right/ %>">R</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_radiation_side =~ /Left/ %>">L</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_radiation_side =~ /Both/ %>">B</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.upper_mid_back_pain_radiation_side =~ /Around Rib Cage/ %>">Around Rib Cage</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><%= check_box_for_display(:low_back_pain, @chiropractic_examination.chiropractic_symptom_list.low_back_pain?, 'Low back Pain') %></td>
+				<td> 
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_side =~ /Right/ %>">R</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_side =~ /Left/ %>">L</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_side =~ /Both/ %>">B</span>
+				</td>
+				<td> 
+					<% if @chiropractic_examination.chiropractic_symptom_list.low_back_pain? %> 
+							<%= @chiropractic_examination.chiropractic_symptom_list.low_back_pain_scale %>
+					<% else %>
+						&nbsp;
+					<% end %>
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiation_side =~ /Right/ %>">R</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiation_side =~ /Left/ %>">L</span>/
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiation_side =~ /Both/ %>">B</span>
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiates_to_buttocks? %>">To Buttocks</span> /
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiates_to_thighs? %>">To Thighs</span> /
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiates_to_calf? %>">To Calf</span> /
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiates_to_foot? %>">To Foot</span> /
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiates_to_hips? %>">To Hips</span> /
+					<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_examination.chiropractic_symptom_list.low_back_pain_radiates_to_knees? %>">To Knees</span> /
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= check_box_tag :symptom_headache, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_headache?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_headache? %>">Headache</span>
+	</div>
+		
+	<div class="span-4 last">
+		<%= check_box_tag :symptom_pelvis_pain, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_pelvis_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_pelvis_pain? %>">Pelvis Pain</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= check_box_tag :symptom_hip_pain, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_hip_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_hip_pain? %>">Hip Pain</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :symptom_knee_pain, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_knee_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_knee_pain? %>">Knee Pain</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :symptom_ankle_pain, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_ankle_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_ankle_pain? %>">Ankle Pain</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :symptom_shoulder_pain, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_shoulder_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_shoulder_pain? %>">Shoulder Pain</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :symptom_elbow_pain, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_elbow_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_elbow_pain? %>">Elbow Pain</span>
+	</div>
+	
+	<div class="span-4 last">
+		<%= check_box_tag :symptom_wrist_pain, 1, @chiropractic_treatment.chiropractic_observation_list.symptom_wrist_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.symptom_wrist_pain? %>">Wrist Pain</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<%= check_box_tag :symptom_other_pain, 1, !@chiropractic_treatment.chiropractic_observation_list.symptom_other_pain.blank?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' unless @chiropractic_treatment.chiropractic_observation_list.symptom_other_pain.blank? %>">Other:&nbsp;<%= @chiropractic_treatment.chiropractic_observation_list.symptom_other_pain %></span>
+</div>
+
+<hr class="space"/>
+
+<span style="text-decoration:underline; font-weight:bold;">Observations:</span>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= check_box_tag :myospasms, 1, @chiropractic_treatment.chiropractic_observation_list.myospasms?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.myospasms? %>">Myospasms</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :tenderness, 1, @chiropractic_treatment.chiropractic_observation_list.tenderness?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.tenderness? %>">Tenderness</span>
+	</div>
+
+	<div class="span-4">
+		<%= check_box_tag :hypotonicity, 1, @chiropractic_treatment.chiropractic_observation_list.hypotonicity?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.hypotonicity? %>">Hypotonicity</span>
+	</div>			
+	
+	<div class="span-4 last">
+		<%= check_box_tag :flare_ups, 1, @chiropractic_treatment.chiropractic_observation_list.flare_ups?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.flare_ups? %>">Flare ups of</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= check_box_tag :suboccipitals, 1, @chiropractic_treatment.chiropractic_observation_list.suboccipitals?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.suboccipitals? %>">Suboccipitals</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :rhomboids, 1, @chiropractic_treatment.chiropractic_observation_list.rhomboids?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rhomboids? %>">Rhomboids</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :deltoids, 1, @chiropractic_treatment.chiropractic_observation_list.deltoids?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.deltoids? %>">Deltoids</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :quad_lumb, 1, @chiropractic_treatment.chiropractic_observation_list.quad_lumb?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.quad_lumb? %>">Quad Lumb</span>
+	</div>
+	
+	<div class="span-4 last">
+		<%= check_box_tag :uppertraps, 1, @chiropractic_treatment.chiropractic_observation_list.uppertraps?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.uppertraps? %>">Uppertraps</span>
+	</div>
+</div>
+	
+	
+<div class="span-24">
+	<div class="span-4">
+		<%= check_box_tag :levator_scap, 1, @chiropractic_treatment.chiropractic_observation_list.levator_scap?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.levator_scap? %>">Levator Scap</span>
+	</div>
+	
+	<div class="span-4 last">
+		<%= check_box_tag :ctl_paraspinals, 1, @chiropractic_treatment.chiropractic_observation_list.ctl_paraspinals?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.ctl_paraspinals? %>">CTL Paraspinals</span>
+	</div>
+
+
+	<div class="span-8 last">
+			<%= check_box_tag :other_observations, 1, !@chiropractic_treatment.chiropractic_observation_list.other_observations.blank?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' unless @chiropractic_treatment.chiropractic_observation_list.other_observations.blank? %>">Other:&nbsp;<%= @chiropractic_treatment.chiropractic_observation_list.other_observations %></span>
+	</div>
+	
+</div>
+
+<hr class="space"/>
+
+<span style="text-decoration:underline; font-weight:bold;">Muscle Spasm:</span>
+
+<div class="span-24">
+	<div class="span-3">
+		<%= check_box_tag :muscle_spasm_cervical, 1, @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_cervical?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_cervical? %>">Cervical</span>
+	</div>
+	
+	<div class="span-3">
+		<%= check_box_tag :muscle_spasm_thoracic, 1, @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_thoracic?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_thoracic? %>">Thoracic</span>
+	</div>
+	
+	<div class="span-3">
+		<%= check_box_tag :muscle_spasm_lumbar, 1, @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_lumbar?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_lumbar? %>">Lumbar</span>
+	</div>
+	
+	<div class="span-3">
+		<%= check_box_tag :muscle_spasm_hip, 1, @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_hip?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_hip? %>">Hip</span>
+	</div>
+	
+	<div class="span-3">
+		<%= check_box_tag :muscle_spasm_shoulder, 1, @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_shoulder?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_shoulder? %>">Shoulder</span>
+	</div>
+	
+	<div class="span-4">
+		<%= check_box_tag :muscle_spasm_upper_extremity, 1, @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_upper_extremity?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_upper_extremity? %>">Upper Extremity</span>
+	</div>
+	
+	<div class="span-4 last">
+		<%= check_box_tag :muscle_spasm_lower_extremity, 1, @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_lower_extremity?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.muscle_spasm_lower_extremity? %>">Lower Extremity</span>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<span style="text-decoration:underline; font-weight:bold;">Findings:</span>
+
+<div class="span-24">
+	<div class="span-12">
+		<%= check_box_tag :findings_increased_muscle_spasm, 1, @chiropractic_treatment.chiropractic_observation_list.findings_increased_muscle_spasm?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_increased_muscle_spasm? %>">Difficulty Manipulating due to increased muscle spasm</span>
+	</div>
+	<div class="span-12 last">
+		<%= check_box_tag :findings_increased_apprehension, 1, @chiropractic_treatment.chiropractic_observation_list.findings_increased_apprehension?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_increased_apprehension? %>">Difficulty stretching due to increased apprehension</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-12">
+		<%= check_box_tag :findings_biomechanical_dysfunction, 1, @chiropractic_treatment.chiropractic_observation_list.findings_biomechanical_dysfunction?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_biomechanical_dysfunction? %>">Continue to experience intractable pain and bio-mechanical dysfunction</span>
+	</div>
+	<div class="span-12 last">
+		<%= check_box_tag :findings_upper_trapezius_spasm, 1, @chiropractic_treatment.chiropractic_observation_list.findings_upper_trapezius_spasm?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_upper_trapezius_spasm? %>">Chronic Upper Trapezius Spasm</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-12">
+		<%= check_box_tag :findings_fibrous_tissue_adhesions, 1, @chiropractic_treatment.chiropractic_observation_list.findings_fibrous_tissue_adhesions?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_fibrous_tissue_adhesions? %>">Fibrous tissue adhesions causing incomplete manipulations</span>
+	</div>
+	<div class="span-12 last">
+		<%= check_box_tag :findings_activator_technique_used, 1, @chiropractic_treatment.chiropractic_observation_list.findings_activator_technique_used?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_activator_technique_used? %>">Used activator technique instead of diversified technique</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-12">
+		<%= check_box_tag :findings_sub_optimal_response, 1, @chiropractic_treatment.chiropractic_observation_list.findings_sub_optimal_response?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_sub_optimal_response? %>">Overall response has been sub-optimal</span>
+	</div>
+	<div class="span-12 last">
+		<%= check_box_tag :findings_life_style_affected_by_pain, 1, @chiropractic_treatment.chiropractic_observation_list.findings_life_style_affected_by_pain?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_life_style_affected_by_pain? %>">Life style is affected by pain, difficult to perform ADLs and work habits</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-12">
+		<%= check_box_tag :findings_patient_was_given_tens_unit_for_trial_period, 1, @chiropractic_treatment.chiropractic_observation_list.findings_patient_was_given_tens_unit_for_trial_period?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_patient_was_given_tens_unit_for_trial_period? %>">Patient was given a TENS Unit for trial period</span>
+	</div>
+	<div class="span-12 last">
+		<%= check_box_tag :findings_tens_unit_is_helping_patient, 1, @chiropractic_treatment.chiropractic_observation_list.findings_tens_unit_is_helping_patient?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_tens_unit_is_helping_patient? %>">TENS Unit is helping patient</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-12">
+		<%= check_box_tag :findings_involuntary_contractions, 1, @chiropractic_treatment.chiropractic_observation_list.findings_involuntary_contractions?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.findings_involuntary_contractions? %>">Manipulation hindered due to involuntary contractions of the supporting tissues</span>
+	</div>
+	<div class="span-12 last">
+		<%= check_box_tag :findings_other, 1, !@chiropractic_treatment.chiropractic_observation_list.findings_other.blank?, :disabled => true %>Other: <span style="<%= 'text-decoration:underline; font-weight:bold;' unless @chiropractic_treatment.chiropractic_observation_list.findings_other.blank? %>"><%= @chiropractic_treatment.chiropractic_observation_list.findings_other %></span>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<span style="text-decoration:underline; font-weight:bold;">ROM:</span>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_cervical_spine) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_cervical_spine > 0 %>">C-Spine</span>
+	</div>
+	<div class="span-4">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_lumbar_spine) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_lumbar_spine > 0 %>">L-Spine</span>
+	</div>
+	<div class="span-4">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_thoracic_spine) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_thoracic_spine > 0 %>">T-Spine</span>
+	</div>
+	<div class="span-4">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_hip) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_hip > 0 %>">Hip</span>
+	</div>
+	<div class="span-4">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_shoulder) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_shoulder > 0 %>">Shoulder</span>
+	</div>
+	<div class="span-4 last">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_elbow) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_elbow > 0 %>">Elbow</span>
+	</div>
+</div>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_hand) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_hand > 0 %>">Hand</span>
+	</div>
+	<div class="span-4">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_knee) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_knee > 0 %>">Knee</span>
+	</div>
+	<div class="span-4 last">
+		<%= arrow_for_value(@chiropractic_treatment.chiropractic_observation_list.rom_ankle) %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.rom_ankle > 0 %>">Ankle</span>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-8">
+		<label>Spasm/Splinting:</label>&nbsp;
+		<%= check_box_tag :spasm_cervical, 1, @chiropractic_treatment.chiropractic_observation_list.spasm_cervical?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.spasm_cervical? %>">C</span>&nbsp;
+		<%= check_box_tag :spasm_thoracic, 1, @chiropractic_treatment.chiropractic_observation_list.spasm_thoracic?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.spasm_thoracic? %>">T</span>&nbsp;
+		<%= check_box_tag :spasm_lumbar, 1, @chiropractic_treatment.chiropractic_observation_list.spasm_lumbar?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.spasm_lumbar? %>">L</span>&nbsp;
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' unless @chiropractic_treatment.chiropractic_observation_list.spasm_note.blank? %>"><%= @chiropractic_treatment.chiropractic_observation_list.spasm_note %></span>
+	</div>
+	
+	<div class="span-8">
+		<label>Tenderness:</label>&nbsp;
+		<%= check_box_tag :tenderness_cervical, 1, @chiropractic_treatment.chiropractic_observation_list.tenderness_cervical?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.tenderness_cervical? %>">C</span>&nbsp;
+		<%= check_box_tag :tenderness_thoracic, 1, @chiropractic_treatment.chiropractic_observation_list.tenderness_thoracic?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.tenderness_thoracic? %>">T</span>&nbsp;
+		<%= check_box_tag :tenderness_lumbar, 1, @chiropractic_treatment.chiropractic_observation_list.tenderness_lumbar?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.tenderness_lumbar? %>">L</span>&nbsp;
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' unless @chiropractic_treatment.chiropractic_observation_list.tenderness_note.blank? %>"><%= @chiropractic_treatment.chiropractic_observation_list.tenderness_note %></span>
+	</div>
+	
+	<div class="span-8 last">
+		<label>Myofacitis:</label>&nbsp;
+		<%= check_box_tag :myofacitis_cervical, 1, @chiropractic_treatment.chiropractic_observation_list.myofacitis_cervical?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.myofacitis_cervical? %>">C</span>&nbsp;
+		<%= check_box_tag :myofacitis_thoracic, 1, @chiropractic_treatment.chiropractic_observation_list.myofacitis_thoracic?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.myofacitis_thoracic? %>">T</span>&nbsp;
+		<%= check_box_tag :myofacitis_lumbar, 1, @chiropractic_treatment.chiropractic_observation_list.myofacitis_lumbar?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.myofacitis_lumbar? %>">L</span>&nbsp;
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' unless @chiropractic_treatment.chiropractic_observation_list.myofacitis_note.blank? %>"><%= @chiropractic_treatment.chiropractic_observation_list.myofacitis_note %></span>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<!--
+<div class="span-24">
+	<div class="span-5">
+		<label>Spinal Manipulation Regions:</label>
+	</div>
+	
+	<div class="span-19 last">
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_c1? %>
+					<span style="text-decoration:underline; font-weight:bold;">C1</span>
+				<% else %>
+					<span>C1</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_c2? %>
+					<span style="text-decoration:underline; font-weight:bold;">C2</span>
+				<% else %>
+					<span>C2</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_c3? %>
+					<span style="text-decoration:underline; font-weight:bold;">C3</span>
+				<% else %>
+					<span>C3</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_c4? %>
+					<span style="text-decoration:underline; font-weight:bold;">C4</span>
+				<% else %>
+					<span>C4</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_c5? %>
+					<span style="text-decoration:underline; font-weight:bold;">C5</span>
+				<% else %>
+					<span>C5</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_c6? %>
+					<span style="text-decoration:underline; font-weight:bold;">C6</span>
+				<% else %>
+					<span>C6</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_c7? %>
+					<span style="text-decoration:underline; font-weight:bold;">C7</span>
+				<% else %>
+					<span>C7</span>
+				<% end %>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+	
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t1? %>
+					<span style="text-decoration:underline; font-weight:bold;">T1</span>
+				<% else %>
+					<span>T1</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t2? %>
+					<span style="text-decoration:underline; font-weight:bold;">T2</span>
+				<% else %>
+					<span>T2</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t3? %>
+					<span style="text-decoration:underline; font-weight:bold;">T3</span>
+				<% else %>
+					<span>T3</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t4? %>
+					<span style="text-decoration:underline; font-weight:bold;">T4</span>
+				<% else %>
+					<span>T4</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t5? %>
+					<span style="text-decoration:underline; font-weight:bold;">T5</span>
+				<% else %>
+					<span>T5</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t6? %>
+					<span style="text-decoration:underline; font-weight:bold;">T6</span>
+				<% else %>
+					<span>T6</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t7? %>
+					<span style="text-decoration:underline; font-weight:bold;">T7</span>
+				<% else %>
+					<span>T7</span>
+				<% end %>
+				&nbsp;
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t8? %>
+					<span style="text-decoration:underline; font-weight:bold;">T8</span>
+				<% else %>
+					<span>T8</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t9? %>
+					<span style="text-decoration:underline; font-weight:bold;">T9</span>
+				<% else %>
+					<span>T9</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t10? %>
+					<span style="text-decoration:underline; font-weight:bold;">T10</span>
+				<% else %>
+					<span>T10</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t11? %>
+					<span style="text-decoration:underline; font-weight:bold;">T11</span>
+				<% else %>
+					<span>T11</span>
+				<% end %>
+				&nbsp;
+				<% if @chiropractic_treatment.chiropractic_observation_list.disc_t12? %>
+					<span style="text-decoration:underline; font-weight:bold;">T12</span>
+				<% else %>
+					<span>T12</span>
+				<% end %>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+	
+			<% if @chiropractic_treatment.chiropractic_observation_list.disc_l1? %>
+				<span style="text-decoration:underline; font-weight:bold;">L1</span>
+			<% else %>
+				<span>L1</span>
+			<% end %>
+			&nbsp;
+			<% if @chiropractic_treatment.chiropractic_observation_list.disc_l2? %>
+				<span style="text-decoration:underline; font-weight:bold;">L2</span>
+			<% else %>
+				<span>L2</span>
+			<% end %>
+			&nbsp;
+			<% if @chiropractic_treatment.chiropractic_observation_list.disc_l3? %>
+				<span style="text-decoration:underline; font-weight:bold;">L3</span>
+			<% else %>
+				<span>L3</span>
+			<% end %>
+			&nbsp;
+			<% if @chiropractic_treatment.chiropractic_observation_list.disc_l4? %>
+				<span style="text-decoration:underline; font-weight:bold;">L4</span>
+			<% else %>
+				<span>L4</span>
+			<% end %>
+			&nbsp;
+			<% if @chiropractic_treatment.chiropractic_observation_list.disc_l5? %>
+				<span style="text-decoration:underline; font-weight:bold;">L5</span>
+			<% else %>
+				<span>L5</span>
+			<% end %>
+			&nbsp;
+			<br/>
+	
+			<% if @chiropractic_treatment.chiropractic_observation_list.occiput? %>
+				<span style="text-decoration:underline; font-weight:bold;">Occiput</span>
+			<% else %>
+				<span>Occiput</span>
+			<% end %>			
+			&nbsp;
+			<% if @chiropractic_treatment.chiropractic_observation_list.sacrum? %>
+				<span style="text-decoration:underline; font-weight:bold;">Sacrum</span>
+			<% else %>
+				<span>Sacrum</span>
+			<% end %>
+			&nbsp;
+			<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_observation_list.sacroiliac_right? || @chiropractic_treatment.chiropractic_observation_list.sacroiliac_left? %>">Sacroiliac</span>&nbsp;
+			<% if @chiropractic_treatment.chiropractic_observation_list.sacroiliac_right? %>
+				<span style="text-decoration:underline; font-weight:bold;">R</span>
+			<% else %>
+				<span>R</span>
+			<% end %>
+			&nbsp; / &nbsp;
+			<% if @chiropractic_treatment.chiropractic_observation_list.sacroiliac_left? %>
+				<span style="text-decoration:underline; font-weight:bold;">L</span>
+			<% else %>
+				<span>L</span>
+			<% end %>
+		
+	</div>
+</div>
+
+<hr class="space"/>
+-->
+
+<span style="text-decoration:underline; font-weight:bold;">Fixation/CMT:</span>
+
+<div class="span-24">
+	<div class="span-10">
+		<span class="span-2">Cervical:</span><%= check_box_tag :subluxation_c1, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c1?, :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c1? %>">C1</span>&nbsp;<%= check_box_tag :subluxation_c2, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c2?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c2? %>">C2</span>&nbsp;<%= check_box_tag :subluxation_c3, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c3?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c3? %>">C3</span>&nbsp;<%= check_box_tag :subluxation_c4, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c4?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c4? %>">C4</span>&nbsp;<%= check_box_tag :subluxation_c5, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c5?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c5? %>">C5</span>&nbsp;<%= check_box_tag :subluxation_c6, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c6?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c6? %>">C6</span>&nbsp;<%= check_box_tag :subluxation_c7, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c7?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_c7? %>">C7</span> <br/> <br/>
+		<span class="span-2">Thoracic:</span><%= check_box_tag :subluxation_t1, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t1?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t1? %>">T1</span>&nbsp;<%= check_box_tag :subluxation_t2, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t2?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t2? %>">T2</span>&nbsp;<%= check_box_tag :subluxation_t3, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t3?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t3? %>">T3</span>&nbsp;<%= check_box_tag :subluxation_t4, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t4?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t4? %>">T4</span>&nbsp;<%= check_box_tag :subluxation_t5, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t5?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t5? %>">T5</span>&nbsp;<%= check_box_tag :subluxation_t6, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t6?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t6? %>">T6</span>&nbsp;<%= check_box_tag :subluxation_t7, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t7?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t7? %>">T7</span> <br/>
+		<span class="span-2">&nbsp;</span><%= check_box_tag :subluxation_t8, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t8?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t8? %>">T8</span>&nbsp;<%= check_box_tag :subluxation_t9, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t9?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t9? %>">T9</span>&nbsp;<%= check_box_tag :subluxation_t10, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t10?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t10? %>">T10</span>&nbsp;<%= check_box_tag :subluxation_t11, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t11?,  :disabled => true %>T<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t11? %>">T11</span>&nbsp;<%= check_box_tag :subluxation_t12, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t12?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_t12? %>">T12</span> <br/> <br/>
+		<span class="span-2">Lumbar:</span><%= check_box_tag :subluxation_l1, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l1?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l1? %>">L1</span>&nbsp;<%= check_box_tag :subluxation_l2, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l2?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l2? %>">L2</span>&nbsp;<%= check_box_tag :subluxation_l3, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l3?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l3? %>">L3</span>&nbsp;<%= check_box_tag :subluxation_l4, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l4?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l4? %>">L4</span>&nbsp;<%= check_box_tag :subluxation_l5, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l5?,  :disabled => true %><span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.subluxation_l5? %>">L5</span>
+	</div>
+	<div class="span-4">
+	  <div class="span-4">
+		<%= check_box_tag :cmt_hip, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_hip?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_hip? %>">Hip</span>
+	  </div>
+  	<div class="span-4">
+  		<%= check_box_tag :cmt_shoulder, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_shoulder?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_shoulder? %>">Shoulder</span>
+  	</div>
+	<div class="span-4">
+		<%= check_box_tag :cmt_hand, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_hand?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_hand? %>">Hand</span>
+	</div>
+  </div>
+  <div class="span-4">
+	<div class="span-4">
+		<%= check_box_tag :cmt_pelvis, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_pelvis?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_pelvis? %>">Pelvis</span>
+	</div>
+	<div class="span-4">
+		<%= check_box_tag :cmt_elbow, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_elbow?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_elbow? %>">Elbow</span>
+	</div>
+	<div class="span-4">
+		<%= check_box_tag :cmt_knee, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_knee?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_knee? %>">Knee</span>
+	</div>
+</div>
+	<div class="span-4 last">
+		<div class="span-4">
+		<%= check_box_tag :cmt_sacrum, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_sacrum?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_sacrum? %>">Sacrum</span>
+	</div>
+	<div class="span-4">
+		<%= check_box_tag :cmt_ankle, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_ankle?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.cmt_ankle? %>">Ankle</span>
+	</div>
+	
+  </div>
+</div>
+
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-6">
+		<label>SPINAL ADJUSTMENT:</label>
+	</div>
+	
+	<div class="span-6">
+		<%= check_box_tag :spinal_adjustment_1_2_regions, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.spinal_adjustment_1_2_regions?, :disabled => true %>&nbsp;
+		<% if @chiropractic_treatment.chiropractic_body_adjustment_list.spinal_adjustment_1_2_regions? %>
+			<span style="text-decoration:underline; font-weight:bold;">98940 (1-2 spinal regions)</span>
+		<% else %>
+			<span>98940 (1-2 spinal regions)</span>
+		<% end %>
+	</div>
+	
+	<div class="span-6">
+		<%= check_box_tag :spinal_adjustment_3_4_regions, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.spinal_adjustment_3_4_regions?, :disabled => true %>&nbsp;
+		<% if @chiropractic_treatment.chiropractic_body_adjustment_list.spinal_adjustment_3_4_regions? %>
+			<span style="text-decoration:underline; font-weight:bold;">98941 (3-4 spinal regions)</span>
+		<% else %>
+			<span>98941 (3-4 spinal regions)</span>
+		<% end %>
+	</div>
+	
+	<div class="span-6 last">
+		<%= check_box_tag :spinal_adjustment_5_or_more_regions, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.spinal_adjustment_5_or_more_regions?, :disabled => true %>&nbsp;
+		<% if @chiropractic_treatment.chiropractic_body_adjustment_list.spinal_adjustment_5_or_more_regions? %>
+			<span style="text-decoration:underline; font-weight:bold;">98942 (5 or more spinal regions)</span>
+		<% else %>
+			<span>98942 (5 or more spinal regions)</span>
+		<% end %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-6">
+		<label>EXTRA SPINAL ADJUSTMENT (98943):</label>
+	</div>
+	<div class="span-6">
+		 <%= check_box_tag :extremity_adjustment_shoulder_left, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_shoulder_left? || @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_shoulder_right?, :disabled => true %>&nbsp;
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_shoulder_left? %>">Left</span>/
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_shoulder_right? %>">Right</span> Shoulder
+	
+		<br/>
+		
+		 <%= check_box_tag :extremity_adjustment_hip_left, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_hip_left? || @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_hip_right?, :disabled => true %>&nbsp;
+		 <span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_hip_left? %>">Left</span>/
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_hip_right? %>">Right</span> Hip
+	</div>
+	
+	<div class="span-6">
+		 <%= check_box_tag :extremity_adjustment_elbow_left, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_elbow_left? || @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_elbow_right?, :disabled => true %>&nbsp;
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_elbow_left? %>">Left</span>/
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_elbow_right? %>">Right</span> Elbow
+	
+		<br/>
+		
+		<%= check_box_tag :extremity_adjustment_knee_left, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_knee_left? || @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_knee_right?, :disabled => true %>&nbsp;
+	 <span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_knee_left? %>">Left</span>/
+	<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_knee_right? %>">Right</span> Knee
+	</div>
+	
+	<div class="span-6 last">
+		 <%= check_box_tag :extremity_adjustment_wrist_left, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_wrist_left? || @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_wrist_right?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_wrist_left? %>">Left</span>/
+		<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_wrist_right? %>">Right</span> Wrist
+		
+		<br/>
+		
+		<%= check_box_tag :extremity_adjustment_ankle_left, 1, @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_ankle_left? || @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_ankle_right?, :disabled => true %>&nbsp;
+	 <span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_ankle_left? %>">Left</span>/
+	<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_body_adjustment_list.extremity_adjustment_ankle_right? %>">Right</span> Ankle
+	</div>
+	
+</div>
+
+<hr class="space"/>
+
+<span style="text-decoration:underline; font-weight:bold;">MODALITIES</span>
+<div class="span-24">
+	
+	<div class="span-24">
+		<div class="span-8">
+			<%= check_box_tag :electric_stimulation, 1, @chiropractic_treatment.chiropractic_modalities_list.electric_stimulation?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.electric_stimulation? %>">Electric Stimulation (G0283)</span>
+		</div>
+		
+		<div class="span-8">
+			<%= check_box_tag :mechanical_traction, 1, @chiropractic_treatment.chiropractic_modalities_list.mechanical_traction?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.mechanical_traction? %>">Mechanical Traction (97012)</span>
+		</div>
+		
+		<div class="span-8 last">
+			<%= check_box_tag :massage, 1, @chiropractic_treatment.chiropractic_modalities_list.massage?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.massage? %>">Massage (97124 -59)</span>
+		</div>
+	</div>
+	
+	<div class="span-24">
+		<div class="span-8">
+			<%= check_box_tag :mfr_cervical, 1, @chiropractic_treatment.chiropractic_modalities_list.mfr_cervical?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.mfr_cervical? %>">MFR Cervical (97140-59)</span>
+		</div>
+		
+		<div class="span-8">
+			<%= check_box_tag :mfr_thoracic, 1, @chiropractic_treatment.chiropractic_modalities_list.mfr_thoracic?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.mfr_thoracic? %>">MFR Thoracic (97140-59)</span>
+		</div>
+		
+		<div class="span-8 last">
+			<%= check_box_tag :mfr_lumbar, 1, @chiropractic_treatment.chiropractic_modalities_list.mfr_lumbar?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.mfr_lumbar? %>">MFR Lumbar (97140-59)</span>
+		</div>
+	</div>
+	
+	<div class="span-24">
+		<div class="span-8">
+			<%= check_box_tag :ultrasound, 1, @chiropractic_treatment.chiropractic_modalities_list.ultrasound?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.ultrasound? %>">Ultrasound (97035)</span>
+		</div>
+		
+		<div class="span-8">
+			<%= check_box_tag :therapeutic_exercise, 1, @chiropractic_treatment.chiropractic_modalities_list.therapeutic_exercise?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.therapeutic_exercise? %>">Therapeutic Exercise (97110)</span>
+		</div>
+		
+		<div class="span-8 last">
+			<%= check_box_tag :home_use_instruction, 1, @chiropractic_treatment.chiropractic_modalities_list.home_use_instruction?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.home_use_instruction? %>">Self Care/Home MGMT (97535)</span>
+		</div>
+		
+	</div>
+	
+	
+	<div class="span-24">
+		<div class="span-8">
+			<%= check_box_tag :infrared, 1, @chiropractic_treatment.chiropractic_modalities_list.infrared?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.infrared? %>">Infrared (97026)</span>
+		</div>
+		
+		<div class="span-8">
+			<%= check_box_tag :hot_cold_pack, 1, @chiropractic_treatment.chiropractic_modalities_list.hot_cold_pack?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.hot_cold_pack? %>">Hot/Cold Pack (97010)</span>
+		</div>
+		
+		<div class="span-8 last">
+			<%= check_box_tag :bio_feedback, 1, @chiropractic_treatment.chiropractic_modalities_list.bio_feedback?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.bio_feedback? %>">Bio-Feedback (90901)</span>
+		</div>
+	</div>
+	
+	<div class="span-24">	
+		<div class="span-8">
+			<%= check_box_tag :therapeutic_functional_activities, 1, @chiropractic_treatment.chiropractic_modalities_list.therapeutic_functional_activities?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.therapeutic_functional_activities? %>">Therapeutic / Functional Activities (97530)</span>
+		</div>
+		
+		<div class="span-8 last">
+			<%= check_box_tag :other_modalities, 1, !@chiropractic_treatment.chiropractic_modalities_list.other.blank?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' unless @chiropractic_treatment.chiropractic_modalities_list.other.blank? %>">Other:&nbsp;<%= @chiropractic_treatment.chiropractic_modalities_list.other %></span>
+		</div>
+	</div>
+	
+</div>
+
+<hr class="space"/>
+
+<span style="text-decoration:underline; font-weight:bold;">SUPPLIES:</span>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= check_box_tag :cmt_cervical, 1, @chiropractic_treatment.chiropractic_modalities_list.supplies_bio_freeze?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.supplies_bio_freeze? %>">Bio-freeze</span>
+	</div>
+	<div class="span-4">
+		<%= check_box_tag :cmt_thoracic, 1, @chiropractic_treatment.chiropractic_modalities_list.supplies_ice_pack?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.supplies_ice_pack? %>">Ice Pack</span>
+	</div>
+	<div class="span-4">
+		<%= check_box_tag :cmt_lumbar, 1, @chiropractic_treatment.chiropractic_modalities_list.supplies_lumbar_belt?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.supplies_lumbar_belt? %>">Lumbar Belt</span>
+	</div>
+	<div class="span-4">
+		<%= check_box_tag :cmt_hip, 1, @chiropractic_treatment.chiropractic_modalities_list.supplies_cervical_pillow?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.supplies_cervical_pillow? %>">Cervical Pillow</span>
+	</div>
+	<div class="span-4 last">
+		<%= check_box_tag :cmt_pelvis, 1, @chiropractic_treatment.chiropractic_modalities_list.supplies_cervical_collar?, :disabled => true %>&nbsp;<span style="<%= 'text-decoration:underline; font-weight:bold;' if @chiropractic_treatment.chiropractic_modalities_list.supplies_cervical_collar? %>">Cervical Collar</span>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-24">
+		<div class="span-5">
+			<span>Doctor's Signature:</span>
+		</div>
+		<div class="span-6 underlined">
+			<% if @chiropractic_treatment.doctor.digital_signature.exists? %>
+				<%= image_tag @chiropractic_treatment.doctor.digital_signature.url(:short) %>
+			<% else %>
+				&nbsp;
+			<% end %>
+		</div>
+		<div class="span-13 last">
+			&nbsp;
+		</div>
+	</div>
+	<br/><br/>
+	<div class="span-24 last">
+		<div class="span-5">
+			<span>Doctor's Name (Please Print):</span>
+		</div>
+		<div class="span-6 underlined">
+			<% if @chiropractic_treatment.doctor.name? %>
+				<%= @chiropractic_treatment.doctor.name %>
+			<% else %>
+				&nbsp;
+			<% end %>
+		</div>
+		<div class="span-13 last">
+			&nbsp;
+		</div>
+	</div>	
+</div>
+
+
+<hr class="space"/>

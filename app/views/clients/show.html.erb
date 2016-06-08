@@ -1,0 +1,121 @@
+<% unless notice.blank? %>
+	<div class="span-20 notice">
+		<%= notice %>
+	</div>
+<% end %>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>Name:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.name %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>Address line1:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.address_line1 %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>Address line2:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.address_line2 %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>City:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.city %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>State:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.state %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>Zip:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.zip %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>Phone:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.phone %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>Fax:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.fax %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+	  <label>Claim Recipient Email:</label>
+	</div>
+	<div class="span-20 last">
+	  <%= @client.claim_recipient_email %>
+	</div>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<label>Report Header:</label><br/>
+	<%= image_tag @client.report_header.url(:banner) if @client.report_header.exists? %>
+</div>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<div class="span-4">
+		<%= link_to 'Back', clients_path, :class => 'button' %>
+	</div>
+	
+	<div class="prepend-18 span-2 last">
+		<%= link_to 'Edit', edit_client_path(@client), :class => 'button' %>
+	</div>
+</div>

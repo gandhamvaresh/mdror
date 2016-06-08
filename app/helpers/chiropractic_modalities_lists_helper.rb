@@ -1,0 +1,2 @@
+module ChiropracticModalitiesListsHelper
+end

@@ -1,0 +1,60 @@
+<% content_for(:main_header) do %>
+	<h1 class="title">Patient Cases</h1>
+	<%= link_to 'New Case', new_patient_accident_path(@patient), :class => 'left black_button' %>
+<% end %>
+
+<% content_for(:main_content) do %>
+
+	<div id="breadcrumb">
+		<ul class="crumbs">
+			<li><%= link_to 'Patients', patients_path %></li>
+			<li><%= link_to 'Cases', patient_accidents_path(@patient) %></li>
+		</ul>
+	</div>
+
+	<div>	
+		<table>
+			<thead>
+				<tr>
+					<th>Patient</th>
+			    <th>Injury Date</th>
+					<th>Description</th>
+			    <th></th>
+				</tr>
+		  </thead>
+
+			<tbody>
+				<% @accidents.each do |accident| %>
+				  <tr>
+				    <td><%= accident.patient.full_name %></td>
+				    <td><%= accident.injury_date.strftime('%b %d, %Y') %></td>
+				 		<td style="padding-right: 10px !important;"><%= truncate(accident.injury_description, :length => 50) %></td>
+				 		<td style="padding-right: 10px !important;"><%= link_to 'Archive', patient_accident_path(@patient, accident), confirm: 'Are you sure you want to archive this case? All related chiropractic examinations and chiropractic treatment notes will also be archived.', method: :delete %></td>
+				 		<td><%= link_to 'Chiropractic Examinations', patient_accident_chiropractic_examinations_path(@patient, accident) %>  </td>		
+						<td><%= link_to image_tag('details.png'), patient_accident_path(@patient, accident) %></td>
+				  </tr>
+				
+				<%= render(:partial => "chiropractic_examination", :collection => accident.chiropractic_examinations, :locals => {:patient => @patient, :accident => accident} ) %>
+				
+				<% end %>
+			</tbody>
+	  </table>
+	</div>
+	
+	<br/>
+
+	<div>
+		<%= paginate @accidents %>
+	</div>
+
+	<script>
+	function toggle_disclosure_triangle(element) {
+	  var origsrc = element.attr('src');
+	  var src = '';
+	  if (origsrc == '<%= asset_path 'arrow_right.png' %>') src = '<%= asset_path 'arrow_down.png' %>';
+	  if (origsrc == '<%= asset_path 'arrow_down.png' %>') src =  '<%= asset_path 'arrow_right.png' %>';
+	  element.attr('src', src);
+	}
+	</script>
+	
+<% end %>

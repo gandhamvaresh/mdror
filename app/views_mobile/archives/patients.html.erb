@@ -1,0 +1,50 @@
+<% content_for(:main_header) do %>
+	<%= link_to 'Back', archives_index_path, :class => 'left' %>
+	<h1 class="title">Patients Archive</h1>
+<% end %>
+
+
+<% content_for(:main_content) do %>
+
+	<table>
+	  <thead>
+	    <th>Name</th>
+	    <th>Age</th>
+			<th>Gender</th>
+	    <th>Cell Phone</th>
+	    <th>Occupation</th>
+	    <th>Handed</th>
+			<th>Height</th>
+			<th>Weight</th>
+			<th></th>
+    </thead>
+
+		<tbody>
+			<% if @patients.blank? %>
+				<tr><td colspan="9"><p class="note">There are no archived patients.</p></td></tr>
+			<% else %>
+				<% @patients.each do |patient| %>
+				  <tr>
+				    <td><%= patient.full_name %></td>
+				    <td><%= patient.age %> yrs</td>
+						<td><%= patient.gender %></td>
+				    <td><%= patient.cell_phone %></td>
+				    <td><%= patient.occupation %></td>
+				    <td><%= patient.handed %></td>
+				    <td><%= patient.height %> inches</td>
+				    <td><%= patient.weight %> lbs</td>
+				    <td><%= link_to 'Unarchive', patient, confirm: 'Are you sure you want to unarchive this patient? All related cases, chiropractic examinations and chiropractic treatment notes will also be unarchived.', method: :delete %>
+						</td>
+				  </tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
+
+	<br/>
+
+	<div class="box-white">
+		<%= paginate @patients %>
+	</div>
+
+<% end %>

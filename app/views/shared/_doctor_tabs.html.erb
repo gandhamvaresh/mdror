@@ -1,0 +1,16 @@
+<% dashboard_class = 'current' if session[:current_tab] == 'Dashboard' %>
+<% patients_class = 'current' if session[:current_tab] == 'Patients' %>
+<% completed_examinations_class = 'current' if session[:current_tab] == 'CompletedExaminations' %>
+<% completed_treatments_class = 'current' if session[:current_tab] == 'CompletedTreatments' %>
+<% archives_class = 'current' if session[:current_tab] == 'Archives' %>
+
+<div class="invertedshiftdown">
+	<ul>
+		<li><%= link_to 'Logout', logout_path, :title => 'Logout' %></li>
+		<li class="<%= archives_class %>"><%= link_to 'Archives', archives_index_path, :title => 'Archived Records' %></li>
+		<li class="<%= completed_treatments_class %>"><%= link_to 'Completed Treatments', completed_treatments_client_path(@client), :title => 'Concluded Treatments List' %></li>
+		<li class="<%= completed_examinations_class %>"><%= link_to 'Completed Examinations', completed_examinations_client_path(@client), :title => 'Concluded Examinations List' %></li>
+		<li class="<%= patients_class %>"><%= link_to 'Patients', patients_path, :title => 'Patients Database' %></li>
+		<li class="<%= dashboard_class %>"><%= link_to 'Dashboard', doctor_dashboard_users_path, :title => 'Dashboard' %></li>
+	</ul>
+</div>

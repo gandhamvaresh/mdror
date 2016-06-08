@@ -1,0 +1,54 @@
+<% if @chiropractic_examination.initial_examination? %>
+
+	<table>
+		<thead>
+			<th>New Patient Exam:</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<%= f.check_box :duration_20_minutes, :disabled => disable_option %>&nbsp;<label>99202 (20 min)</label>
+				</td>
+				<td>
+					<%= f.check_box :duration_30_minutes, :disabled => disable_option %>&nbsp;<label>99203 (30 min)</label>
+				</td>
+				<td>
+					<%= f.check_box :duration_45_minutes, :disabled => disable_option %>&nbsp;<label>99204 (45 min)</label>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+<% else %>
+	<table>
+		<thead>
+			<th>Re-exam:</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<%= f.check_box :duration_20_minutes, :disabled => disable_option %>&nbsp;<label>99212 (20 min)</label>
+				</td>
+				<td>
+					<%= f.check_box :duration_30_minutes, :disabled => disable_option %>&nbsp;<label>99213 (30 min)</label>
+				</td>
+				<td>
+					<%= f.check_box :duration_45_minutes, :disabled => disable_option %>&nbsp;<label>99214 (45 min)</label>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>
+
+<div class="box-white non_printable_block">
+	<p>
+	  <label>Summary:</label>&nbsp;&nbsp;<%= f.text_field :summary, :class => 'small_font_span_8', :disabled => disable_option %>
+	</p>
+	<% disable_option = true if @chiropractic_examination.completed? %>
+	<p><%= f.check_box :completed, :disabled => disable_option %>&nbsp;<label>Patient examination is complete.</label></p>
+	<p class="note">Check this after you finish entering all the details of this patient's examination and are ready to submit the form for medical insurance claim processing.</p>
+</div>

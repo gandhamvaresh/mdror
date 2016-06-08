@@ -1,0 +1,8 @@
+<tr class="daily_treatment_notes_<%= chiropractic_examination.id %>" style="display:none;">
+  <td>&nbsp;</td>
+  <td><%= chiropractic_treatment.treatment_date.strftime('%b %d, %Y') %></td>
+	<td>Daily Treatment Notes</td>
+	<td><%= chiropractic_treatment.summary %></td>
+	<td>&nbsp;</td>		
+	<td><%= link_to image_tag('details.png'), patient_accident_chiropractic_examination_chiropractic_treatment_path(patient, accident, chiropractic_examination, chiropractic_treatment) %></td>
+</tr>

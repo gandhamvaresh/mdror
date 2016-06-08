@@ -1,0 +1,10 @@
+<% patients_class = 'current' if session[:current_tab] == 'Patients' %>
+<% archives_class = 'current' if session[:current_tab] == 'Archives' %>
+
+<div class="invertedshiftdown">
+	<ul>
+		<li><%= link_to 'Logout', logout_path, :title => 'Logout' %></li>
+		<li class="<%= archives_class %>"><%= link_to 'Archives', archives_index_path, :title => 'Archived Records' %></li>
+		<li class="<%= patients_class %>"><%= link_to 'Patients', patients_path, :title => 'Patients Database' %></li>
+	</ul>
+</div>

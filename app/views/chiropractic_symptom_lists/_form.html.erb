@@ -1,0 +1,229 @@
+<%= form_for(@chiropractic_symptom_list) do |f| %>
+  <% if @chiropractic_symptom_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chiropractic_symptom_list.errors.count, "error") %> prohibited this chiropractic_symptom_list from being saved:</h2>
+
+      <ul>
+      <% @chiropractic_symptom_list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :significant_prior_illness_or_injury %><br />
+    <%= f.check_box :significant_prior_illness_or_injury %>
+  </div>
+  <div class="field">
+    <%= f.label :pain_level_on_vas_resting %><br />
+    <%= f.number_field :pain_level_on_vas_resting %>
+  </div>
+  <div class="field">
+    <%= f.label :pain_level_on_vas_activity %><br />
+    <%= f.number_field :pain_level_on_vas_activity %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain %><br />
+    <%= f.check_box :neck_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_side %><br />
+    <%= f.text_field :neck_pain_side %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_scale %><br />
+    <%= f.number_field :neck_pain_scale %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiation_side %><br />
+    <%= f.text_field :neck_pain_radiation_side %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_shoulder %><br />
+    <%= f.check_box :neck_pain_radiates_to_shoulder %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_elbow %><br />
+    <%= f.check_box :neck_pain_radiates_to_elbow %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_hand %><br />
+    <%= f.check_box :neck_pain_radiates_to_hand %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_elbow %><br />
+    <%= f.check_box :neck_pain_radiates_to_elbow %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_digit1 %><br />
+    <%= f.check_box :neck_pain_radiates_to_digit1 %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_digit2 %><br />
+    <%= f.check_box :neck_pain_radiates_to_digit2 %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_digit3 %><br />
+    <%= f.check_box :neck_pain_radiates_to_digit3 %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_digit4 %><br />
+    <%= f.check_box :neck_pain_radiates_to_digit4 %>
+  </div>
+  <div class="field">
+    <%= f.label :neck_pain_radiates_to_digit5 %><br />
+    <%= f.check_box :neck_pain_radiates_to_digit5 %>
+  </div>
+  <div class="field">
+    <%= f.label :upper_mid_back_pain %><br />
+    <%= f.check_box :upper_mid_back_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :upper_mid_back_pain_side %><br />
+    <%= f.text_field :upper_mid_back_pain_side %>
+  </div>
+  <div class="field">
+    <%= f.label :upper_mid_back_pain_scale %><br />
+    <%= f.number_field :upper_mid_back_pain_scale %>
+  </div>
+  <div class="field">
+    <%= f.label :upper_mid_back_pain_radiation_side %><br />
+    <%= f.text_field :upper_mid_back_pain_radiation_side %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain %><br />
+    <%= f.check_box :low_back_pain %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain_side %><br />
+    <%= f.text_field :low_back_pain_side %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain_scale %><br />
+    <%= f.number_field :low_back_pain_scale %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain_radiation_side %><br />
+    <%= f.text_field :low_back_pain_radiation_side %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain_radiates_to_buttocks %><br />
+    <%= f.check_box :low_back_pain_radiates_to_buttocks %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain_radiates_to_thighs %><br />
+    <%= f.check_box :low_back_pain_radiates_to_thighs %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain_radiates_to_calf %><br />
+    <%= f.check_box :low_back_pain_radiates_to_calf %>
+  </div>
+	<div class="field">
+    <%= f.label :low_back_pain_radiates_to_hips %><br />
+    <%= f.check_box :low_back_pain_radiates_to_hips %>
+  </div>
+	<div class="field">
+    <%= f.label :low_back_pain_radiates_to_knees %><br />
+    <%= f.check_box :low_back_pain_radiates_to_knees %>
+  </div>
+  <div class="field">
+    <%= f.label :low_back_pain_radiates_to_foot %><br />
+    <%= f.check_box :low_back_pain_radiates_to_foot %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches %><br />
+    <%= f.check_box :headaches %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches_side %><br />
+    <%= f.text_field :headaches_side %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches_scale %><br />
+    <%= f.number_field :headaches_scale %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches_frontal %><br />
+    <%= f.check_box :headaches_frontal %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches_suboccipital %><br />
+    <%= f.check_box :headaches_suboccipital %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches_temporal %><br />
+    <%= f.check_box :headaches_temporal %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches_bitemporal %><br />
+    <%= f.check_box :headaches_bitemporal %>
+  </div>
+  <div class="field">
+    <%= f.label :headaches_parietal %><br />
+    <%= f.check_box :headaches_parietal %>
+  </div>
+  <div class="field">
+    <%= f.label :numbness %><br />
+    <%= f.check_box :numbness %>
+  </div>
+  <div class="field">
+    <%= f.label :numbness_side %><br />
+    <%= f.text_field :numbness_side %>
+  </div>
+  <div class="field">
+    <%= f.label :numbness_scale %><br />
+    <%= f.number_field :numbness_scale %>
+  </div>
+  <div class="field">
+    <%= f.label :numbness_upper_extremity_to_elbow %><br />
+    <%= f.check_box :numbness_upper_extremity_to_elbow %>
+  </div>
+  <div class="field">
+    <%= f.label :numbness_upper_extremity_to_hand %><br />
+    <%= f.check_box :numbness_upper_extremity_to_hand %>
+  </div>
+  <div class="field">
+    <%= f.label :numbness_lower_extremity_to_knee %><br />
+    <%= f.check_box :numbness_lower_extremity_to_knee %>
+  </div>
+  <div class="field">
+    <%= f.label :numbness_lower_extremity_to_foot %><br />
+    <%= f.check_box :numbness_lower_extremity_to_foot %>
+  </div>
+  <div class="field">
+    <%= f.label :tingling %><br />
+    <%= f.check_box :tingling %>
+  </div>
+  <div class="field">
+    <%= f.label :tingling_side %><br />
+    <%= f.text_field :tingling_side %>
+  </div>
+  <div class="field">
+    <%= f.label :tingling_scale %><br />
+    <%= f.number_field :tingling_scale %>
+  </div>
+  <div class="field">
+    <%= f.label :tingling_upper_extremity_to_elbow %><br />
+    <%= f.check_box :tingling_upper_extremity_to_elbow %>
+  </div>
+  <div class="field">
+    <%= f.label :tingling_upper_extremity_to_hand %><br />
+    <%= f.check_box :tingling_upper_extremity_to_hand %>
+  </div>
+  <div class="field">
+    <%= f.label :tingling_lower_extremity_to_knee %><br />
+    <%= f.check_box :tingling_lower_extremity_to_knee %>
+  </div>
+  <div class="field">
+    <%= f.label :tingling_lower_extremity_to_foot %><br />
+    <%= f.check_box :tingling_lower_extremity_to_foot %>
+  </div>
+  <div class="field">
+    <%= f.label :other_symptoms %><br />
+    <%= f.text_area :other_symptoms %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

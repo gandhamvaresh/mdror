@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>MDManage</title>
+		<%= stylesheet_link_tag 'application', media: 'screen, projection, print' %>
+		<%# stylesheet_link_tag 'application-print', media: 'print' %>
+		<!--[if lt IE 8]>
+		    <%= stylesheet_link_tag 'application-ie', media: 'screen, projection, print' %>
+		<![endif]-->
+
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	
+	<body>
+		<div class="container">		
+			<div class="span-24 page indent_content">
+				<%= yield %>
+			</div>		
+		</div>
+	</body>
+	
+</html>

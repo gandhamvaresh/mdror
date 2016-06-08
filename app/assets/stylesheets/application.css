@@ -1,0 +1,295 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ 
+ * General styles for the application
+
+ * require_tree . 
+ 
+ *= require blueprint/screen
+ *= require blueprint/plugins/buttons/screen
+ *= require inverted_shiftdown_tabs
+ *= require_self
+ *= require jquery.ui.slider 
+ 
+*/
+
+.ui-slider .ui-slider-handle { width: 1em !important; height: 1em !important; }
+
+@media all
+{
+	.page {
+		background-color: #FFFFFF;
+		border-top: 1px #EEEEEE solid;
+		border-left: 1px #DDDDDD solid;
+		border-right: 2px #CCCCCC solid;
+		border-bottom: 2px #CCCCCC solid;
+	}
+}
+
+#slider 
+{
+    width: 80%;
+}
+
+.ui-slider .ui-slider-handle
+{
+    width: auto;
+    padding: 0.2em;
+    text-decoration:none;
+}
+
+
+@media print
+{
+	.page	{ background-color: #FFFFFF; border: none;}
+}
+
+
+.indent_content {
+	padding: 10px 10px 0px 10px;
+}
+
+input.tiny {margin: 0px; border:1px solid #bbb;}
+input.tiny:focus {border:1px solid #666;}
+input.tiny {width:15px;padding:5px;}
+
+input.no_padding_small_font_span_1 {margin: 0px; border:1px solid #bbb;}
+input.no_padding_small_font_span_1:focus {border:1px solid #666;}
+input.no_padding_small_font_span_1 {width:30px;padding:5px;}
+
+input.no_padding_small_font_span_2 {margin: 0px; border:1px solid #bbb;}
+input.no_padding_small_font_span_2:focus {border:1px solid #666;}
+input.no_padding_small_font_span_2 {width:70px;padding:5px;}
+
+input.small_font_span_1 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_1:focus {border:1px solid #666;}
+input.small_font_span_1 {width:30px;padding:5px;}
+
+input.small_font_span_2 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_2:focus {border:1px solid #666;}
+input.small_font_span_2 {width:70px;padding:5px;}
+
+input.small_font_span_3 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_3:focus {border:1px solid #666;}
+input.small_font_span_3 {width:110px;padding:5px;}
+
+input.small_font_span_4 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_4:focus {border:1px solid #666;}
+input.small_font_span_4 {width:150px;padding:5px;}
+
+input.small_font_span_5 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_5:focus {border:1px solid #666;}
+input.small_font_span_5 {width:190px;padding:5px;}
+
+input.small_font_span_6 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_6:focus {border:1px solid #666;}
+input.small_font_span_6 {width:230px;padding:5px;font-size:13px;}
+
+input.small_font_span_7 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_7:focus {border:1px solid #666;}
+input.small_font_span_7 {width:270px;padding:5px;}
+
+input.small_font_span_8 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_8:focus {border:1px solid #666;}
+input.small_font_span_8 {width:310px;padding:5px;}
+
+input.small_font_span_11 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_11:focus {border:1px solid #666;}
+input.small_font_span_11 {width:430px;padding:5px;}
+
+input.small_font_span_12 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_12:focus {border:1px solid #666;}
+input.small_font_span_12 {width:470px;padding:5px;}
+
+input.small_font_span_14 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_14:focus {border:1px solid #666;}
+input.small_font_span_14 {width:510px;padding:5px;}
+
+input.small_font_span_16 {margin:0.5em 0;border:1px solid #bbb;}
+input.small_font_span_16:focus {border:1px solid #666;}
+input.small_font_span_16 {width:630px;padding:5px;}
+
+input.large_font_span_2 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_2:focus {border:1px solid #666;}
+input.large_font_span_2 {width:70px;padding:5px;}
+input.large_font_span_2 {font-size:1.5em;}
+
+input.large_font_span_3 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_3:focus {border:1px solid #666;}
+input.large_font_span_3 {width:110px;padding:5px;}
+input.large_font_span_3 {font-size:1.5em;}
+
+input.large_font_span_4 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_4:focus {border:1px solid #666;}
+input.large_font_span_4 {width:150px;padding:5px;}
+input.large_font_span_4 {font-size:1.5em;}
+
+input.large_font_span_5 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_5:focus {border:1px solid #666;}
+input.large_font_span_5 {width:190px;padding:5px;}
+input.large_font_span_5 {font-size:1.5em;}
+
+input.large_font_span_6 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_6:focus {border:1px solid #666;}
+input.large_font_span_6 {width:230px;padding:5px;}
+input.large_font_span_6 {font-size:1.5em;}
+
+input.large_font_span_7 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_7:focus {border:1px solid #666;}
+input.large_font_span_7 {width:270px;padding:5px;}
+input.large_font_span_7 {font-size:1.5em;}
+
+input.large_font_span_8 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_8:focus {border:1px solid #666;}
+input.large_font_span_8 {width:310px;padding:5px;}
+input.large_font_span_8 {font-size:1.5em;}
+
+input.large_font_span_12 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_12:focus {border:1px solid #666;}
+input.large_font_span_12   { width: 470px; padding:5px; }
+input.large_font_span_12   { font-size:1.5em; }
+
+input.large_font_span_15 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_15:focus {border:1px solid #666;}
+input.large_font_span_15   { width: 590px; padding:5px; }
+input.large_font_span_15   { font-size:1.5em; }
+
+input.large_font_span_20 {margin:0.5em 0;border:1px solid #bbb;}
+input.large_font_span_20:focus {border:1px solid #666;}
+input.large_font_span_20   { width: 790px; padding:5px; }
+input.large_font_span_20   { font-size:1.5em; }
+
+textarea.text_area_span_3 {
+	width: 110px; 
+	height: 75px; 
+}
+
+textarea.text_area_span_4 {
+  width: 150px; 
+  height: 40px; 
+}
+
+textarea.text_area_span_6 {
+  width: 230px; 
+  height: 40px; 
+}
+
+textarea.text_area_span_8 {
+  width: 330px; 
+  height: 40px; 
+}
+
+textarea.text_area_span_10 {
+  width: 470px; 
+  height: 40px; 
+}
+
+textarea.text_area_span_14 {
+  width: 550px; 
+  height: 80px; 
+  margin:0.5em 0.5em 0.5em 0;
+}
+
+textarea.text_area_span_15 {
+  width: 590px; 
+  height: 80px; 
+  margin:0.5em 0.5em 0.5em 0;
+}
+
+textarea.text_area_span_16 {
+  width: 630px; 
+  height: 80px; 
+  margin:0.5em 0.5em 0.5em 0;
+}
+
+textarea.text_area_span_17 {
+  width: 670px; 
+  height: 80px; 
+  margin:0.5em 0.5em 0.5em 0;
+}
+
+textarea.text_area_span_18 {
+  width: 710px; 
+  height: 80px; 
+  margin:0.5em 0.5em 0.5em 0;
+}
+
+textarea.text_area_span_23 {
+  width: 910px; 
+  margin:0.5em 0.5em 0.5em 0;
+  font-size:15px;
+}
+
+/* CSS for breadcrumbs */
+#crumbs {
+	height:2.3em;
+}
+#crumbs ul {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+#crumbs li {
+	list-style-type:none;
+	float:left;
+	line-height:2.3em;
+	color:#777;
+	padding-left:.75em;
+	margin:0;
+	border-top:1px solid #dedede;
+	border-bottom:1px solid #dedede;
+}		
+#crumbs li a {
+	background:url(crumbs.gif) no-repeat right center;
+	display:block;
+	padding:0 15px 0 0;
+}							
+#crumbs li a:link,
+#crumbs li a:visited {
+	color:#777;
+	text-decoration:none;
+}	
+#crumbs li a:hover,
+#crumbs li a:focus {
+	color:#3366CC;;
+}
+
+/* Printing support */
+
+@media all
+{
+	.page_break	{ display:block; }
+}
+
+@media print
+{
+	.page_break	{ display:block; page-break-before:always; }
+	.page_break_margin_top_200 { display:block; margin-top: 200px; }
+}
+
+@media print 
+{
+	.non_printable_block { display:none; }
+}
+
+/* Search field styles */
+input.search_field {
+	margin-top: 2px; 
+	background: url(search_field.png) no-repeat; 
+	border-style: hidden;
+	border-width: 0px;
+	/*padding-top: 5px;*/
+	padding-left: 12px; 
+	padding-right: 12px;
+	width: 212px;
+	height: 37px;
+	font-size:1.0em;
+	/*padding-bottom: 10px;*/
+}
+
+.underlined {
+	border-bottom:thin solid #000000;
+}
+

@@ -1,0 +1,42 @@
+<h4>Insurance Companies Archive</h4>
+
+<div class="span-24">	
+	<table class="advanced">
+	  <thead>
+    <th class="span-4">Name</th>
+		<th class="span-5">Address Line1</th>
+    <th class="span-3">City</th>
+    <th class="span-2">State</th>
+		<th class="span-2">Zip</th>
+    <th class="span-3">Phone</th>
+		<th class="span-3">Fax</th>
+    <th class="span-2 last"></th>
+  </thead>
+
+	<tbody>
+		<% @insurance_companies.each do |insurance_company| %>
+		  <tr>
+		    <td><%= insurance_company.name %></td>
+				<td><%= insurance_company.address_line1 %></td>
+		    <td><%= insurance_company.city %></td>
+		    <td><%= insurance_company.state %></td>
+				<td><%= insurance_company.zip %></td>
+		    <td><%= insurance_company.phone %></td>
+				<td><%= insurance_company.fax %></td>
+		    <td><%= link_to 'Unarchive', insurance_company, confirm: "Are you sure you want to unarchive this insurance company. Clients will be able to select this company as an insurance provider for the patients?", method: :delete %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<hr class="space"/>
+
+<div class="span-24">
+	<%= paginate @insurance_companies %>
+</div>
+
+<br/>
+
+<div class="prepend-21 span-3">
+	<%= link_to 'Back', archives_index_path, :class => 'button' %>
+</div>
